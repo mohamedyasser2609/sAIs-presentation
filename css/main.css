@@ -1,0 +1,519 @@
+/* ==========================================================================
+   sAIs PRESENTATION DESIGN SYSTEM: REUSABLE COMPONENTS & LAYOUTS
+   High-Legibility Presentation Standard for Projectors & External Monitors
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Slide Frame & Chrome
+   -------------------------------------------------------------------------- */
+.deck-header {
+  position: fixed;
+  top: 14px;
+  left: 36px;
+  right: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.deck-header .brand {
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deck-footer {
+  position: fixed;
+  bottom: 14px;
+  left: 36px;
+  right: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Slide Header Sub-component
+   -------------------------------------------------------------------------- */
+.slide-header {
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+
+.slide-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 0.35rem;
+}
+
+.slide-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 1000px;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. Grid Systems
+   -------------------------------------------------------------------------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.grid-split-40-60 {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 26px;
+}
+
+.grid-split-60-40 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 26px;
+}
+
+.grid-split-35-65 {
+  display: grid;
+  grid-template-columns: 3.5fr 6.5fr;
+  gap: 26px;
+}
+
+.grid-split-55-45 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 26px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Badges, Tags & Status Pills
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--accent-cyan);
+  border: 1.5px solid var(--border-cyan);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.badge-amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-amber);
+  border: 1.5px solid var(--border-amber);
+}
+
+.badge-teal {
+  background: rgba(0, 210, 180, 0.15);
+  color: var(--accent-teal);
+  border: 1.5px solid rgba(0, 210, 180, 0.4);
+}
+
+.badge-purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--color-subsystem-ai);
+  border: 1.5px solid rgba(168, 85, 247, 0.4);
+}
+
+.badge-blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1.5px solid rgba(59, 130, 246, 0.4);
+}
+
+.badge-future {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1.5px dashed rgba(245, 158, 11, 0.6);
+}
+
+.badge-benchmark {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1.5px solid rgba(59, 130, 246, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   5. Card Components
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-cyan);
+}
+
+.card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title .card-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.12);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-highlight {
+  border-color: var(--border-cyan);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(13, 20, 36, 0.85) 100%);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.12);
+}
+
+/* Subsystem Distinct Accent Borders */
+.card-subsystem-1 { border-left: 4px solid var(--color-subsystem-pms); }
+.card-subsystem-2 { border-left: 4px solid var(--color-subsystem-fleet); }
+.card-subsystem-3 { border-left: 4px solid var(--color-subsystem-app); }
+.card-subsystem-4 { border-left: 4px solid var(--color-subsystem-ai); }
+.card-subsystem-5 { border-left: 4px solid var(--color-subsystem-future); }
+
+/* --------------------------------------------------------------------------
+   6. Customer Journey Steps Component
+   -------------------------------------------------------------------------- */
+.journey-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.journey-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-step-num {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 6px;
+}
+
+.journey-step-phase {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.journey-step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+
+.journey-step p {
+  font-size: 0.92rem;
+  line-height: 1.48;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Comparison Tables & Split Views
+   -------------------------------------------------------------------------- */
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.94rem;
+}
+
+.comparison-table th {
+  background: #0f172a;
+  padding: 12px 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.comparison-table th.sais-col {
+  color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.12);
+}
+
+.comparison-table td {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  line-height: 1.48;
+  vertical-align: top;
+}
+
+.comparison-table td.sais-cell {
+  background: rgba(0, 240, 255, 0.04);
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. Mobile App Mockup Frame Component
+   -------------------------------------------------------------------------- */
+.mobile-mockups-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.mobile-mockup-frame {
+  height: 400px;
+  background: #090d16;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-notch {
+  width: 55px;
+  height: 9px;
+  background: #030712;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin: 0 auto 8px auto;
+}
+
+.mobile-screen-content {
+  flex: 1;
+  border-radius: 12px;
+  background: #0d1424;
+  padding: 12px 10px;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-secondary);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   9. Team Responsibility Matrix Card
+   -------------------------------------------------------------------------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  position: relative;
+}
+
+.team-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.team-member-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.deliverable-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  padding: 4px 9px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-white);
+  margin-bottom: 6px;
+  margin-right: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Engineering Callouts & Disclaimers
+   -------------------------------------------------------------------------- */
+.callout {
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid var(--accent-cyan);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.85rem;
+}
+
+.callout-future {
+  border-left-color: var(--color-warning);
+  background: rgba(245, 158, 11, 0.08);
+  color: #fde68a;
+}
+
+.callout-benchmark {
+  border-left-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.08);
+  color: #bfdbfe;
+}
+
+/* Pipeline Flow */
+.pipeline-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.2rem 0;
+}
+
+.pipeline-node {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.pipeline-arrow {
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Risk Matrix */
+.risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.risk-table th {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.85rem;
+}
+
+.risk-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-secondary);
+}
+
+.risk-pill {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.risk-high { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+.risk-med { background: rgba(245, 158, 11, 0.2); color: #fde047; border: 1px solid rgba(245, 158, 11, 0.4); }
+.risk-low { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }

@@ -1,0 +1,14 @@
+{
+  "name": "sais-presentation",
+  "version": "1.0.0",
+  "description": "sAIs - Smart Autonomous Intelligent System | Technical Presentation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "reveal.js": "^5.1.0"
+  },
+  "author": "sAIs Engineering Team",
+  "license": "ISC"
+}

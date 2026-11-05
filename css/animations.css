@@ -1,0 +1,81 @@
+/* ==========================================================================
+   sAIs PRESENTATION DESIGN SYSTEM: ANIMATIONS & TRANSITIONS
+   Meaningful, subtle, industrial engineering micro-interactions
+   ========================================================================== */
+
+/* 1. Pulse Indicator for Active Status / Sensors */
+@keyframes pulse-cyan {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 6px var(--accent-cyan);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.08);
+    box-shadow: 0 0 14px var(--accent-cyan);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-cyan 2.8s infinite ease-in-out;
+}
+
+/* 2. Micro Sensor Scanning Indicator (SVG Diagrams) */
+@keyframes radar-sweep {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
+}
+
+.svg-sweep-line {
+  stroke-dasharray: 40 160;
+  animation: radar-sweep 4s linear infinite;
+}
+
+/* 3. Flow Data Dot for Architecture Diagrams */
+@keyframes data-flow {
+  0% {
+    stroke-dashoffset: 40;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-data-path {
+  stroke-dasharray: 6 6;
+  animation: data-flow 1.5s linear infinite;
+}
+
+/* 4. Fragment Transitions for Step-by-Step Delivery */
+.reveal .fragment.fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal .fragment.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. Smooth Elevation on Hover (when interactive) */
+.card-interactive {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.1);
+}

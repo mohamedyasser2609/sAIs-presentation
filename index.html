@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sAIs – Smart Autonomous Intelligent System | Technical Proposal</title>
+
+  <!-- Reveal.js Base Stylesheets (Self-Contained) -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="vendor/reveal/theme/black.css" id="theme">
+
+  <!-- Custom Theme, Layout, and Animation Stylesheets -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Persistent Presentation Header -->
+  <header class="deck-header">
+    <div class="brand">
+      <span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--accent-cyan); box-shadow:0 0 10px var(--accent-cyan);"></span>
+      sAIs <span style="color: var(--text-muted); font-weight: 400;">// Smart Autonomous Intelligent System</span>
+    </div>
+    <div id="deck-header-section">ENGINEERING SYSTEM DESIGN &amp; PROPOSAL</div>
+  </header>
+
+  <!-- Persistent Presentation Footer -->
+  <footer class="deck-footer">
+    <div>DEPLOYMENT: INDOOR SHOPPING MALL PARKING</div>
+    <div id="footer-slide-counter">SLIDE 01 / 16</div>
+    <div>BASELINE: PLANNING PHASE &bull; 6-MEMBER TEAM</div>
+  </footer>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ====================================================================
+           SLIDE 1: TITLE & HERO
+           ==================================================================== -->
+      <section data-state="slide-1" data-category="Project Identity">
+        <div class="grid-split-55-45" style="align-items: center; height: 100%;">
+          <div>
+            <div class="badge">
+              <span class="badge-dot pulse-dot"></span>
+              ENGINEERING SYSTEM PROPOSAL &bull; PLANNING PHASE
+            </div>
+
+            <h1 style="font-size: 4.2rem; margin-bottom: 0.1em; letter-spacing: -0.03em;">
+              <span style="color: var(--accent-cyan);">sAIs</span>
+            </h1>
+
+            <p style="font-family: var(--font-mono); font-size: 1.25rem; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 0.6rem;">
+              Smart Autonomous Intelligent System
+            </p>
+
+            <h3 style="font-size: 1.55rem; color: var(--accent-teal); font-weight: 600; margin-bottom: 1.2rem;">
+              "Your parking attendant, reimagined."
+            </h3>
+
+            <p style="font-size: 1.08rem; line-height: 1.6; color: var(--text-secondary); max-width: 640px; margin-bottom: 1.6rem;">
+              An intelligent indoor parking ecosystem combining centralized fleet orchestration, 
+              autonomous robotic valets, predictive occupancy analytics, and a seamless 
+              customer mobile experience designed exclusively for modern commercial shopping facilities.
+            </p>
+
+            <div style="display: flex; gap: 28px; border-top: 1px solid var(--border-subtle); padding-top: 1.2rem;">
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Team Size</div>
+                <div style="font-weight: 700; color: #ffffff; font-size: 1.05rem;">6 Members</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Category</div>
+                <div style="font-weight: 700; color: #ffffff; font-size: 1.05rem;">Smart Mobility &amp; Robotics</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Deployment Scope</div>
+                <div style="font-weight: 700; color: var(--accent-cyan); font-size: 1.05rem;">Indoor Mall Facility</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Benchmark</div>
+                <div style="font-weight: 700; color: #93c5fd; font-size: 1.05rem;">HL Robotics PARKIE</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Vector Graphic: Indoor Autonomous Robotic Valet System -->
+          <div style="background: var(--bg-card); border: 1.5px solid var(--border-cyan); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.6);">
+            <div style="position: absolute; top: 12px; right: 16px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); letter-spacing: 0.05em; font-weight: bold;">
+              CONCEPT SCHEMATIC // INDOOR FACILITY
+            </div>
+            
+            <svg viewBox="0 0 540 370" width="100%" height="100%" style="display: block;">
+              <defs>
+                <linearGradient id="cyanGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#0080ff" stop-opacity="0.3"/>
+                </linearGradient>
+                <linearGradient id="carGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#334155"/>
+                  <stop offset="50%" stop-color="#475569"/>
+                  <stop offset="100%" stop-color="#1e293b"/>
+                </linearGradient>
+                <pattern id="facilityGrid1" width="22" height="22" patternUnits="userSpaceOnUse">
+                  <path d="M 22 0 L 0 0 0 22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                </pattern>
+              </defs>
+
+              <rect x="5" y="5" width="530" height="360" rx="8" fill="#0d131f"/>
+              <rect x="5" y="5" width="530" height="360" rx="8" fill="url(#facilityGrid1)"/>
+
+              <!-- Parking Bays -->
+              <rect x="25" y="45" width="125" height="260" rx="4" fill="none" stroke="rgba(0,240,255,0.3)" stroke-dasharray="4 4" stroke-width="1.5"/>
+              <text x="35" y="72" fill="#94a3b8" font-family="monospace" font-size="12" font-weight="bold">BAY A-01 [OCCUPIED]</text>
+              <rect x="35" y="85" width="105" height="200" rx="4" fill="rgba(255,255,255,0.03)"/>
+
+              <rect x="390" y="45" width="125" height="260" rx="4" fill="none" stroke="rgba(0,240,255,0.6)" stroke-width="1.5"/>
+              <text x="400" y="72" fill="#00f0ff" font-family="monospace" font-size="12" font-weight="bold">BAY A-02 [ALLOCATED]</text>
+              
+              <!-- Corridor Trajectory Line -->
+              <path d="M 260 30 L 260 320" stroke="rgba(0, 240, 255, 0.35)" stroke-width="2.5" stroke-dasharray="6 6"/>
+
+              <!-- Vehicle + Low-profile Robot AGV -->
+              <g transform="translate(160, 105)">
+                <path d="M 20 100 Q 40 50 80 40 L 160 40 Q 200 45 220 85 L 230 105 Q 230 115 220 115 L 10 115 Q 0 115 10 105 Z" fill="url(#carGrad1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <path d="M 85 45 L 155 45 L 180 80 L 70 80 Z" fill="rgba(0,240,255,0.18)" stroke="rgba(0,240,255,0.4)" stroke-width="1"/>
+                <circle cx="50" cy="115" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="4"/>
+                <circle cx="50" cy="115" r="10" fill="#334155"/>
+                <circle cx="180" cy="115" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="4"/>
+                <circle cx="180" cy="115" r="10" fill="#334155"/>
+
+                <!-- Low-profile Robotic Valet Unit -->
+                <rect x="15" y="125" width="205" height="24" rx="4" fill="#0b1329" stroke="#00f0ff" stroke-width="2"/>
+                <rect x="25" y="118" width="45" height="12" rx="2" fill="url(#cyanGrad1)"/>
+                <rect x="160" y="118" width="45" height="12" rx="2" fill="url(#cyanGrad1)"/>
+                
+                <circle cx="215" cy="137" r="4" fill="#00f0ff"/>
+                <path d="M 218 137 L 250 125 M 218 137 L 255 137 M 218 137 L 250 149" stroke="#00f0ff" stroke-width="1.5"/>
+                <text x="25" y="142" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">sAIs-AGV // ROBOTIC VALET</text>
+              </g>
+
+              <!-- Central Fleet Status Readout -->
+              <rect x="25" y="325" width="490" height="32" rx="4" fill="rgba(10,15,25,0.95)" stroke="rgba(255,255,255,0.15)"/>
+              <text x="40" y="346" fill="#cbd5e1" font-family="monospace" font-size="12">FLEET: <tspan fill="#00f0ff" font-weight="bold">ONLINE</tspan> | ROBOT-01: <tspan fill="#00f0ff" font-weight="bold">ENGAGED (TRANSFERRING)</tspan> | STATUS: <tspan fill="#34d399" font-weight="bold">NOMINAL</tspan></text>
+            </svg>
+
+            <div style="margin-top: 10px; font-size: 0.82rem; color: var(--text-secondary); text-align: center; font-family: var(--font-mono);">
+              Conceptual illustration: Indoor autonomous mobile robot lifting vehicle at wheel contact points.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 2: THE PROBLEM (CONVENTIONAL MALL PARKING)
+           ==================================================================== -->
+      <section data-state="slide-2" data-category="Problem Analysis">
+        <div class="slide-header">
+          <div class="slide-category">Operational Context &bull; Problem Statement</div>
+          <h2>Conventional Mall Parking Inefficiencies</h2>
+          <p class="slide-subtitle">
+            Commercial shopping mall parking facilities face critical operational friction, driving customer dissatisfaction, space waste, and internal congestion.
+          </p>
+        </div>
+
+        <div class="grid-split-40-60">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="card" style="border-left: 4px solid #ef4444;">
+              <div class="card-title"><span style="color:#ef4444;">&bull;</span> Search Time &amp; Congestion</div>
+              <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Drivers spend 10–25 minutes circulating through parking aisles, creating bottlenecks at main entrances and escalators.</p>
+            </div>
+
+            <div class="card" style="border-left: 4px solid #ef4444;">
+              <div class="card-title"><span style="color:#ef4444;">&bull;</span> Inefficient Space Utilization</div>
+              <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Conventional facilities require wide door-opening clearance and generous turning buffers, losing up to 30–40% of potential floor capacity.</p>
+            </div>
+
+            <div class="card" style="border-left: 4px solid #f59e0b;">
+              <div class="card-title"><span style="color:#f59e0b;">&bull;</span> Limited Real-Time Visibility</div>
+              <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Static signs provide coarse total counts but lack slot-level accuracy, predictive forecasts, and verified reservation capabilities.</p>
+            </div>
+
+            <div class="card" style="border-left: 4px solid #f59e0b;">
+              <div class="card-title"><span style="color:#f59e0b;">&bull;</span> Manual &amp; Disconnected Operations</div>
+              <p style="font-size: 0.95rem; margin: 0; line-height: 1.5;">Traditional valet services rely on human drivers, manual key handling, liability risks, and disconnected digital infrastructure.</p>
+            </div>
+          </div>
+
+          <!-- Comparison Table / Visual -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">Operational Dimension</th>
+                  <th style="width: 34%;">Conventional Mall Parking</th>
+                  <th class="sais-col" style="width: 34%;">sAIs Proposed Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Customer Experience</strong></td>
+                  <td>Manual search, aisle congestion, stress, spot disorientation.</td>
+                  <td class="sais-cell">Quick drop-off at designated station; automated handling &amp; retrieval.</td>
+                </tr>
+                <tr>
+                  <td><strong>Space Efficiency</strong></td>
+                  <td>Wide bays (door clearance needed); large pedestrian corridors.</td>
+                  <td class="sais-cell">High-density robotic arrangement without requiring open doors during storage.</td>
+                </tr>
+                <tr>
+                  <td><strong>Internal Traffic Flow</strong></td>
+                  <td>Unregulated customer circulation, pedestrian conflicts.</td>
+                  <td class="sais-cell">Designated vehicle handover zone; segregated automated AGV corridors.</td>
+                </tr>
+                <tr>
+                  <td><strong>Data &amp; Analytics</strong></td>
+                  <td>Basic loop counter totals; retrospective reporting only.</td>
+                  <td class="sais-cell">Continuous bay telemetry, demand forecasting, and predictive arrival guidance.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 4px;">
+              <strong>Key Finding:</strong> Modern smart mobility demands moving from passive guidance systems to <em>active autonomous handling</em>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 3: INTRODUCING sAIs
+           ==================================================================== -->
+      <section data-state="slide-3" data-category="Solution Overview">
+        <div class="slide-header">
+          <div class="slide-category">System Design &bull; Core Value Proposition</div>
+          <h2>Introducing sAIs: Autonomous Parking Ecosystem</h2>
+          <p class="slide-subtitle">
+            sAIs fundamentally transforms the parking experience by shifting from helping drivers <em>find</em> parking to an ecosystem that <em>handles</em> the parking process.
+          </p>
+        </div>
+
+        <div class="grid-split-35-65">
+          <div>
+            <div class="card card-highlight" style="margin-bottom: 16px;">
+              <h3 style="color: var(--accent-cyan); font-size: 1.3rem; margin-bottom: 10px;">The Paradigm Shift</h3>
+              <p style="font-size: 1.02rem; line-height: 1.55; color: var(--text-primary); margin-bottom: 12px;">
+                Traditional smart parking systems display open spots on screens and leave vehicle maneuvering to the driver.
+              </p>
+              <p style="font-size: 1.02rem; line-height: 1.55; color: var(--accent-teal); font-weight: 600; margin: 0;">
+                sAIs proposes a complete indoor ecosystem that takes full custody of the vehicle at drop-off and autonomously manages storage and retrieval.
+              </p>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 4px; font-weight: bold;">Initial Target Environment</div>
+              <div style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">Indoor Shopping Mall Facilities</div>
+              <p style="font-size: 0.92rem; margin: 6px 0 0 0; color: var(--text-secondary); line-height: 1.45;">Controlled lighting, uniform flooring, dedicated handover bays, and zero public roadway liability.</p>
+            </div>
+          </div>
+
+          <!-- Interconnected Subsystem Architecture Graphic -->
+          <div style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 18px; position: relative;">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 12px; display: flex; justify-content: space-between; font-weight: bold;">
+              <span>FIVE INTERCONNECTED SUBSYSTEMS</span>
+              <span>UNIFIED ARCHITECTURAL MODEL</span>
+            </div>
+
+            <svg viewBox="0 0 660 300" width="100%" height="100%">
+              <!-- 1. Parking Management -->
+              <rect x="15" y="15" width="195" height="95" rx="8" fill="#0f192b" stroke="#00f0ff" stroke-width="1.8"/>
+              <text x="25" y="42" fill="#00f0ff" font-family="monospace" font-size="13" font-weight="bold">01 // PARKING MGMT</text>
+              <text x="25" y="66" fill="#cbd5e1" font-size="12">&bull; Occupancy sensing</text>
+              <text x="25" y="84" fill="#cbd5e1" font-size="12">&bull; Space allocation logic</text>
+              <text x="25" y="100" fill="#cbd5e1" font-size="12">&bull; VIP slot reservations</text>
+
+              <!-- 2. Fleet Management -->
+              <rect x="450" y="15" width="195" height="95" rx="8" fill="#0f192b" stroke="#3b82f6" stroke-width="1.8"/>
+              <text x="460" y="42" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="bold">02 // FLEET MGMT</text>
+              <text x="460" y="66" fill="#cbd5e1" font-size="12">&bull; Hybrid multi-robot control</text>
+              <text x="460" y="84" fill="#cbd5e1" font-size="12">&bull; Central task assignment</text>
+              <text x="460" y="100" fill="#cbd5e1" font-size="12">&bull; Autonomous local nav</text>
+
+              <!-- Central Core Bridge -->
+              <circle cx="330" cy="150" r="48" fill="#081020" stroke="#00f0ff" stroke-width="2.5"/>
+              <text x="330" y="145" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="15" font-weight="bold">sAIs</text>
+              <text x="330" y="164" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">CENTRAL HUB</text>
+
+              <!-- 3. Mobile Application -->
+              <rect x="15" y="185" width="195" height="95" rx="8" fill="#0f192b" stroke="#10b981" stroke-width="1.8"/>
+              <text x="25" y="212" fill="#34d399" font-family="monospace" font-size="13" font-weight="bold">03 // MOBILE APP</text>
+              <text x="25" y="236" fill="#cbd5e1" font-size="12">&bull; User authentication</text>
+              <text x="25" y="254" fill="#cbd5e1" font-size="12">&bull; Retrieval dispatch</text>
+              <text x="25" y="270" fill="#cbd5e1" font-size="12">&bull; Real-time status tracking</text>
+
+              <!-- 4. AI Analytics Engine -->
+              <rect x="450" y="185" width="195" height="95" rx="8" fill="#0f192b" stroke="#a855f7" stroke-width="1.8"/>
+              <text x="460" y="212" fill="#c084fc" font-family="monospace" font-size="13" font-weight="bold">04 // AI ANALYTICS</text>
+              <text x="460" y="236" fill="#cbd5e1" font-size="12">&bull; Demand forecasting</text>
+              <text x="460" y="254" fill="#cbd5e1" font-size="12">&bull; Arrival recommendations</text>
+              <text x="460" y="270" fill="#cbd5e1" font-size="12">&bull; Occupancy patterns</text>
+
+              <!-- 5. Smart Services (Future) -->
+              <rect x="230" y="222" width="200" height="70" rx="6" fill="#181510" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="240" y="244" fill="#fbbf24" font-family="monospace" font-size="12" font-weight="bold">05 // SMART SERVICES [FUTURE]</text>
+              <text x="240" y="264" fill="#cbd5e1" font-size="11.5">EV charging &amp; automated wash</text>
+              <text x="240" y="280" fill="#fbbf24" font-size="10.5">(Modular expansion design)</text>
+
+              <!-- Connecting Bus Lines -->
+              <path d="M 210 62 L 282 150 M 450 62 L 378 150 M 210 232 L 282 150 M 450 232 L 378 150 M 330 198 L 330 222" stroke="rgba(0, 240, 255, 0.55)" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 4: THE CUSTOMER JOURNEY
+           ==================================================================== -->
+      <section data-state="slide-4" data-category="Customer Experience">
+        <div class="slide-header">
+          <div class="slide-category">Operational Workflow &bull; End-to-End User Experience</div>
+          <h2>The sAIs Customer Journey</h2>
+          <p class="slide-subtitle">
+            A frictionless, five-stage interaction model designed to eliminate driver parking stress from pre-arrival planning through automated vehicle retrieval.
+          </p>
+        </div>
+
+        <div class="journey-container">
+          <!-- Step 1 -->
+          <div class="journey-step card-subsystem-3">
+            <div class="journey-step-num">01</div>
+            <div class="journey-step-phase">Pre-Arrival</div>
+            <div class="journey-step-title">Check &amp; Reserve</div>
+            <p>
+              Customer opens mobile application, verifies live facility availability, checks AI recommended arrival windows, and reserves an optional VIP bay.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); font-weight: bold;">
+              Touchpoint: Mobile App
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="journey-step card-subsystem-1">
+            <div class="journey-step-num">02</div>
+            <div class="journey-step-phase">Handover</div>
+            <div class="journey-step-title">Drop-Off Station</div>
+            <p>
+              Customer arrives at the mall's designated drop-off station, turns off ignition, exits vehicle, and confirms check-in via mobile app or QR scan.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); font-weight: bold;">
+              Touchpoint: Handover Bay
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="journey-step card-subsystem-2">
+            <div class="journey-step-num">03</div>
+            <div class="journey-step-phase">Autonomous Ops</div>
+            <div class="journey-step-title">Robotic Transfer</div>
+            <p>
+              Central Fleet Manager assigns an autonomous robot. The unit drives beneath the vehicle, lifts wheels securely, and transports it to an assigned bay.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); font-weight: bold;">
+              Touchpoint: Robotic AGV
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="journey-step card-subsystem-4">
+            <div class="journey-step-num">04</div>
+            <div class="journey-step-phase">Mall Dwell Time</div>
+            <div class="journey-step-title">Live Monitoring</div>
+            <p>
+              While customer shops, the app provides real-time vehicle parking confirmation, location verification, and continuous status telemetry.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); font-weight: bold;">
+              Touchpoint: Status Feed
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="journey-step card-subsystem-3">
+            <div class="journey-step-num">05</div>
+            <div class="journey-step-phase">Departure</div>
+            <div class="journey-step-title">Vehicle Retrieval</div>
+            <p>
+              Customer requests retrieval 5–10 minutes prior to departure. The robot transports the vehicle to the pickup area for a seamless handover.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); font-weight: bold;">
+              Touchpoint: Pickup Station
+            </div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 20px;">
+          <strong>Core Driver Benefit:</strong> Total time spent parking and retrieving vehicles drops from 20+ minutes of manual aisle circulation to under 2 minutes of effortless handover.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 5: SYSTEM ARCHITECTURE
+           ==================================================================== -->
+      <section data-state="slide-5" data-category="Technical Architecture">
+        <div class="slide-header">
+          <div class="slide-category">System Engineering &bull; Technical Architecture</div>
+          <h2>sAIs Multi-Tier System Architecture</h2>
+          <p class="slide-subtitle">
+            Hierarchical architecture establishing clean boundaries between customer-facing digital services, central management logic, and physical robotic control.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 18px;">
+          <!-- SVG System Architecture Diagram -->
+          <svg viewBox="0 0 1280 430" width="100%" height="100%">
+            <!-- Tier 1: User / Presentation Layer -->
+            <rect x="20" y="15" width="1240" height="90" rx="8" fill="#0b1220" stroke="#10b981" stroke-width="1.5"/>
+            <text x="35" y="42" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold">TIER 1 // USER &amp; INTERFACE LAYER</text>
+
+            <g transform="translate(140, 45)">
+              <rect x="0" y="0" width="240" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
+              <text x="120" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Customer Mobile App</text>
+            </g>
+            <g transform="translate(520, 45)">
+              <rect x="0" y="0" width="240" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
+              <text x="120" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Facility Drop-Off Kiosks</text>
+            </g>
+            <g transform="translate(900, 45)">
+              <rect x="0" y="0" width="250" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
+              <text x="125" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Operator Supervisory Console</text>
+            </g>
+
+            <!-- Downward Bus 1 -->
+            <path d="M 260 105 L 260 140 M 640 105 L 640 140 M 1025 105 L 1025 140" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+
+            <!-- Tier 2: Central Platform Management -->
+            <rect x="20" y="140" width="1240" height="150" rx="8" fill="#0d172a" stroke="#00f0ff" stroke-width="2"/>
+            <text x="35" y="166" fill="#00f0ff" font-family="monospace" font-size="14" font-weight="bold">TIER 2 // CENTRAL MANAGEMENT PLATFORM (ORCHESTRATION &amp; LOGIC)</text>
+
+            <!-- Subsystems inside Tier 2 -->
+            <g transform="translate(40, 180)">
+              <rect x="0" y="0" width="270" height="92" rx="6" fill="#13233d" stroke="#00f0ff" stroke-width="1.5"/>
+              <text x="15" y="26" fill="#00f0ff" font-family="monospace" font-size="13" font-weight="bold">Parking Management (PMS)</text>
+              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Real-time Bay Occupancy</text>
+              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Space Allocation Algorithm</text>
+              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; VIP Reservation Queue</text>
+            </g>
+
+            <g transform="translate(340, 180)">
+              <rect x="0" y="0" width="290" height="92" rx="6" fill="#13233d" stroke="#3b82f6" stroke-width="1.5"/>
+              <text x="15" y="26" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="bold">Robotic Fleet Management</text>
+              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Centralized Task Dispatch</text>
+              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Fleet Availability Tracking</text>
+              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; Automated Battery Charging</text>
+            </g>
+
+            <g transform="translate(660, 180)">
+              <rect x="0" y="0" width="280" height="92" rx="6" fill="#13233d" stroke="#a855f7" stroke-width="1.5"/>
+              <text x="15" y="26" fill="#c084fc" font-family="monospace" font-size="13" font-weight="bold">AI Analytics Engine</text>
+              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Historical &amp; Real-time Data</text>
+              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Occupancy Forecasting</text>
+              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; Arrival Recommendation Feed</text>
+            </g>
+
+            <g transform="translate(970, 180)">
+              <rect x="0" y="0" width="270" height="92" rx="6" fill="#1d1b17" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="15" y="26" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="bold">Smart Services [Future]</text>
+              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; EV Charger Routing Adapter</text>
+              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Automated Car Wash Queue</text>
+              <text x="15" y="83" fill="#fbbf24" font-size="11">&bull; Modular Plugin Architecture</text>
+            </g>
+
+            <!-- Downward Bus 2 -->
+            <path d="M 485 272 L 485 320 M 175 272 L 175 320" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+
+            <!-- Tier 3: Physical Facility & Robot Edge Layer -->
+            <rect x="20" y="320" width="1240" height="95" rx="8" fill="#090f1a" stroke="#3b82f6" stroke-width="1.5"/>
+            <text x="35" y="343" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="bold">TIER 3 // PHYSICAL INFRASTRUCTURE &amp; AUTONOMOUS ROBOT EDGE</text>
+
+            <g transform="translate(45, 352)">
+              <rect x="0" y="0" width="360" height="50" rx="6" fill="#0f192b" stroke="#00f0ff" stroke-width="1.2"/>
+              <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Facility Sensor Array</text>
+              <text x="15" y="40" fill="#cbd5e1" font-size="11">Ultrasonic bay monitors, camera OCR &amp; entrance loop detectors</text>
+            </g>
+
+            <g transform="translate(435, 352)">
+              <rect x="0" y="0" width="400" height="50" rx="6" fill="#0f192b" stroke="#3b82f6" stroke-width="1.2"/>
+              <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Autonomous Mobile Robots (AGVs)</text>
+              <text x="15" y="40" fill="#cbd5e1" font-size="11">Local LiDAR SLAM, obstacle avoidance, mechanical wheel lifting</text>
+            </g>
+
+            <g transform="translate(865, 352)">
+              <rect x="0" y="0" width="375" height="50" rx="6" fill="#0f192b" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Service Infrastructure [Future]</text>
+              <text x="15" y="40" fill="#cbd5e1" font-size="11">Automated EV charging stations, vehicle washing bays</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 6: INTELLIGENT PARKING MANAGEMENT
+           ==================================================================== -->
+      <section data-state="slide-6" data-category="Subsystem 1">
+        <div class="slide-header">
+          <div class="slide-category">Subsystem 1 &bull; Facility Intelligence</div>
+          <h2>Intelligent Parking Management</h2>
+          <p class="slide-subtitle">
+            Autonomous space allocation and continuous bay-level monitoring replacing manual parking searching with dynamic slot optimization.
+          </p>
+        </div>
+
+        <div class="grid-split-40-60">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="card card-subsystem-1">
+              <div class="card-title">
+                <span class="card-num">01</span> Real-Time Occupancy Sensing
+              </div>
+              <p style="font-size: 0.94rem; margin: 0; line-height: 1.5;">
+                Integrates ceiling-mounted ultrasonic sensors and overhead vision nodes to confirm bay occupancy status in real time with continuous verification.
+              </p>
+            </div>
+
+            <div class="card card-subsystem-1">
+              <div class="card-title">
+                <span class="card-num">02</span> Vehicle Classification
+              </div>
+              <p style="font-size: 0.94rem; margin: 0; line-height: 1.5;">
+                Optical scans at the drop-off station categorize vehicle dimensions, ground clearance, and estimated wheelbase to assign mathematically compatible bays.
+              </p>
+            </div>
+
+            <div class="card card-subsystem-1">
+              <div class="card-title">
+                <span class="card-num">03</span> Intelligent Space Allocation
+              </div>
+              <p style="font-size: 0.94rem; margin: 0; line-height: 1.5;">
+                Calculates optimal bay assignment based on predicted dwell time, robot travel distance, facility balance, and pre-booked VIP reservation requirements.
+              </p>
+            </div>
+
+            <div class="card card-subsystem-1">
+              <div class="card-title">
+                <span class="card-num">04</span> VIP Reservations
+              </div>
+              <p style="font-size: 0.94rem; margin: 0; line-height: 1.5;">
+                Dedicated fast-turnaround bays allocated near pickup stations for app users with scheduled departure reservations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Facility Bay Map Visualization -->
+          <div style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 18px;">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 10px; display: flex; justify-content: space-between; font-weight: bold;">
+              <span>INDOOR FACILITY BAY TOPOLOGY // LEVEL B1</span>
+              <span>LIVE TELEMETRY SIMULATION</span>
+            </div>
+
+            <svg viewBox="0 0 620 310" width="100%" height="100%">
+              <!-- Floor Layout -->
+              <rect x="10" y="10" width="600" height="290" rx="8" fill="#090e18" stroke="rgba(255,255,255,0.12)"/>
+
+              <!-- Drop off / Pickup Zone -->
+              <rect x="25" y="25" width="125" height="260" rx="6" fill="#132338" stroke="#00f0ff" stroke-width="1.8"/>
+              <text x="35" y="52" fill="#00f0ff" font-family="monospace" font-size="12" font-weight="bold">DROP-OFF / PICKUP</text>
+              <rect x="35" y="70" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="#00f0ff" stroke-dasharray="3 3"/>
+              <text x="45" y="116" fill="#38bdf8" font-size="11" font-weight="bold">HANDOVER BAY 1</text>
+              <rect x="35" y="175" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="#00f0ff" stroke-dasharray="3 3"/>
+              <text x="45" y="221" fill="#38bdf8" font-size="11" font-weight="bold">HANDOVER BAY 2</text>
+
+              <!-- Central Robot Transit Aisle -->
+              <rect x="175" y="25" width="95" height="260" fill="rgba(255,255,255,0.03)"/>
+              <path d="M 222 25 L 222 285" stroke="rgba(0, 240, 255, 0.4)" stroke-width="2.5" stroke-dasharray="6 6"/>
+              <text x="185" y="150" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold" transform="rotate(-90 185,150)">AGV CORRIDOR (ROBOTS ONLY)</text>
+
+              <!-- High Density Storage Grid -->
+              <!-- Column A -->
+              <g transform="translate(295, 30)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 101 [OCCUPIED]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
+              </g>
+              <g transform="translate(295, 85)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 102 [AVAILABLE]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Mid-size &bull; Cleared</text>
+              </g>
+              <g transform="translate(295, 140)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 103 [OCCUPIED]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">SUV &bull; Slot Locked</text>
+              </g>
+              <g transform="translate(295, 195)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#2d2212" stroke="#f59e0b" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">BAY 104 [VIP HOLD]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Hold for ETA 19:45</text>
+              </g>
+
+              <!-- Column B -->
+              <g transform="translate(455, 30)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 105 [AVAILABLE]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Full-size &bull; Cleared</text>
+              </g>
+              <g transform="translate(455, 85)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 106 [OCCUPIED]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
+              </g>
+              <g transform="translate(455, 140)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 107 [OCCUPIED]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Compact &bull; Slot Locked</text>
+              </g>
+              <g transform="translate(455, 195)">
+                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
+                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 108 [AVAILABLE]</text>
+                <text x="10" y="38" fill="#cbd5e1" font-size="10">Electric &bull; Cleared</text>
+              </g>
+
+              <!-- Legend -->
+              <rect x="295" y="255" width="300" height="32" rx="4" fill="#0c1424" stroke="rgba(255,255,255,0.1)"/>
+              <circle cx="315" cy="271" r="5" fill="#ef4444"/>
+              <text x="326" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">Occupied</text>
+              <circle cx="400" cy="271" r="5" fill="#10b981"/>
+              <text x="411" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">Available</text>
+              <circle cx="485" cy="271" r="5" fill="#f59e0b"/>
+              <text x="496" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">VIP Reserved</text>
+            </svg>
+
+            <div style="margin-top: 8px; font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); text-align: center;">
+              Indoor layout allocation maximizes density while segregating human drop-off from robot transit corridors.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 7: AUTONOMOUS ROBOTIC VALET
+           ==================================================================== -->
+      <section data-state="slide-7" data-category="Subsystem 2">
+        <div class="slide-header">
+          <div class="slide-category">Subsystem 2 &bull; Robotic Vehicle Handling</div>
+          <h2>Autonomous Robotic Valet Mechanism</h2>
+          <p class="slide-subtitle">
+            The physical heart of sAIs: ultra-low profile automated guided vehicles engineered to maneuver under passenger cars, securely lift wheels, and transport them safely.
+          </p>
+        </div>
+
+        <div class="grid-split-55-45">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); margin-bottom: 10px; font-weight: 700;">
+              SIX-STAGE VEHICLE HANDLING SEQUENCE
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 01</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Task Assignment</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Robot receives target vehicle ID, pickup bay coordinates, and assigned destination from Fleet Manager.</p>
+              </div>
+
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 02</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Transit to Station</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Navigates autonomously through designated robotic aisle to vehicle drop-off bay using indoor LiDAR SLAM.</p>
+              </div>
+
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 03</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Wheel Alignment</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Optical sensors identify exact wheel centerlines and tire ground contact points beneath the vehicle chassis.</p>
+              </div>
+
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 04</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Mechanical Lift</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Integrated clamping arms cradle all four tires and elevate the vehicle 50–100 mm off the concrete floor.</p>
+              </div>
+
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 05</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Transport to Bay</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Transports vehicle along calculated collision-free trajectory with active localized obstacle avoidance.</p>
+              </div>
+
+              <div class="card" style="padding: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">STEP 06</div>
+                <div style="font-weight: 700; font-size: 0.98rem; color: #ffffff; margin-bottom: 4px;">Release &amp; Report</div>
+                <p style="font-size: 0.88rem; margin: 0; line-height: 1.45;">Gently lowers vehicle, disengages clamping arms, confirms bay positioning, and transmits task completion.</p>
+              </div>
+            </div>
+
+            <div class="callout callout-benchmark" style="margin-top: 14px;">
+              <strong>Technology Benchmark Reference:</strong> Inspired by <em>HL Robotics PARKIE</em> indoor AGV system architecture. Proposed conceptual design; sAIs does not claim procurement or existing platform implementation.
+            </div>
+          </div>
+
+          <!-- Conceptual Robot Lifting Vector -->
+          <div style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 18px; display: flex; flex-direction: column;">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 10px; font-weight: bold;">
+              MECHANICAL ENGAGEMENT SCHEMATIC // PROPOSED CONCEPT
+            </div>
+
+            <svg viewBox="0 0 520 280" width="100%" height="100%">
+              <!-- Ground line -->
+              <line x1="20" y1="240" x2="500" y2="240" stroke="#64748b" stroke-width="2.5"/>
+              <pattern id="hatch2" width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M 0 8 L 8 0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+              </pattern>
+              <rect x="20" y="240" width="480" height="20" fill="url(#hatch2)"/>
+
+              <!-- Vehicle Chassis Silhouette (Elevated) -->
+              <g transform="translate(60, 38)">
+                <path d="M 30 140 Q 60 70 120 60 L 260 60 Q 320 65 350 120 L 370 140 L 10 140 Z" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                <!-- Windows -->
+                <path d="M 125 70 L 255 70 L 290 120 L 105 120 Z" fill="rgba(0,240,255,0.15)"/>
+                
+                <!-- Front Tire (Elevated off floor) -->
+                <circle cx="80" cy="165" r="32" fill="#090d16" stroke="#cbd5e1" stroke-width="6"/>
+                <circle cx="80" cy="165" r="14" fill="#475569"/>
+
+                <!-- Rear Tire (Elevated off floor) -->
+                <circle cx="300" cy="165" r="32" fill="#090d16" stroke="#cbd5e1" stroke-width="6"/>
+                <circle cx="300" cy="165" r="14" fill="#475569"/>
+
+                <!-- Clearance gap indicator -->
+                <line x1="80" y1="197" x2="80" y2="202" stroke="#00f0ff" stroke-width="2"/>
+                <text x="95" y="202" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">&Delta;h = 60mm LIFT</text>
+              </g>
+
+              <!-- Low-profile AGV Robotic Valet -->
+              <g transform="translate(80, 208)">
+                <!-- Main robot body -->
+                <rect x="20" y="0" width="300" height="28" rx="4" fill="#0b172d" stroke="#00f0ff" stroke-width="2"/>
+                <!-- Front clamping mechanism cradle -->
+                <path d="M 35 12 L 35 -16 L 85 -16 L 85 12" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                <!-- Rear clamping mechanism cradle -->
+                <path d="M 255 12 L 255 -16 L 305 -16 L 305 12" fill="none" stroke="#00f0ff" stroke-width="3"/>
+
+                <!-- Robot internal drive wheels -->
+                <circle cx="50" cy="28" r="5" fill="#94a3b8"/>
+                <circle cx="290" cy="28" r="5" fill="#94a3b8"/>
+                <circle cx="170" cy="28" r="5" fill="#94a3b8"/>
+
+                <!-- LiDAR Sensor Pods -->
+                <circle cx="22" cy="14" r="4.5" fill="#00f0ff"/>
+                <circle cx="318" cy="14" r="4.5" fill="#00f0ff"/>
+                <text x="95" y="19" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">sAIs ROBOTIC VALET CHASSIS</text>
+              </g>
+            </svg>
+
+            <div style="font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); text-align: center; margin-top: auto;">
+              Fig 7.1: Proposed mechanical tire cradling ensures zero driveline/transmission contact.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 8: HYBRID MULTI-ROBOT FLEET MANAGEMENT
+           ==================================================================== -->
+      <section data-state="slide-8" data-category="Robotic Coordination">
+        <div class="slide-header">
+          <div class="slide-category">Robotic Coordination &bull; Hybrid Architecture</div>
+          <h2>Hybrid Multi-Robot Fleet Management</h2>
+          <p class="slide-subtitle">
+            Combines global centralized task optimization with autonomous local edge control — avoiding the single-point fragility of pure centralized systems and the chaos of uncoordinated swarms.
+          </p>
+        </div>
+
+        <div class="grid-split-55-45">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: rgba(0, 240, 255, 0.08); border: 1.5px solid var(--border-cyan); border-radius: 8px; padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; font-weight: bold;">Correct Architectural Terminology</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin-top: 4px;">
+                "Hybrid Multi-Robot Fleet Management with Centralized Task Allocation and Autonomous Local Control"
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="card" style="border-top: 4px solid #3b82f6;">
+                <div class="card-title" style="color: #60a5fa; font-size: 1.05rem;">
+                  Centralized Fleet Management
+                </div>
+                <ul style="font-size: 0.9rem; padding-left: 18px; margin: 0; color: var(--text-secondary); line-height: 1.55;">
+                  <li>Global task assignment &amp; sequencing</li>
+                  <li>Robot availability &amp; health monitoring</li>
+                  <li>Priority queueing (VIP / retrievals)</li>
+                  <li>Overall parking space allocation</li>
+                  <li>Automated battery recharge scheduling</li>
+                </ul>
+              </div>
+
+              <div class="card" style="border-top: 4px solid #00f0ff;">
+                <div class="card-title" style="color: #00f0ff; font-size: 1.05rem;">
+                  Autonomous Robot-Level Control
+                </div>
+                <ul style="font-size: 0.9rem; padding-left: 18px; margin: 0; color: var(--text-secondary); line-height: 1.55;">
+                  <li>Onboard LiDAR SLAM localization</li>
+                  <li>Real-time dynamic obstacle detection</li>
+                  <li>Immediate safety-critical braking</li>
+                  <li>Local path tracking &amp; motor control</li>
+                  <li>Continuous telemetry feedback to core</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="callout" style="margin: 0;">
+              <strong>Architectural Note:</strong> Do <em>not</em> describe this system as a fully decentralized swarm. Fleet scheduling requires deterministic central oversight, while collision safety must remain localized.
+            </div>
+          </div>
+
+          <!-- Hybrid Coordination SVG Diagram -->
+          <div style="background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 18px;">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 10px; font-weight: bold;">
+              CENTRAL SCHEDULER &harr; DISTRIBUTED ROBOT FLEET
+            </div>
+
+            <svg viewBox="0 0 520 290" width="100%" height="100%">
+              <!-- Central Fleet Manager Node -->
+              <rect x="140" y="15" width="240" height="72" rx="8" fill="#111f38" stroke="#3b82f6" stroke-width="2.2"/>
+              <text x="260" y="42" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">CENTRAL FLEET MANAGER</text>
+              <text x="260" y="62" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11" font-weight="bold">Global Task &amp; Route Orchestration</text>
+
+              <!-- Central Bi-directional Bus lines -->
+              <path d="M 260 87 L 105 160 M 260 87 L 260 160 M 260 87 L 415 160" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+
+              <!-- Robot 1 Node -->
+              <g transform="translate(25, 160)">
+                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#00f0ff" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-01 [ACTIVE]</text>
+                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Assigned: Bay 104</text>
+                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
+                <text x="12" y="80" fill="#cbd5e1" font-size="10">&bull; Obstacle: None</text>
+                <text x="12" y="94" fill="#34d399" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+              </g>
+
+              <!-- Robot 2 Node -->
+              <g transform="translate(185, 160)">
+                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#00f0ff" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-02 [RETRIEVE]</text>
+                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Assigned: Pickup 1</text>
+                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
+                <text x="12" y="80" fill="#fde047" font-size="10">&bull; Obstacle: Slow down</text>
+                <text x="12" y="94" fill="#34d399" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+              </g>
+
+              <!-- Robot 3 Node -->
+              <g transform="translate(345, 160)">
+                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#64748b" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" fill="#cbd5e1" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-03 [STANDBY]</text>
+                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Battery: 88% OK</text>
+                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Base Station Idle</text>
+                <text x="12" y="80" fill="#cbd5e1" font-size="10">&bull; Ready for dispatch</text>
+                <text x="12" y="94" fill="#38bdf8" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+              </g>
+
+              <!-- Telemetry indicators -->
+              <text x="95" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
+              <text x="270" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
+              <text x="415" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Heartbeat</text>
+            </svg>
+
+            <div style="font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); text-align: center; margin-top: 6px;">
+              Robots retain full local decision capability for emergency stopping and obstacle clearance without network lag.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 9: MOBILE APPLICATION
+           ==================================================================== -->
+      <section data-state="slide-9" data-category="Subsystem 3">
+        <div class="slide-header">
+          <div class="slide-category">Subsystem 3 &bull; Customer Digital Interface</div>
+          <h2>Customer Mobile Application Concepts</h2>
+          <p class="slide-subtitle">
+            Intuitive mobile experience granting users real-time transparency, one-tap retrieval dispatch, and frictionless parking management.
+          </p>
+        </div>
+
+        <div class="mobile-mockups-grid">
+          <!-- Screen 1: Login / Auth -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: var(--accent-cyan); font-size: 0.9rem; margin-bottom: 6px;">sAIs Mobility</div>
+              <div style="color: #ffffff; font-weight: 700; margin-bottom: 10px; font-size: 0.95rem;">Sign In</div>
+              <div style="background: rgba(255,255,255,0.08); padding: 7px; border-radius: 4px; margin-bottom: 8px; font-size: 0.82rem;">Plate: 742-ABC</div>
+              <div style="background: rgba(255,255,255,0.08); padding: 7px; border-radius: 4px; margin-bottom: 14px; font-size: 0.82rem;">Mobile: +20 10...</div>
+              <div style="background: var(--accent-cyan); color: #000; text-align: center; padding: 8px; border-radius: 4px; font-weight: bold; margin-top: auto; font-size: 0.88rem;">ENTER</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">01. AUTH</div>
+          </div>
+
+          <!-- Screen 2: Live Availability -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 4px; font-size: 0.9rem;">Mall Parking</div>
+              <div style="color: var(--accent-teal); font-size: 0.78rem; margin-bottom: 10px;">Facility: Level B1 &amp; B2</div>
+              <div style="background: rgba(0,240,255,0.12); border: 1px solid var(--border-cyan); border-radius: 6px; padding: 10px; text-align: center; margin-bottom: 10px;">
+                <div style="font-size: 1.4rem; font-weight: bold; color: var(--accent-cyan);">142</div>
+                <div style="font-size: 0.75rem; color: #cbd5e1; font-weight: bold;">SLOTS AVAILABLE</div>
+              </div>
+              <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;">Peak forecast: 19:00<br>Handover queue: 0 mins</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">02. AVAILABILITY</div>
+          </div>
+
+          <!-- Screen 3: VIP Reservation -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: #fbbf24; margin-bottom: 4px; font-size: 0.9rem;">VIP Reserve</div>
+              <div style="color: #cbd5e1; margin-bottom: 10px; font-size: 0.78rem;">Priority retrieval slot</div>
+              <div style="background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.4); padding: 8px; border-radius: 6px; margin-bottom: 10px;">
+                <div style="font-size: 0.8rem; color: #fbbf24; font-weight: bold;">ETA: 19:30</div>
+                <div style="font-size: 0.75rem; color: #cbd5e1;">Bay near pickup allocated</div>
+              </div>
+              <div style="background: #f59e0b; color: #000; text-align: center; padding: 8px; border-radius: 4px; font-weight: bold; margin-top: auto; font-size: 0.88rem;">CONFIRM</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">03. VIP RESERVE</div>
+          </div>
+
+          <!-- Screen 4: Parking Status -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px; font-size: 0.9rem;">Vehicle Status</div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <span class="badge-dot" style="background:#10b981;"></span>
+                <span style="color:#10b981; font-size: 0.78rem; font-weight: bold;">SAFELY PARKED</span>
+              </div>
+              <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.5;">
+                Bay: A-104 (Level B1)<br>
+                Parked: 1h 22m<br>
+                Robot ID: AGV-02
+              </div>
+              <div style="margin-top: 10px; background: rgba(255,255,255,0.08); padding: 6px; border-radius: 4px; font-size: 0.75rem;">
+                Sensors Active &bull; Monitored
+              </div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">04. LIVE STATUS</div>
+          </div>
+
+          <!-- Screen 5: Retrieval Request -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 4px; font-size: 0.9rem;">Retrieve Car</div>
+              <div style="color: var(--accent-cyan); font-size: 0.78rem; margin-bottom: 10px;">Ready to leave?</div>
+              <div style="background: rgba(0,240,255,0.12); border: 1px solid var(--border-cyan); padding: 8px; border-radius: 6px; margin-bottom: 10px; text-align: center;">
+                <div style="font-size: 0.8rem; color: #cbd5e1;">ESTIMATED TIME</div>
+                <div style="font-size: 1.4rem; font-weight: bold; color: var(--accent-cyan);">3 MINS</div>
+              </div>
+              <div style="background: var(--accent-teal); color: #000; text-align: center; padding: 8px; border-radius: 4px; font-weight: bold; margin-top: auto; font-size: 0.88rem;">REQUEST NOW</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">05. RETRIEVAL</div>
+          </div>
+
+          <!-- Screen 6: Payment / Receipt -->
+          <div class="mobile-mockup-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-screen-content">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 4px; font-size: 0.9rem;">Summary</div>
+              <div style="font-size: 0.78rem; color: #cbd5e1; margin-bottom: 8px;">Handover: Pickup Bay 1</div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 8px; font-size: 0.78rem; line-height: 1.5;">
+                Duration: 1h 45m<br>
+                Digital Pay: Verified<br>
+                Status: Completed
+              </div>
+              <div style="background: rgba(16,185,129,0.15); color: #34d399; text-align: center; padding: 6px; border-radius: 4px; margin-top: auto; font-size: 0.8rem; font-weight: bold;">
+                GATE PASS READY
+              </div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 8px; font-weight: bold;">06. PAYMENT</div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 14px; font-size: 0.85rem;">
+          <strong>UI Concept Disclaimer:</strong> Proposed UI mockups represent the planned customer digital interface workflows and do not represent a deployed mobile application.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 10: AI AND PREDICTIVE ANALYTICS
+           ==================================================================== -->
+      <section data-state="slide-10" data-category="Subsystem 4">
+        <div class="slide-header">
+          <div class="slide-category">Subsystem 4 &bull; Predictive Intelligence</div>
+          <h2>AI &amp; Predictive Demand Analytics</h2>
+          <p class="slide-subtitle">
+            Transforming raw facility telemetry into proactive occupancy forecasts and dynamic traffic smoothing for the shopping mall.
+          </p>
+        </div>
+
+        <!-- 5-Stage Data Pipeline -->
+        <div class="pipeline-track">
+          <div class="pipeline-node card-subsystem-4">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">STAGE 1</div>
+            <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Data Ingestion</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Historical logs, bay sensors, weather, mall events</div>
+          </div>
+          <div class="pipeline-arrow">&rarr;</div>
+
+          <div class="pipeline-node card-subsystem-4">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">STAGE 2</div>
+            <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Processing</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Time-series feature extraction &amp; dwell categorization</div>
+          </div>
+          <div class="pipeline-arrow">&rarr;</div>
+
+          <div class="pipeline-node card-subsystem-4">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">STAGE 3</div>
+            <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Forecasting</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Machine learning demand curve prediction</div>
+          </div>
+          <div class="pipeline-arrow">&rarr;</div>
+
+          <div class="pipeline-node card-subsystem-4">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">STAGE 4</div>
+            <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Arrival Advice</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Customer recommended arrival window suggestions</div>
+          </div>
+          <div class="pipeline-arrow">&rarr;</div>
+
+          <div class="pipeline-node card-subsystem-4">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">STAGE 5</div>
+            <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Insights</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">Fleet allocation tuning &amp; rate optimization</div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 14px;">
+          <div class="card">
+            <div class="card-title" style="color: var(--color-subsystem-ai); font-size: 1.05rem;">Occupancy Forecasting</div>
+            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">Predicts parking bay saturation 30–120 minutes in advance, enabling the Fleet Manager to pre-position idle robots near high-turnover bays.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="color: var(--color-subsystem-ai); font-size: 1.05rem;">Arrival Window Smoothing</div>
+            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">Suggests optimal customer arrival times via the mobile app, reducing entrance peak congestion during weekend mall rushes.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="color: var(--color-subsystem-ai); font-size: 1.05rem;">Dynamic Pricing Potential</div>
+            <p style="font-size: 0.9rem; margin: 0; line-height: 1.5;">Provides facility operators with conceptual dynamic rate structures to balance occupancy between peak hours and off-peak periods.</p>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 14px;">
+          <strong>Data Boundary &amp; Modeling Integrity:</strong> The AI model scope focuses exclusively on <em>parking facility occupancy and vehicle dwell duration</em>, deliberately distinct from general mall footfall traffic. Design proposal phase: model training and live deployment are scheduled for future implementation.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 11: SMART SERVICES AND FUTURE EXPANSION
+           ==================================================================== -->
+      <section data-state="slide-11" data-category="Subsystem 5">
+        <div class="slide-header">
+          <div class="slide-category">Subsystem 5 &bull; Modular Growth</div>
+          <h2>Smart Services &amp; Future Expansion Opportunities</h2>
+          <p class="slide-subtitle">
+            An architectural foundation designed for post-baseline modular service expansion, unlocking high-value automated vehicle care while parked.
+          </p>
+        </div>
+
+        <div class="badge badge-future" style="margin-bottom: 14px;">
+          <span class="badge-dot" style="background:#f59e0b;"></span>
+          FUTURE EXPANSION ROADMAP &bull; NOT PART OF INITIAL BASELINE SCOPE
+        </div>
+
+        <div class="grid-3">
+          <div class="card" style="border: 1.5px dashed rgba(245, 158, 11, 0.45);">
+            <div class="card-title" style="color: #fbbf24; font-size: 1.15rem;">
+              <span class="card-num" style="background: rgba(245,158,11,0.15); color: #fbbf24;">EXP 1</span> EV Charging Integration
+            </div>
+            <p style="font-size: 0.92rem; line-height: 1.55; color: var(--text-secondary);">
+              Autonomous robots transport electric vehicles to a shared bank of DC fast chargers once parked. After reaching target charge, the robot relocates the car back to standard storage, eliminating EV bay hogging.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; margin-top: 10px; font-weight: bold;">
+              Potential: 4x charger utilization efficiency
+            </div>
+          </div>
+
+          <div class="card" style="border: 1.5px dashed rgba(245, 158, 11, 0.45);">
+            <div class="card-title" style="color: #fbbf24; font-size: 1.15rem;">
+              <span class="card-num" style="background: rgba(245,158,11,0.15); color: #fbbf24;">EXP 2</span> Automated Car Wash Bays
+            </div>
+            <p style="font-size: 0.92rem; line-height: 1.55; color: var(--text-secondary);">
+              Customers opt into an automated exterior cleaning service via the mobile application. The fleet scheduler routes the vehicle through an automated wash tunnel during customer shopping dwell time before return.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; margin-top: 10px; font-weight: bold;">
+              Revenue model: Value-added valet service
+            </div>
+          </div>
+
+          <div class="card" style="border: 1.5px dashed rgba(245, 158, 11, 0.45);">
+            <div class="card-title" style="color: #fbbf24; font-size: 1.15rem;">
+              <span class="card-num" style="background: rgba(245,158,11,0.15); color: #fbbf24;">EXP 3</span> Security &amp; Telematics
+            </div>
+            <p style="font-size: 0.92rem; line-height: 1.55; color: var(--text-secondary);">
+              Stationary robotic patrolling and automated perimeter visual inspection. Optical sensors verify tire condition, minor exterior damage, and vehicle security while stored in the facility.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; margin-top: 10px; font-weight: bold;">
+              Security: Zero unauthorized physical contact
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-future" style="margin-top: 16px;">
+          <strong>Scope Clarification:</strong> While the Tier 2 Central Platform provides modular interface adapters for these services, they are <em>future expansion concepts</em> and not required deliverables of the planning baseline.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 12: TECHNOLOGY BENCHMARK AND INDUSTRY CASE STUDY
+           ==================================================================== -->
+      <section data-state="slide-12" data-category="Technology Benchmark">
+        <div class="slide-header">
+          <div class="slide-category">State of the Art &bull; Technology Benchmark</div>
+          <h2>Industry Benchmarks &amp; Case Study</h2>
+          <p class="slide-subtitle">
+            Analyzing commercial autonomous parking robotics to validate technical feasibility while establishing sAIs' architectural differentiation.
+          </p>
+        </div>
+
+        <div class="grid-split-60-40">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Platform</th>
+                  <th>Primary Environment</th>
+                  <th>Documented Core Capabilities</th>
+                  <th>Role in sAIs Project</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>HL Robotics PARKIE</strong></td>
+                  <td><span class="badge badge-teal" style="font-size:0.75rem; padding: 2px 8px;">Indoor Facilities</span></td>
+                  <td>
+                    Ultra-flat chassis; indoor navigation; wheel-position optical detection; mechanical wheel lifting; external PMS API integration.
+                  </td>
+                  <td class="sais-cell">
+                    <strong>Primary Benchmark:</strong> Validates indoor low-clearance vehicle transportation feasibility.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>HL Robotics STAN</strong></td>
+                  <td><span class="badge badge-blue" style="font-size:0.75rem; padding: 2px 8px;">Outdoor / Open Air</span></td>
+                  <td>
+                    Tow-arm robotic architecture; heavy payload handling; designed for outdoor airport parking lots with weatherized chassis.
+                  </td>
+                  <td class="sais-cell">
+                    <strong>Comparative Reference:</strong> Evaluated for long-term outdoor facility scalability lessons.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card card-subsystem-1" style="padding: 16px;">
+              <div class="card-title" style="font-size: 1.05rem;">How sAIs Extends Beyond Standalone Robotics</div>
+              <p style="font-size: 0.92rem; margin: 0; line-height: 1.55;">
+                While commercial platforms like PARKIE demonstrate that robotic vehicle transport is mechanically viable, 
+                <strong>sAIs designs a comprehensive ecosystem</strong> uniting robotic valets with customer mobile booking, predictive AI demand forecasting, and integrated facility space management.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benchmark Disclaimer Box -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card" style="border: 1.5px solid var(--border-cyan); height: 100%;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 10px; font-weight: bold;">
+                Technology Evaluation Principles
+              </div>
+              <ul style="font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary); padding-left: 20px; margin: 0;">
+                <li><strong>Benchmark Only:</strong> Platforms serve as technical feasibility references, not confirmed vendor procurement selections.</li>
+                <li><strong>No Fabricated Specs:</strong> Performance claims rely strictly on vendor published data; unverified payload limits are avoided.</li>
+                <li><strong>Architectural Independence:</strong> sAIs software layers (Fleet Manager, PMS, App, AI) remain modular and platform-agnostic.</li>
+              </ul>
+
+              <div style="margin-top: auto; border-top: 1px solid var(--border-subtle); padding-top: 12px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+                Source Citations:<br>
+                &bull; HL Mando / HL Robotics Official Technical Briefs (PARKIE / STAN System Design)<br>
+                &bull; CES Innovation Award Technical Documentation
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 13: IMPLEMENTATION STRATEGY
+           ==================================================================== -->
+      <section data-state="slide-13" data-category="Project Roadmap">
+        <div class="slide-header">
+          <div class="slide-category">Execution Roadmap &bull; Phase Progression</div>
+          <h2>Proposed Implementation Strategy</h2>
+          <p class="slide-subtitle">
+            A disciplined, phased engineering roadmap progressing systematically from planning baseline to full commercial shopping mall deployment.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 1.2rem;">
+          <!-- Phase 1 -->
+          <div class="card card-subsystem-1" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); font-weight: bold;">PHASE 01</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Requirements &amp; Feasibility</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Mall structural constraints, ceiling clearances, ramp gradients, and project charter deliverables.
+            </p>
+            <div class="badge" style="font-size: 0.68rem; padding: 2px 8px; margin-top: 8px;">CURRENT STAGE</div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="card" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">PHASE 02</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Facility &amp; System Design</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Drop-off station CAD layout, robotic corridor mapping, network architecture, and PMS database schema.
+            </p>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="card" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">PHASE 03</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Subsystem Integration</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Fleet Manager and PMS API binding, Mobile app prototype, and simulated robot ROS2 communication.
+            </p>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="card" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">PHASE 04</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Controlled Pilot Trial</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Deployment of 1–2 robotic units in an isolated, barricaded mall parking zone with test vehicles.
+            </p>
+          </div>
+
+          <!-- Phase 5 -->
+          <div class="card" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">PHASE 05</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Safety Validation</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Emergency braking certification, sensor failure testing, edge case stress-tests, and latency tuning.
+            </p>
+          </div>
+
+          <!-- Phase 6 -->
+          <div class="card" style="padding: 14px 10px;">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">PHASE 06</div>
+            <div style="font-weight: 700; font-size: 0.92rem; color: #fff; margin: 4px 0;">Full Facility Rollout</div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+              Multi-robot commercial operation, customer app public launch, and continuous predictive optimization.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 24px;">
+          <strong>Planning Horizon:</strong> All phases beyond Phase 1 represent the proposed future engineering path. Phase 1 deliverables form the foundational baseline.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 14: PROJECT MANAGEMENT AND TEAM STRUCTURE
+           ==================================================================== -->
+      <section data-state="slide-14" data-category="Project Governance">
+        <div class="slide-header">
+          <div class="slide-category">Team Governance &bull; Deliverables Breakdown</div>
+          <h2>Project Management &amp; Team Responsibilities</h2>
+          <p class="slide-subtitle">
+            Six-member engineering team organized with rigorous project management governance aligned with the eleven core project deliverables.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Mohamed Yasser -->
+          <div class="team-card card-subsystem-1">
+            <div class="team-card-header">
+              <div class="team-member-name">Mohamed Yasser</div>
+              <span class="badge" style="font-size:0.7rem; padding: 2px 8px;">COORDINATOR</span>
+            </div>
+            <div class="team-role">Project Coordination &amp; Communication</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Project Charter</span>
+              <span class="deliverable-tag">Communication Plan</span>
+              <span class="deliverable-tag">Baseline Coordination</span>
+            </div>
+          </div>
+
+          <!-- Farha -->
+          <div class="team-card card-subsystem-4">
+            <div class="team-card-header">
+              <div class="team-member-name">Farha</div>
+              <span class="badge badge-purple" style="font-size:0.7rem; padding: 2px 8px;">RESEARCH</span>
+            </div>
+            <div class="team-role">Risk &amp; Research Analyst</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Risk Management Plan</span>
+              <span class="deliverable-tag">Industry Case Study</span>
+            </div>
+          </div>
+
+          <!-- Omar -->
+          <div class="team-card card-subsystem-2">
+            <div class="team-card-header">
+              <div class="team-member-name">Omar</div>
+              <span class="badge badge-blue" style="font-size:0.7rem; padding: 2px 8px;">QUALITY</span>
+            </div>
+            <div class="team-role">Project Planning &amp; Quality Lead</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Project Plan</span>
+              <span class="deliverable-tag">Quality Assurance Plan</span>
+            </div>
+          </div>
+
+          <!-- Salma -->
+          <div class="team-card card-subsystem-5">
+            <div class="team-card-header">
+              <div class="team-member-name">Salma</div>
+              <span class="badge badge-amber" style="font-size:0.7rem; padding: 2px 8px;">BUDGET</span>
+            </div>
+            <div class="team-role">Budget &amp; Cost Analyst</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Budget Management Plan</span>
+              <span class="deliverable-tag">CAPEX/OPEX Analysis</span>
+            </div>
+          </div>
+
+          <!-- Mohamed Hany -->
+          <div class="team-card card-subsystem-3">
+            <div class="team-card-header">
+              <div class="team-member-name">Mohamed Hany</div>
+              <span class="badge badge-teal" style="font-size:0.7rem; padding: 2px 8px;">RESOURCES</span>
+            </div>
+            <div class="team-role">Resource Planning Coordinator</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Resource Allocation Plan</span>
+              <span class="deliverable-tag">Tooling Requirements</span>
+            </div>
+          </div>
+
+          <!-- Peter -->
+          <div class="team-card card-subsystem-1">
+            <div class="team-card-header">
+              <div class="team-member-name">Peter</div>
+              <span class="badge" style="font-size:0.7rem; padding: 2px 8px;">SCHEDULE</span>
+            </div>
+            <div class="team-role">Scheduling Coordinator</div>
+            <div style="margin-top: 6px;">
+              <span class="deliverable-tag">Project Schedule</span>
+              <span class="deliverable-tag">Milestone Tracking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top: 14px; padding: 10px 16px; font-size: 0.92rem;">
+          <strong>Shared Team Deliverables:</strong> All six members collaboratively author the <em>Final Project Report</em> and <em>Technical Presentation</em>, ensuring unified system integrity.
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 15: PROJECT FEASIBILITY, RISKS AND RESOURCES
+           ==================================================================== -->
+      <section data-state="slide-15" data-category="Feasibility & Risk">
+        <div class="slide-header">
+          <div class="slide-category">Feasibility Assessment &bull; Risk Matrix</div>
+          <h2>Feasibility, Risks &amp; Resource Allocation</h2>
+          <p class="slide-subtitle">
+            Systematic identification of technical and operational risks paired with targeted engineering mitigations and economic structuring.
+          </p>
+        </div>
+
+        <div class="grid-split-60-40">
+          <div>
+            <table class="risk-table">
+              <thead>
+                <tr>
+                  <th>Risk Category &amp; Description</th>
+                  <th>Severity</th>
+                  <th>Proposed Engineering Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Navigation / Localization Drift</strong><br>
+                    <span style="font-size:0.8rem; color:var(--text-muted);">LiDAR feature loss in uniform parking aisles</span>
+                  </td>
+                  <td><span class="risk-pill risk-high">HIGH</span></td>
+                  <td>Hybrid sensor fusion combining 2D LiDAR SLAM, floor fiducial QR markers, and wheel odometry.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Mechanical Lifting Jam</strong><br>
+                    <span style="font-size:0.8rem; color:var(--text-muted);">Actuator failure during vehicle transfer</span>
+                  </td>
+                  <td><span class="risk-pill risk-med">MED</span></td>
+                  <td>Manual mechanical pressure release valves and redundant dual-hydraulic or screw actuators.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Robot-to-Robot Comm Loss</strong><br>
+                    <span style="font-size:0.8rem; color:var(--text-muted);">Wi-Fi dead zones in underground levels</span>
+                  </td>
+                  <td><span class="risk-pill risk-high">HIGH</span></td>
+                  <td>Industrial mesh Wi-Fi / Private 5G paired with autonomous local fail-safe stop protocols.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Cybersecurity &amp; Access</strong><br>
+                    <span style="font-size:0.8rem; color:var(--text-muted);">Retrieval spoofing via mobile app</span>
+                  </td>
+                  <td><span class="risk-pill risk-med">MED</span></td>
+                  <td>Cryptographic token exchange, two-factor SMS authentication, and physical kiosk QR verification.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Financial Framework: CAPEX vs OPEX -->
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card card-subsystem-5" style="padding: 16px;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; margin-bottom: 4px; font-weight: bold;">FINANCIAL STRUCTURING</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px;">CAPEX vs. OPEX Framework</div>
+              
+              <div style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px;">
+                <strong style="color: var(--accent-cyan);">CAPEX (Capital Expenditure):</strong><br>
+                Autonomous mobile robot procurement, drop-off bay scanning equipment, network infrastructure, and facility floor preparation.
+              </div>
+
+              <div style="font-size: 0.9rem; line-height: 1.5;">
+                <strong style="color: var(--accent-teal);">OPEX (Operational Expenditure):</strong><br>
+                Routine mechanical maintenance, battery degradation replacement, cloud orchestration servers, and software license management.
+              </div>
+            </div>
+
+            <div class="callout" style="margin: 0; font-size: 0.88rem;">
+              <strong>Integrity Note:</strong> Exact figures are subject to ongoing Budget Management Plan refinement; illustrative modeling avoids fabricated financial claims.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 16: CONCLUSION
+           ==================================================================== -->
+      <section data-state="slide-16" data-category="Conclusion">
+        <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+          <div class="badge" style="margin: 0 auto 1.2rem auto;">
+            <span class="badge-dot pulse-dot"></span>
+            CONCLUSION &bull; ENGINEERING SYSTEM VISION
+          </div>
+
+          <h1 style="font-size: 3.8rem; margin-bottom: 0.2rem;">
+            <span style="color: var(--accent-cyan);">sAIs</span>
+          </h1>
+
+          <p style="font-family: var(--font-mono); font-size: 1.35rem; color: #ffffff; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
+            Smart Autonomous Intelligent System
+          </p>
+
+          <h3 style="font-size: 1.8rem; color: var(--accent-teal); font-weight: 600; margin-bottom: 1.8rem;">
+            "Your parking attendant, reimagined."
+          </h3>
+
+          <!-- 5 Pillars Summary -->
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1150px; margin: 0 auto 2rem auto; text-align: left;">
+            <div class="card card-subsystem-1" style="padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); font-weight: bold;">01. PMS</div>
+              <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Intelligent Allocation</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Dynamic slot management &amp; real-time occupancy.</div>
+            </div>
+
+            <div class="card card-subsystem-2" style="padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-blue); font-weight: bold;">02. FLEET</div>
+              <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Hybrid Coordination</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Central task control + local robotic autonomy.</div>
+            </div>
+
+            <div class="card card-subsystem-2" style="padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-teal); font-weight: bold;">03. VALET</div>
+              <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Robotic Transfer</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Precision wheel lifting &amp; high-density storage.</div>
+            </div>
+
+            <div class="card card-subsystem-3" style="padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-app); font-weight: bold;">04. APP</div>
+              <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Seamless Journey</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Contactless check-in, live tracking &amp; retrieval.</div>
+            </div>
+
+            <div class="card card-subsystem-4" style="padding: 14px;">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-subsystem-ai); font-weight: bold;">05. AI</div>
+              <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Predictive Analytics</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Demand forecasting &amp; arrival window smoothing.</div>
+            </div>
+          </div>
+
+          <div style="font-size: 1.12rem; color: var(--text-secondary); max-width: 850px; margin: 0 auto 1.5rem auto;">
+            Transforming conventional shopping mall parking into an intelligent, connected, and autonomous ecosystem.
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 32px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">
+            <div>SUPERVISOR &bull; INSTRUCTORS &bull; EVALUATION COMMITTEE</div>
+            <div>&bull;</div>
+            <div>sAIs ENGINEERING PROJECT PROPOSAL</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Scripts (Self-Contained) -->
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/interactions.js"></script>
+</body>
+</html>
