@@ -35,14 +35,19 @@ export class HeroFacilityWebGL {
     this.targetCameraLookAt = this.cameraPresets.overview.lookAt.clone();
     this.cameraLerpSpeed = 0.05;
 
-    this.initDOM();
-    this.initThree();
-    this.buildFacility();
-    this.buildCars();
-    this.buildRobot();
-    this.setupEvents();
-    this.applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
-    this.start();
+    try {
+      this.initDOM();
+      this.initThree();
+      this.buildFacility();
+      this.buildCars();
+      this.buildRobot();
+      this.setupEvents();
+      this.applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+      this.start();
+      console.log(`[sAIs 3D WebGL] Scene mounted successfully into #${containerId}`);
+    } catch (err) {
+      console.error(`[sAIs 3D WebGL] Initialization error in #${containerId}:`, err);
+    }
   }
 
   initDOM() {
