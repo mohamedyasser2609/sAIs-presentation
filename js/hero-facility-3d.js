@@ -811,23 +811,25 @@ export class HeroFacilityWebGL {
 }
 
 // Global initialization entry point
-window.initHeroFacilityWebGL = function(id, options) {
-  return new HeroFacilityWebGL(id, options);
-};
-window.initHeroFacility3D = window.initHeroFacilityWebGL;
+if (typeof window !== 'undefined') {
+  window.initHeroFacilityWebGL = function(id, options) {
+    return new HeroFacilityWebGL(id, options);
+  };
+  window.initHeroFacility3D = window.initHeroFacilityWebGL;
 
-// Auto-mounting logic for Presentation Slide 1 & 16
-function autoMountWebGLFacilities() {
-  if (document.getElementById('hero-facility-slide1') && !window.heroWebGL1) {
-    window.heroWebGL1 = new HeroFacilityWebGL('hero-facility-slide1', { isClosingScene: false });
+  // Auto-mounting logic for Presentation Slide 1 & 16
+  function autoMountWebGLFacilities() {
+    if (document.getElementById('hero-facility-slide1') && !window.heroWebGL1) {
+      window.heroWebGL1 = new HeroFacilityWebGL('hero-facility-slide1', { isClosingScene: false });
+    }
+    if (document.getElementById('hero-facility-slide16') && !window.heroWebGL16) {
+      window.heroWebGL16 = new HeroFacilityWebGL('hero-facility-slide16', { isClosingScene: true });
+    }
   }
-  if (document.getElementById('hero-facility-slide16') && !window.heroWebGL16) {
-    window.heroWebGL16 = new HeroFacilityWebGL('hero-facility-slide16', { isClosingScene: true });
-  }
-}
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', autoMountWebGLFacilities);
-} else {
-  autoMountWebGLFacilities();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoMountWebGLFacilities);
+  } else {
+    autoMountWebGLFacilities();
+  }
 }
