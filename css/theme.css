@@ -117,9 +117,9 @@
   /* High-Contrast Typography Colors for Light Mode */
   --text-white: #0f172a;               /* Primary titles are deep navy */
   --text-primary: #0f172a;             /* High-legibility deep slate */
-  --text-secondary: #334155;           /* Clear secondary slate */
-  --text-muted: #64748b;
-  --text-dim: #94a3b8;
+  --text-secondary: #1e293b;           /* Clear, bold dark slate */
+  --text-muted: #475569;               /* High-contrast slate-600 */
+  --text-dim: #64748b;
 
   /* SVG Theme Variables for Light Mode */
   --svg-canvas-bg: #e6ecf5;
@@ -271,4 +271,28 @@ body {
 .reveal small {
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+/* Explicit high-contrast text overrides for Light Mode */
+[data-theme="light"] .reveal strong,
+[data-theme="light"] .reveal b {
+  color: var(--text-white);
+}
+
+[data-theme="light"] .reveal .card-title {
+  color: var(--text-white);
+}
+
+[data-theme="light"] .reveal .journey-step-title,
+[data-theme="light"] .reveal .team-member-name {
+  color: var(--text-white);
+}
+
+[data-theme="light"] .reveal .comparison-table th,
+[data-theme="light"] .reveal .risk-table th {
+  color: var(--text-white);
+}
+
+[data-theme="light"] .reveal .comparison-table td.sais-cell {
+  color: var(--text-white);
 }
