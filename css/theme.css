@@ -296,3 +296,35 @@ body {
 [data-theme="light"] .reveal .comparison-table td.sais-cell {
   color: var(--text-white);
 }
+
+/* SVG Theme-Adaptation Classes */
+.svg-theme-canvas {
+  fill: var(--svg-canvas-bg) !important;
+  transition: fill 0.4s ease;
+}
+
+.svg-theme-grid-line {
+  stroke: var(--svg-grid-line) !important;
+  transition: stroke 0.4s ease;
+}
+
+.svg-theme-node-bg {
+  fill: var(--svg-card-bg) !important;
+  transition: fill 0.4s ease;
+}
+
+.svg-theme-node-title {
+  fill: var(--svg-text-primary) !important;
+  transition: fill 0.4s ease;
+}
+
+.svg-theme-node-subtext {
+  fill: var(--svg-text-secondary) !important;
+  transition: fill 0.4s ease;
+}
+
+.svg-theme-vehicle-body {
+  fill: var(--svg-car-body) !important;
+  stroke: var(--svg-car-stroke) !important;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}

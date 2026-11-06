@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => {
       console.log('[sAIs] Presentation initialized with high-legibility display scale.');
       syncDeckMetadata();
+
+      // Initialize 3D Hero Facility Digital Twin for Slide 1 (Opening) & Slide 16 (Closing)
+      if (typeof window.initHeroFacility3D === 'function') {
+        window.hero1 = window.initHeroFacility3D('hero-facility-slide1', { isClosingScene: false });
+        window.hero16 = window.initHeroFacility3D('hero-facility-slide16', { isClosingScene: true });
+      }
     });
 
     Reveal.on('slidechanged', (event) => {
