@@ -30,24 +30,12 @@ class HeroFacility3D {
   init() {
     this.render();
     this.setupEvents();
-
-    const parentSection = this.container.closest('section');
-    const isCurrentSlide = typeof Reveal !== 'undefined' && Reveal.getCurrentSlide && Reveal.getCurrentSlide() === parentSection;
-    if (!parentSection || isCurrentSlide || (typeof Reveal === 'undefined')) {
-      this.startLoop();
-    } else {
-      this.stopLoop();
-    }
+    this.startLoop();
   }
 
   render() {
     const isClosing = this.options.isClosingScene;
     const hudBadge = isClosing ? 'FACILITY DIGITAL TWIN // FULL FACILITY SUMMARY' : 'FACILITY DIGITAL TWIN // LIVE SIMULATION';
-
-    const fleetStat = isClosing ? 'SYNCHRONIZED (4/4 AGVs)' : 'ONLINE (4 AGVs)';
-    const taskStat = isClosing ? 'ALL BAYS OPTIMIZED &bull; ACTIVE' : 'TRANSFER VEHICLE &rarr; BAY A-03';
-    const meshStat = isClosing ? '8ms [PEER MESH OPTIMAL]' : '12ms [LATENCY OPTIMAL]';
-    const capacityStat = isClosing ? '+35% DENSITY REALIZED' : '62.5% [5/8 SLOTS]';
 
     this.container.innerHTML = `
       <div class="facility-3d-wrapper" id="${this.container.id}-wrapper">
@@ -251,19 +239,19 @@ class HeroFacility3D {
         <div class="facility-hud-footer">
           <div class="hud-stat-item">
             <span class="hud-stat-label">FLEET STATUS</span>
-            <span class="hud-stat-value" id="${this.container.id}-hud-fleet">${fleetStat}</span>
+            <span class="hud-stat-value" id="${this.container.id}-hud-fleet">ONLINE (4 AGVs)</span>
           </div>
           <div class="hud-stat-item">
             <span class="hud-stat-label">TASK DISPATCH</span>
-            <span class="hud-stat-value accent-cyan" id="${this.container.id}-hud-task">${taskStat}</span>
+            <span class="hud-stat-value accent-cyan" id="${this.container.id}-hud-task">TRANSFER VEHICLE &rarr; BAY A-03</span>
           </div>
           <div class="hud-stat-item">
             <span class="hud-stat-label">LOCAL MESH</span>
-            <span class="hud-stat-value" style="color: var(--color-success)">${meshStat}</span>
+            <span class="hud-stat-value" style="color: var(--color-success)">12ms [LATENCY OPTIMAL]</span>
           </div>
           <div class="hud-stat-item">
             <span class="hud-stat-label">CAPACITY</span>
-            <span class="hud-stat-value">${capacityStat}</span>
+            <span class="hud-stat-value">62.5% [5/8 SLOTS]</span>
           </div>
         </div>
       </div>
@@ -278,6 +266,7 @@ class HeroFacility3D {
     this.pauseBtn = document.getElementById(`${this.container.id}-pause-btn`);
     this.resetBtn = document.getElementById(`${this.container.id}-reset-btn`);
     this.stage = document.getElementById(`${this.container.id}-stage`);
+    this.plane = document.getElementById(`${this.container.id}-plane`);
   }
 
   setupEvents() {
@@ -298,7 +287,7 @@ class HeroFacility3D {
     }
 
     // Interactive mouse perspective tracking
-    if (this.options.interactiveTilt && this.stage) {
+    if (this.options.interactiveTilt && this.container) {
       this.container.addEventListener('mousemove', (e) => {
         const rect = this.container.getBoundingClientRect();
         const normX = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
@@ -350,8 +339,8 @@ class HeroFacility3D {
     this.targetTiltY = 0;
     this.tiltX = 0;
     this.tiltY = 0;
-    if (this.stage) {
-      this.stage.style.transform = `rotateX(42deg) rotateZ(-30deg) translateZ(0)`;
+    if (this.plane) {
+      this.plane.style.transform = `rotateX(38deg) rotateZ(-28deg) scale(0.92)`;
     }
   }
 
@@ -372,11 +361,11 @@ class HeroFacility3D {
   }
 
   update() {
-    // 1. Smooth 3D tilt interpolation
+    // 1. Smooth 3D tilt interpolation on plane
     this.tiltX += (this.targetTiltX - this.tiltX) * 0.08;
     this.tiltY += (this.targetTiltY - this.tiltY) * 0.08;
-    if (this.stage) {
-      this.stage.style.transform = `rotateX(${42 + this.tiltX}deg) rotateZ(${-30 + this.tiltY}deg) translateZ(0)`;
+    if (this.plane) {
+      this.plane.style.transform = `rotateX(${38 + this.tiltX}deg) rotateZ(${-28 + this.tiltY}deg) scale(0.92)`;
     }
 
     if (this.isPaused) return;
@@ -472,3 +461,20 @@ class HeroFacility3D {
 window.initHeroFacility3D = function(id, options) {
   return new HeroFacility3D(id, options);
 };
+
+// Automatic fallback initialization to guarantee rendering regardless of script timing
+function autoMountHeroFacilities() {
+  if (document.getElementById('hero-facility-slide1') && !window.hero1) {
+    window.hero1 = new HeroFacility3D('hero-facility-slide1', { isClosingScene: false });
+  }
+  if (document.getElementById('hero-facility-slide16') && !window.hero16) {
+    window.hero16 = new HeroFacility3D('hero-facility-slide16', { isClosingScene: true });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', autoMountHeroFacilities);
+} else {
+  autoMountHeroFacilities();
+}
+

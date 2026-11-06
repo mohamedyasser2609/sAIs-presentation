@@ -170,9 +170,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotateX(38deg) rotateZ(-28deg) scale(0.92);
 }
 
 .facility-svg-plane {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.45));
 }
 
