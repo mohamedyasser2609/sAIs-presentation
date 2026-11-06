@@ -18,6 +18,16 @@
   <link rel="stylesheet" href="vendor/reveal/reveal.css">
   <link rel="stylesheet" href="vendor/reveal/theme/black.css" id="theme">
 
+  <!-- Native Import Map for Local Three.js WebGL Engine -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/"
+    }
+  }
+  </script>
+
   <!-- Custom Theme, Layout, and Animation Stylesheets -->
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/main.css">
@@ -1494,7 +1504,7 @@
 
   <!-- Scripts (Self-Contained) -->
   <script src="vendor/reveal/reveal.js"></script>
-  <script src="js/hero-facility.js"></script>
+  <script type="module" src="js/hero-facility-3d.js"></script>
   <script src="js/main.js"></script>
   <script src="js/interactions.js"></script>
 </body>

@@ -7,7 +7,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "reveal.js": "^5.1.0"
+    "reveal.js": "^5.1.0",
+    "three": "^0.187.0"
   },
   "author": "sAIs Engineering Team",
   "license": "ISC"
