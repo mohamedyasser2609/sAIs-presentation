@@ -216,3 +216,241 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* ==========================================================================
+   7. SLIDE 7: INTERACTIVE ROBOTIC VEHICLE HANDLING SIMULATION
+   ========================================================================== */
+.handling-step-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.handling-step-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.handling-step-btn.active {
+  background: var(--accent-cyan);
+  color: #000 !important;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+}
+
+.handling-play-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyan);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.handling-play-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+}
+
+.handling-play-btn.playing {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.step-card-item {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid transparent;
+}
+
+.step-card-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-cyan);
+  box-shadow: 0 6px 18px rgba(0, 240, 255, 0.1);
+}
+
+.step-card-item.active-step {
+  border-color: var(--accent-cyan) !important;
+  background: rgba(0, 240, 255, 0.09) !important;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .step-card-item.active-step {
+  background: rgba(2, 132, 199, 0.09) !important;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 14px rgba(2, 132, 199, 0.15);
+}
+
+/* ==========================================================================
+   8. SLIDE 8: MULTI-ROBOT FLEET COORDINATION SIMULATION
+   ========================================================================== */
+.fleet-scenario-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.fleet-scenario-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.fleet-scenario-btn.active {
+  background: var(--accent-cyan);
+  color: #000 !important;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+/* ==========================================================================
+   9. SLIDE 5: 3D LAYERED ARCHITECTURE VIEW
+   ========================================================================== */
+.arch-tier-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.arch-tier-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.arch-tier-btn.active {
+  background: var(--accent-cyan);
+  color: #000 !important;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+.arch-3d-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyan);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.arch-3d-toggle-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.arch-3d-toggle-btn.active {
+  background: var(--accent-teal);
+  color: #000 !important;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 14px rgba(0, 229, 192, 0.4);
+}
+
+#arch-diagram-wrapper {
+  perspective: 1400px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#arch-diagram-svg-container {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.arch-isometric-view #arch-diagram-svg-container {
+  transform: rotateX(24deg) rotateZ(-3deg) scale(0.95);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.15);
+}
+
+/* ==========================================================================
+   10. SLIDE 10: AI & PREDICTIVE ANALYTICS CHART CONTROLS
+   ========================================================================== */
+.ai-mode-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.ai-mode-btn:hover {
+  border-color: var(--color-subsystem-ai);
+  color: var(--color-subsystem-ai);
+  transform: translateY(-1px);
+}
+
+.ai-mode-btn.active {
+  background: var(--color-subsystem-ai);
+  color: #000 !important;
+  border-color: var(--color-subsystem-ai);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.45);
+}
+
+/* ==========================================================================
+   11. ACCESSIBILITY: REDUCED MOTION PREFERENCE
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-dot,
+  .svg-sweep-line,
+  .svg-data-path {
+    animation: none !important;
+  }
+}
