@@ -19,8 +19,15 @@
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text-secondary);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+  transition: border-color 0.4s ease;
+}
+
+.deck-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .deck-header .brand {
@@ -30,6 +37,56 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  transition: color 0.4s ease;
+}
+
+.deck-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Theme Toggle Button Component */
+.theme-toggle-btn {
+  pointer-events: auto;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle-btn:active .theme-toggle-icon {
+  transform: rotate(45deg) scale(0.9);
 }
 
 .deck-footer {
@@ -45,8 +102,9 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-secondary);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 6px;
+  transition: border-color 0.4s ease, color 0.4s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -67,6 +125,7 @@
   text-transform: uppercase;
   color: var(--accent-cyan);
   margin-bottom: 0.35rem;
+  transition: color 0.4s ease;
 }
 
 .slide-subtitle {
@@ -75,6 +134,7 @@
   margin: 0;
   max-width: 1000px;
   line-height: 1.5;
+  transition: color 0.4s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -145,6 +205,11 @@
   background: rgba(0, 240, 255, 0.12);
   color: var(--accent-cyan);
   border: 1.5px solid var(--border-cyan);
+  transition: all 0.35s ease;
+}
+
+[data-theme="light"] .badge {
+  background: rgba(2, 132, 199, 0.1);
 }
 
 .badge-dot {
@@ -164,13 +229,13 @@
 .badge-teal {
   background: rgba(0, 210, 180, 0.15);
   color: var(--accent-teal);
-  border: 1.5px solid rgba(0, 210, 180, 0.4);
+  border: 1.5px solid var(--accent-teal);
 }
 
 .badge-purple {
   background: rgba(168, 85, 247, 0.15);
   color: var(--color-subsystem-ai);
-  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  border: 1.5px solid var(--color-subsystem-ai);
 }
 
 .badge-blue {
@@ -179,16 +244,34 @@
   border: 1.5px solid rgba(59, 130, 246, 0.4);
 }
 
+[data-theme="light"] .badge-blue {
+  color: #2563eb;
+  border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+}
+
 .badge-future {
   background: rgba(245, 158, 11, 0.15);
   color: #fbbf24;
   border: 1.5px dashed rgba(245, 158, 11, 0.6);
 }
 
+[data-theme="light"] .badge-future {
+  background: rgba(217, 119, 6, 0.1);
+  color: #b45309;
+  border-color: #d97706;
+}
+
 .badge-benchmark {
   background: rgba(59, 130, 246, 0.15);
   color: #93c5fd;
   border: 1.5px solid rgba(59, 130, 246, 0.5);
+}
+
+[data-theme="light"] .badge-benchmark {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  border-color: #3b82f6;
 }
 
 /* --------------------------------------------------------------------------
@@ -201,11 +284,13 @@
   padding: 18px 20px;
   backdrop-filter: blur(12px);
   position: relative;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s ease, background-color 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
 }
 
 .card:hover {
   border-color: var(--border-cyan);
+  background: var(--bg-card-hover);
 }
 
 .card-title {
@@ -216,6 +301,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: color 0.4s ease;
 }
 
 .card-title .card-num {
@@ -227,10 +313,14 @@
   border-radius: 4px;
 }
 
+[data-theme="light"] .card-title .card-num {
+  background: rgba(2, 132, 199, 0.12);
+}
+
 .card-highlight {
   border-color: var(--border-cyan);
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(13, 20, 36, 0.85) 100%);
-  box-shadow: 0 0 24px rgba(0, 240, 255, 0.12);
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  box-shadow: var(--shadow-cyan);
 }
 
 /* Subsystem Distinct Accent Borders */
@@ -258,6 +348,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s ease;
 }
 
 .journey-step-num {
@@ -282,6 +374,7 @@
   font-weight: 700;
   color: var(--text-white);
   margin-bottom: 8px;
+  transition: color 0.4s ease;
 }
 
 .journey-step p {
@@ -302,10 +395,12 @@
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   font-size: 0.94rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s ease;
 }
 
 .comparison-table th {
-  background: #0f172a;
+  background: var(--bg-secondary);
   padding: 12px 16px;
   text-align: left;
   font-family: var(--font-mono);
@@ -313,12 +408,17 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-white);
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1.5px solid var(--border-light);
+  transition: all 0.35s ease;
 }
 
 .comparison-table th.sais-col {
   color: var(--accent-cyan);
   background: rgba(0, 240, 255, 0.12);
+}
+
+[data-theme="light"] .comparison-table th.sais-col {
+  background: rgba(2, 132, 199, 0.12);
 }
 
 .comparison-table td {
@@ -328,12 +428,17 @@
   color: var(--text-secondary);
   line-height: 1.48;
   vertical-align: top;
+  transition: all 0.35s ease;
 }
 
 .comparison-table td.sais-cell {
   background: rgba(0, 240, 255, 0.04);
   color: var(--text-white);
   font-weight: 500;
+}
+
+[data-theme="light"] .comparison-table td.sais-cell {
+  background: rgba(2, 132, 199, 0.06);
 }
 
 .comparison-table tr:last-child td {
@@ -351,21 +456,23 @@
 
 .mobile-mockup-frame {
   height: 400px;
-  background: #090d16;
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  background: var(--bg-primary);
+  border: 2px solid var(--border-subtle);
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  transition: all 0.35s ease;
 }
 
 .mobile-notch {
   width: 55px;
   height: 9px;
-  background: #030712;
+  background: var(--text-white);
+  opacity: 0.8;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   margin: 0 auto 8px auto;
@@ -374,14 +481,15 @@
 .mobile-screen-content {
   flex: 1;
   border-radius: 12px;
-  background: #0d1424;
+  background: var(--bg-card);
   padding: 12px 10px;
   font-size: 0.82rem;
   display: flex;
   flex-direction: column;
   color: var(--text-secondary);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -399,6 +507,8 @@
   border-radius: var(--radius-md);
   padding: 18px;
   position: relative;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s ease;
 }
 
 .team-card-header {
@@ -412,6 +522,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-white);
+  transition: color 0.4s ease;
 }
 
 .team-role {
@@ -425,14 +536,20 @@
 .deliverable-tag {
   display: inline-block;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--border-subtle);
   border-radius: 4px;
   padding: 4px 9px;
   font-size: 0.78rem;
   font-family: var(--font-mono);
-  color: var(--text-white);
+  color: var(--text-primary);
   margin-bottom: 6px;
   margin-right: 4px;
+  transition: all 0.35s ease;
+}
+
+[data-theme="light"] .deliverable-tag {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.15);
 }
 
 /* --------------------------------------------------------------------------
@@ -441,24 +558,26 @@
 .callout {
   padding: 12px 18px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-card);
   border-left: 4px solid var(--accent-cyan);
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-top: 0.85rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s ease;
 }
 
 .callout-future {
   border-left-color: var(--color-warning);
   background: rgba(245, 158, 11, 0.08);
-  color: #fde68a;
+  color: var(--text-primary);
 }
 
 .callout-benchmark {
   border-left-color: var(--accent-blue);
   background: rgba(59, 130, 246, 0.08);
-  color: #bfdbfe;
+  color: var(--text-primary);
 }
 
 /* Pipeline Flow */
@@ -476,6 +595,8 @@
   border-radius: var(--radius-md);
   padding: 16px 12px;
   text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: all 0.35s ease;
 }
 
 .pipeline-arrow {
@@ -492,18 +613,21 @@
 }
 
 .risk-table th {
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--bg-secondary);
+  color: var(--text-white);
   padding: 10px 14px;
   text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1.5px solid var(--border-light);
   font-size: 0.85rem;
+  transition: all 0.35s ease;
 }
 
 .risk-table td {
   padding: 10px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border-subtle);
   color: var(--text-secondary);
+  background: var(--bg-card);
+  transition: all 0.35s ease;
 }
 
 .risk-pill {
@@ -514,6 +638,60 @@
   font-weight: 700;
 }
 
-.risk-high { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
-.risk-med { background: rgba(245, 158, 11, 0.2); color: #fde047; border: 1px solid rgba(245, 158, 11, 0.4); }
-.risk-low { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+.risk-high { background: rgba(239, 68, 68, 0.2); color: var(--color-danger); border: 1px solid var(--color-danger); }
+.risk-med { background: rgba(245, 158, 11, 0.2); color: var(--color-warning); border: 1px solid var(--color-warning); }
+.risk-low { background: rgba(16, 185, 129, 0.2); color: var(--color-success); border: 1px solid var(--color-success); }
+
+/* --------------------------------------------------------------------------
+   11. SVG Universal Theme Adaptability
+   -------------------------------------------------------------------------- */
+svg {
+  transition: all 0.4s ease;
+}
+
+svg rect, svg circle, svg path, svg text {
+  transition: fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
+}
+
+/* Theme adaptation classes for SVG diagrams */
+.svg-theme-canvas {
+  fill: var(--svg-canvas-bg) !important;
+}
+
+.svg-theme-grid-line {
+  stroke: var(--svg-grid-line) !important;
+}
+
+.svg-theme-node-bg {
+  fill: var(--svg-card-bg) !important;
+  stroke: var(--border-subtle) !important;
+}
+
+.svg-theme-node-header {
+  fill: var(--text-white) !important;
+}
+
+.svg-theme-node-subtext {
+  fill: var(--text-secondary) !important;
+}
+
+.svg-theme-vehicle-body {
+  fill: var(--svg-car-body) !important;
+  stroke: var(--svg-car-stroke) !important;
+}
+
+/* --------------------------------------------------------------------------
+   12. Reveal Presentation Elements
+   -------------------------------------------------------------------------- */
+.reveal .controls {
+  color: var(--accent-cyan);
+}
+
+.reveal .progress {
+  height: 4px;
+  background: var(--border-subtle);
+}
+
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+}

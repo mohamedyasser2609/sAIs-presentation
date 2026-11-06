@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sAIs – Smart Autonomous Intelligent System | Technical Proposal</title>
 
+  <!-- Early Theme Detection to prevent FOUC -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('sais-presentation-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
   <!-- Reveal.js Base Stylesheets (Self-Contained) -->
   <link rel="stylesheet" href="vendor/reveal/reset.css">
   <link rel="stylesheet" href="vendor/reveal/reveal.css">
@@ -17,13 +25,33 @@
 </head>
 <body>
 
-  <!-- Persistent Presentation Header -->
+  <!-- Persistent Presentation Header with Theme Toggle -->
   <header class="deck-header">
-    <div class="brand">
-      <span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--accent-cyan); box-shadow:0 0 10px var(--accent-cyan);"></span>
-      sAIs <span style="color: var(--text-muted); font-weight: 400;">// Smart Autonomous Intelligent System</span>
+    <div class="deck-header-left">
+      <div class="brand">
+        <span style="display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--accent-cyan); box-shadow:0 0 10px var(--accent-cyan);"></span>
+        sAIs <span style="color: var(--text-muted); font-weight: 400;">// Smart Autonomous Intelligent System</span>
+      </div>
+      <div id="deck-header-section">ENGINEERING SYSTEM DESIGN &amp; PROPOSAL</div>
     </div>
-    <div id="deck-header-section">ENGINEERING SYSTEM DESIGN &amp; PROPOSAL</div>
+    <div class="deck-header-right">
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme [T]">
+        <span id="theme-toggle-icon-container">
+          <svg class="theme-toggle-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span id="theme-toggle-label">LIGHT [T]</span>
+      </button>
+    </div>
   </header>
 
   <!-- Persistent Presentation Footer -->
@@ -107,23 +135,23 @@
                 </pattern>
               </defs>
 
-              <rect x="5" y="5" width="530" height="360" rx="8" fill="#0d131f"/>
+              <rect x="5" y="5" width="530" height="360" rx="8" class="svg-theme-canvas" fill="#0d131f"/>
               <rect x="5" y="5" width="530" height="360" rx="8" fill="url(#facilityGrid1)"/>
 
               <!-- Parking Bays -->
               <rect x="25" y="45" width="125" height="260" rx="4" fill="none" stroke="rgba(0,240,255,0.3)" stroke-dasharray="4 4" stroke-width="1.5"/>
-              <text x="35" y="72" fill="#94a3b8" font-family="monospace" font-size="12" font-weight="bold">BAY A-01 [OCCUPIED]</text>
+              <text x="35" y="72" fill="#94a3b8" class="svg-theme-node-subtext" font-family="monospace" font-size="12" font-weight="bold">BAY A-01 [OCCUPIED]</text>
               <rect x="35" y="85" width="105" height="200" rx="4" fill="rgba(255,255,255,0.03)"/>
 
               <rect x="390" y="45" width="125" height="260" rx="4" fill="none" stroke="rgba(0,240,255,0.6)" stroke-width="1.5"/>
-              <text x="400" y="72" fill="#00f0ff" font-family="monospace" font-size="12" font-weight="bold">BAY A-02 [ALLOCATED]</text>
+              <text x="400" y="72" fill="var(--accent-cyan)" font-family="monospace" font-size="12" font-weight="bold">BAY A-02 [ALLOCATED]</text>
               
               <!-- Corridor Trajectory Line -->
               <path d="M 260 30 L 260 320" stroke="rgba(0, 240, 255, 0.35)" stroke-width="2.5" stroke-dasharray="6 6"/>
 
               <!-- Vehicle + Low-profile Robot AGV -->
               <g transform="translate(160, 105)">
-                <path d="M 20 100 Q 40 50 80 40 L 160 40 Q 200 45 220 85 L 230 105 Q 230 115 220 115 L 10 115 Q 0 115 10 105 Z" fill="url(#carGrad1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <path d="M 20 100 Q 40 50 80 40 L 160 40 Q 200 45 220 85 L 230 105 Q 230 115 220 115 L 10 115 Q 0 115 10 105 Z" class="svg-theme-vehicle-body" fill="url(#carGrad1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
                 <path d="M 85 45 L 155 45 L 180 80 L 70 80 Z" fill="rgba(0,240,255,0.18)" stroke="rgba(0,240,255,0.4)" stroke-width="1"/>
                 <circle cx="50" cy="115" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="4"/>
                 <circle cx="50" cy="115" r="10" fill="#334155"/>
@@ -131,18 +159,18 @@
                 <circle cx="180" cy="115" r="10" fill="#334155"/>
 
                 <!-- Low-profile Robotic Valet Unit -->
-                <rect x="15" y="125" width="205" height="24" rx="4" fill="#0b1329" stroke="#00f0ff" stroke-width="2"/>
+                <rect x="15" y="125" width="205" height="24" rx="4" class="svg-theme-node-bg" fill="#0b1329" stroke="var(--accent-cyan)" stroke-width="2"/>
                 <rect x="25" y="118" width="45" height="12" rx="2" fill="url(#cyanGrad1)"/>
                 <rect x="160" y="118" width="45" height="12" rx="2" fill="url(#cyanGrad1)"/>
                 
-                <circle cx="215" cy="137" r="4" fill="#00f0ff"/>
-                <path d="M 218 137 L 250 125 M 218 137 L 255 137 M 218 137 L 250 149" stroke="#00f0ff" stroke-width="1.5"/>
-                <text x="25" y="142" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">sAIs-AGV // ROBOTIC VALET</text>
+                <circle cx="215" cy="137" r="4" fill="var(--accent-cyan)"/>
+                <path d="M 218 137 L 250 125 M 218 137 L 255 137 M 218 137 L 250 149" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+                <text x="25" y="142" fill="var(--accent-cyan)" font-family="monospace" font-size="11" font-weight="bold">sAIs-AGV // ROBOTIC VALET</text>
               </g>
 
               <!-- Central Fleet Status Readout -->
-              <rect x="25" y="325" width="490" height="32" rx="4" fill="rgba(10,15,25,0.95)" stroke="rgba(255,255,255,0.15)"/>
-              <text x="40" y="346" fill="#cbd5e1" font-family="monospace" font-size="12">FLEET: <tspan fill="#00f0ff" font-weight="bold">ONLINE</tspan> | ROBOT-01: <tspan fill="#00f0ff" font-weight="bold">ENGAGED (TRANSFERRING)</tspan> | STATUS: <tspan fill="#34d399" font-weight="bold">NOMINAL</tspan></text>
+              <rect x="25" y="325" width="490" height="32" rx="4" class="svg-theme-node-bg" fill="rgba(10,15,25,0.95)" stroke="var(--border-subtle)"/>
+              <text x="40" y="346" class="svg-theme-node-subtext" fill="#cbd5e1" font-family="monospace" font-size="12">FLEET: <tspan fill="var(--accent-cyan)" font-weight="bold">ONLINE</tspan> | ROBOT-01: <tspan fill="var(--accent-cyan)" font-weight="bold">ENGAGED (TRANSFERRING)</tspan> | STATUS: <tspan fill="var(--color-success)" font-weight="bold">NOMINAL</tspan></text>
             </svg>
 
             <div style="margin-top: 10px; font-size: 0.82rem; color: var(--text-secondary); text-align: center; font-family: var(--font-mono);">
@@ -268,43 +296,43 @@
 
             <svg viewBox="0 0 660 300" width="100%" height="100%">
               <!-- 1. Parking Management -->
-              <rect x="15" y="15" width="195" height="95" rx="8" fill="#0f192b" stroke="#00f0ff" stroke-width="1.8"/>
-              <text x="25" y="42" fill="#00f0ff" font-family="monospace" font-size="13" font-weight="bold">01 // PARKING MGMT</text>
-              <text x="25" y="66" fill="#cbd5e1" font-size="12">&bull; Occupancy sensing</text>
-              <text x="25" y="84" fill="#cbd5e1" font-size="12">&bull; Space allocation logic</text>
-              <text x="25" y="100" fill="#cbd5e1" font-size="12">&bull; VIP slot reservations</text>
+              <rect x="15" y="15" width="195" height="95" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-pms)" stroke-width="1.8"/>
+              <text x="25" y="42" fill="var(--color-subsystem-pms)" font-family="monospace" font-size="13" font-weight="bold">01 // PARKING MGMT</text>
+              <text x="25" y="66" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Occupancy sensing</text>
+              <text x="25" y="84" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Space allocation logic</text>
+              <text x="25" y="100" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; VIP slot reservations</text>
 
               <!-- 2. Fleet Management -->
-              <rect x="450" y="15" width="195" height="95" rx="8" fill="#0f192b" stroke="#3b82f6" stroke-width="1.8"/>
-              <text x="460" y="42" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="bold">02 // FLEET MGMT</text>
-              <text x="460" y="66" fill="#cbd5e1" font-size="12">&bull; Hybrid multi-robot control</text>
-              <text x="460" y="84" fill="#cbd5e1" font-size="12">&bull; Central task assignment</text>
-              <text x="460" y="100" fill="#cbd5e1" font-size="12">&bull; Autonomous local nav</text>
+              <rect x="450" y="15" width="195" height="95" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-fleet)" stroke-width="1.8"/>
+              <text x="460" y="42" fill="var(--color-subsystem-fleet)" font-family="monospace" font-size="13" font-weight="bold">02 // FLEET MGMT</text>
+              <text x="460" y="66" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Hybrid multi-robot control</text>
+              <text x="460" y="84" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Central task assignment</text>
+              <text x="460" y="100" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Autonomous local nav</text>
 
               <!-- Central Core Bridge -->
-              <circle cx="330" cy="150" r="48" fill="#081020" stroke="#00f0ff" stroke-width="2.5"/>
-              <text x="330" y="145" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="15" font-weight="bold">sAIs</text>
-              <text x="330" y="164" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">CENTRAL HUB</text>
+              <circle cx="330" cy="150" r="48" class="svg-theme-node-bg" stroke="var(--accent-cyan)" stroke-width="2.5"/>
+              <text x="330" y="145" text-anchor="middle" class="svg-theme-node-header" fill="#ffffff" font-family="monospace" font-size="15" font-weight="bold">sAIs</text>
+              <text x="330" y="164" text-anchor="middle" fill="var(--accent-cyan)" font-family="monospace" font-size="11" font-weight="bold">CENTRAL HUB</text>
 
               <!-- 3. Mobile Application -->
-              <rect x="15" y="185" width="195" height="95" rx="8" fill="#0f192b" stroke="#10b981" stroke-width="1.8"/>
-              <text x="25" y="212" fill="#34d399" font-family="monospace" font-size="13" font-weight="bold">03 // MOBILE APP</text>
-              <text x="25" y="236" fill="#cbd5e1" font-size="12">&bull; User authentication</text>
-              <text x="25" y="254" fill="#cbd5e1" font-size="12">&bull; Retrieval dispatch</text>
-              <text x="25" y="270" fill="#cbd5e1" font-size="12">&bull; Real-time status tracking</text>
+              <rect x="15" y="185" width="195" height="95" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-app)" stroke-width="1.8"/>
+              <text x="25" y="212" fill="var(--color-subsystem-app)" font-family="monospace" font-size="13" font-weight="bold">03 // MOBILE APP</text>
+              <text x="25" y="236" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; User authentication</text>
+              <text x="25" y="254" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Retrieval dispatch</text>
+              <text x="25" y="270" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Real-time status tracking</text>
 
               <!-- 4. AI Analytics Engine -->
-              <rect x="450" y="185" width="195" height="95" rx="8" fill="#0f192b" stroke="#a855f7" stroke-width="1.8"/>
-              <text x="460" y="212" fill="#c084fc" font-family="monospace" font-size="13" font-weight="bold">04 // AI ANALYTICS</text>
-              <text x="460" y="236" fill="#cbd5e1" font-size="12">&bull; Demand forecasting</text>
-              <text x="460" y="254" fill="#cbd5e1" font-size="12">&bull; Arrival recommendations</text>
-              <text x="460" y="270" fill="#cbd5e1" font-size="12">&bull; Occupancy patterns</text>
+              <rect x="450" y="185" width="195" height="95" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-ai)" stroke-width="1.8"/>
+              <text x="460" y="212" fill="var(--color-subsystem-ai)" font-family="monospace" font-size="13" font-weight="bold">04 // AI ANALYTICS</text>
+              <text x="460" y="236" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Demand forecasting</text>
+              <text x="460" y="254" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Arrival recommendations</text>
+              <text x="460" y="270" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="12">&bull; Occupancy patterns</text>
 
               <!-- 5. Smart Services (Future) -->
-              <rect x="230" y="222" width="200" height="70" rx="6" fill="#181510" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <text x="240" y="244" fill="#fbbf24" font-family="monospace" font-size="12" font-weight="bold">05 // SMART SERVICES [FUTURE]</text>
-              <text x="240" y="264" fill="#cbd5e1" font-size="11.5">EV charging &amp; automated wash</text>
-              <text x="240" y="280" fill="#fbbf24" font-size="10.5">(Modular expansion design)</text>
+              <rect x="230" y="222" width="200" height="70" rx="6" class="svg-theme-node-bg" stroke="var(--color-subsystem-future)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="240" y="244" fill="var(--color-subsystem-future)" font-family="monospace" font-size="12" font-weight="bold">05 // SMART SERVICES [FUTURE]</text>
+              <text x="240" y="264" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">EV charging &amp; automated wash</text>
+              <text x="240" y="280" fill="var(--color-subsystem-future)" font-size="10.5">(Modular expansion design)</text>
 
               <!-- Connecting Bus Lines -->
               <path d="M 210 62 L 282 150 M 450 62 L 378 150 M 210 232 L 282 150 M 450 232 L 378 150 M 330 198 L 330 222" stroke="rgba(0, 240, 255, 0.55)" stroke-width="2"/>
@@ -413,83 +441,86 @@
           <!-- SVG System Architecture Diagram -->
           <svg viewBox="0 0 1280 430" width="100%" height="100%">
             <!-- Tier 1: User / Presentation Layer -->
-            <rect x="20" y="15" width="1240" height="90" rx="8" fill="#0b1220" stroke="#10b981" stroke-width="1.5"/>
-            <text x="35" y="42" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold">TIER 1 // USER &amp; INTERFACE LAYER</text>
+            <rect x="20" y="15" width="1240" height="90" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-app)" stroke-width="1.5"/>
+            <text x="35" y="42" fill="var(--color-subsystem-app)" font-family="monospace" font-size="14" font-weight="bold">TIER 1 // USER &amp; INTERFACE LAYER</text>
 
             <g transform="translate(140, 45)">
-              <rect x="0" y="0" width="240" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
-              <text x="120" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Customer Mobile App</text>
+              <rect x="0" y="0" width="240" height="46" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-app)" stroke-width="1.2"/>
+              <text x="120" y="28" text-anchor="middle" class="svg-theme-node-header" font-size="13" font-weight="700">Customer Mobile App</text>
             </g>
             <g transform="translate(520, 45)">
-              <rect x="0" y="0" width="240" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
-              <text x="120" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Facility Drop-Off Kiosks</text>
+              <rect x="0" y="0" width="240" height="46" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-app)" stroke-width="1.2"/>
+              <text x="120" y="28" text-anchor="middle" class="svg-theme-node-header" font-size="13" font-weight="700">Facility Drop-Off Kiosks</text>
             </g>
             <g transform="translate(900, 45)">
-              <rect x="0" y="0" width="250" height="46" rx="6" fill="#132034" stroke="#10b981" stroke-width="1.2"/>
-              <text x="125" y="28" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Operator Supervisory Console</text>
+              <rect x="0" y="0" width="250" height="46" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-app)" stroke-width="1.2"/>
+              <text x="125" y="28" text-anchor="middle" class="svg-theme-node-header" font-size="13" font-weight="700">Operator Supervisory Console</text>
             </g>
 
             <!-- Downward Bus 1 -->
-            <path d="M 260 105 L 260 140 M 640 105 L 640 140 M 1025 105 L 1025 140" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+            <path d="M 260 105 L 260 140 M 640 105 L 640 140 M 1025 105 L 1025 140" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="5 5"/>
 
             <!-- Tier 2: Central Platform Management -->
-            <rect x="20" y="140" width="1240" height="150" rx="8" fill="#0d172a" stroke="#00f0ff" stroke-width="2"/>
-            <text x="35" y="166" fill="#00f0ff" font-family="monospace" font-size="14" font-weight="bold">TIER 2 // CENTRAL MANAGEMENT PLATFORM (ORCHESTRATION &amp; LOGIC)</text>
+            <rect x="20" y="140" width="1240" height="150" rx="8" class="svg-theme-node-bg" stroke="var(--accent-cyan)" stroke-width="2"/>
+            <text x="35" y="166" fill="var(--accent-cyan)" font-family="monospace" font-size="14" font-weight="bold">TIER 2 // CENTRAL MANAGEMENT PLATFORM (ORCHESTRATION &amp; LOGIC)</text>
 
             <!-- Subsystems inside Tier 2 -->
             <g transform="translate(40, 180)">
-              <rect x="0" y="0" width="270" height="92" rx="6" fill="#13233d" stroke="#00f0ff" stroke-width="1.5"/>
-              <text x="15" y="26" fill="#00f0ff" font-family="monospace" font-size="13" font-weight="bold">Parking Management (PMS)</text>
-              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Real-time Bay Occupancy</text>
-              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Space Allocation Algorithm</text>
-              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; VIP Reservation Queue</text>
+              <rect x="0" y="0" width="270" height="92" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-pms)" stroke-width="1.5"/>
+              <text x="15" y="26" fill="var(--color-subsystem-pms)" font-family="monospace" font-size="13" font-weight="bold">Parking Management (PMS)</text>
+              <text x="15" y="47" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Real-time Bay Occupancy</text>
+              <text x="15" y="65" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Space Allocation Algorithm</text>
+              <text x="15" y="83" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; VIP Reservation Queue</text>
             </g>
 
             <g transform="translate(340, 180)">
-              <rect x="0" y="0" width="290" height="92" rx="6" fill="#13233d" stroke="#3b82f6" stroke-width="1.5"/>
-              <text x="15" y="26" fill="#60a5fa" font-family="monospace" font-size="13" font-weight="bold">Robotic Fleet Management</text>
-              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Centralized Task Dispatch</text>
-              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Fleet Availability Tracking</text>
-              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; Automated Battery Charging</text>
+              <rect x="0" y="0" width="290" height="92" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-fleet)" stroke-width="1.5"/>
+              <text x="15" y="26" fill="var(--color-subsystem-fleet)" font-family="monospace" font-size="13" font-weight="bold">Robotic Fleet Management</text>
+              <text x="15" y="47" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Centralized Task Dispatch</text>
+              <text x="15" y="65" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Fleet Availability Tracking</text>
+              <text x="15" y="83" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Automated Battery Charging</text>
             </g>
 
             <g transform="translate(660, 180)">
-              <rect x="0" y="0" width="280" height="92" rx="6" fill="#13233d" stroke="#a855f7" stroke-width="1.5"/>
-              <text x="15" y="26" fill="#c084fc" font-family="monospace" font-size="13" font-weight="bold">AI Analytics Engine</text>
-              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; Historical &amp; Real-time Data</text>
-              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Occupancy Forecasting</text>
-              <text x="15" y="83" fill="#cbd5e1" font-size="11.5">&bull; Arrival Recommendation Feed</text>
+              <rect x="0" y="0" width="280" height="92" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-ai)" stroke-width="1.5"/>
+              <text x="15" y="26" fill="var(--color-subsystem-ai)" font-family="monospace" font-size="13" font-weight="bold">AI Analytics Engine</text>
+              <text x="15" y="47" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Historical &amp; Real-time Data</text>
+              <text x="15" y="65" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Occupancy Forecasting</text>
+              <text x="15" y="83" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Arrival Recommendation Feed</text>
             </g>
 
             <g transform="translate(970, 180)">
-              <rect x="0" y="0" width="270" height="92" rx="6" fill="#1d1b17" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <text x="15" y="26" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="bold">Smart Services [Future]</text>
-              <text x="15" y="47" fill="#cbd5e1" font-size="11.5">&bull; EV Charger Routing Adapter</text>
-              <text x="15" y="65" fill="#cbd5e1" font-size="11.5">&bull; Automated Car Wash Queue</text>
-              <text x="15" y="83" fill="#fbbf24" font-size="11">&bull; Modular Plugin Architecture</text>
+              <rect x="0" y="0" width="270" height="92" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-future)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="15" y="26" fill="var(--color-subsystem-future)" font-family="monospace" font-size="13" font-weight="bold">Smart Services [Future]</text>
+              <text x="15" y="47" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; EV Charger Routing Adapter</text>
+              <text x="15" y="65" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11.5">&bull; Automated Car Wash Queue</text>
+              <text x="15" y="83" fill="var(--color-subsystem-future)" font-size="11">&bull; Modular Plugin Architecture</text>
             </g>
 
             <!-- Downward Bus 2 -->
-            <path d="M 485 272 L 485 320 M 175 272 L 175 320" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+            <path d="M 485 272 L 485 320 M 175 272 L 175 320" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="5 5"/>
 
             <!-- Tier 3: Physical Facility & Robot Edge Layer -->
-            <rect x="20" y="320" width="1240" height="95" rx="8" fill="#090f1a" stroke="#3b82f6" stroke-width="1.5"/>
-            <text x="35" y="343" fill="#60a5fa" font-family="monospace" font-size="14" font-weight="bold">TIER 3 // PHYSICAL INFRASTRUCTURE &amp; AUTONOMOUS ROBOT EDGE</text>
+            <rect x="20" y="320" width="1240" height="95" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-fleet)" stroke-width="1.5"/>
+            <text x="35" y="343" fill="var(--color-subsystem-fleet)" font-family="monospace" font-size="14" font-weight="bold">TIER 3 // PHYSICAL INFRASTRUCTURE &amp; AUTONOMOUS ROBOT EDGE</text>
 
             <g transform="translate(45, 352)">
-              <rect x="0" y="0" width="360" height="50" rx="6" fill="#0f192b" stroke="#00f0ff" stroke-width="1.2"/>
-              <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Facility Sensor Array</text>
-              <text x="15" y="40" fill="#cbd5e1" font-size="11">Ultrasonic bay monitors, camera OCR &amp; entrance loop detectors</text>
+              <rect x="0" y="0" width="360" height="50" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-pms)" stroke-width="1.2"/>
+              <text x="15" y="24" class="svg-theme-node-header" font-size="12.5" font-weight="700">Facility Sensor Array</text>
+              <text x="15" y="40" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11">Ultrasonic bay monitors, camera OCR &amp; entrance loop detectors</text>
             </g>
 
             <g transform="translate(435, 352)">
-              <rect x="0" y="0" width="400" height="50" rx="6" fill="#0f192b" stroke="#3b82f6" stroke-width="1.2"/>
-              <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Autonomous Mobile Robots (AGVs)</text>
-              <text x="15" y="40" fill="#cbd5e1" font-size="11">Local LiDAR SLAM, obstacle avoidance, mechanical wheel lifting</text>
+              <rect x="0" y="0" width="400" height="50" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-fleet)" stroke-width="1.2"/>
+              <text x="15" y="24" class="svg-theme-node-header" font-size="12.5" font-weight="700">Autonomous Mobile Robots (AGVs)</text>
+              <text x="15" y="40" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11">Local LiDAR SLAM, obstacle avoidance, mechanical wheel lifting</text>
             </g>
 
             <g transform="translate(865, 352)">
-              <rect x="0" y="0" width="375" height="50" rx="6" fill="#0f192b" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <rect x="0" y="0" width="375" height="50" rx="6" class="svg-theme-canvas" stroke="var(--color-subsystem-future)" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="15" y="24" class="svg-theme-node-header" font-size="12.5" font-weight="700">Service Infrastructure [Future]</text>
+              <text x="15" y="40" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11">Automated EV charging stations, vehicle washing bays</text>
+            </g>
               <text x="15" y="24" fill="#ffffff" font-size="12.5" font-weight="700">Service Infrastructure [Future]</text>
               <text x="15" y="40" fill="#cbd5e1" font-size="11">Automated EV charging stations, vehicle washing bays</text>
             </g>
@@ -557,74 +588,74 @@
 
             <svg viewBox="0 0 620 310" width="100%" height="100%">
               <!-- Floor Layout -->
-              <rect x="10" y="10" width="600" height="290" rx="8" fill="#090e18" stroke="rgba(255,255,255,0.12)"/>
+              <rect x="10" y="10" width="600" height="290" rx="8" class="svg-theme-canvas" fill="#090e18" stroke="var(--border-subtle)"/>
 
               <!-- Drop off / Pickup Zone -->
-              <rect x="25" y="25" width="125" height="260" rx="6" fill="#132338" stroke="#00f0ff" stroke-width="1.8"/>
-              <text x="35" y="52" fill="#00f0ff" font-family="monospace" font-size="12" font-weight="bold">DROP-OFF / PICKUP</text>
-              <rect x="35" y="70" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="#00f0ff" stroke-dasharray="3 3"/>
-              <text x="45" y="116" fill="#38bdf8" font-size="11" font-weight="bold">HANDOVER BAY 1</text>
-              <rect x="35" y="175" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="#00f0ff" stroke-dasharray="3 3"/>
-              <text x="45" y="221" fill="#38bdf8" font-size="11" font-weight="bold">HANDOVER BAY 2</text>
+              <rect x="25" y="25" width="125" height="260" rx="6" class="svg-theme-node-bg" stroke="var(--accent-cyan)" stroke-width="1.8"/>
+              <text x="35" y="52" fill="var(--accent-cyan)" font-family="monospace" font-size="12" font-weight="bold">DROP-OFF / PICKUP</text>
+              <rect x="35" y="70" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="var(--accent-cyan)" stroke-dasharray="3 3"/>
+              <text x="45" y="116" fill="var(--accent-cyan-dim)" font-size="11" font-weight="bold">HANDOVER BAY 1</text>
+              <rect x="35" y="175" width="105" height="85" rx="4" fill="rgba(0,240,255,0.08)" stroke="var(--accent-cyan)" stroke-dasharray="3 3"/>
+              <text x="45" y="221" fill="var(--accent-cyan-dim)" font-size="11" font-weight="bold">HANDOVER BAY 2</text>
 
               <!-- Central Robot Transit Aisle -->
-              <rect x="175" y="25" width="95" height="260" fill="rgba(255,255,255,0.03)"/>
-              <path d="M 222 25 L 222 285" stroke="rgba(0, 240, 255, 0.4)" stroke-width="2.5" stroke-dasharray="6 6"/>
-              <text x="185" y="150" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold" transform="rotate(-90 185,150)">AGV CORRIDOR (ROBOTS ONLY)</text>
+              <rect x="175" y="25" width="95" height="260" class="svg-theme-canvas" fill="rgba(255,255,255,0.03)"/>
+              <path d="M 222 25 L 222 285" stroke="var(--accent-cyan)" stroke-width="2.5" stroke-dasharray="6 6"/>
+              <text x="185" y="150" class="svg-theme-node-subtext" fill="#94a3b8" font-family="monospace" font-size="11" font-weight="bold" transform="rotate(-90 185,150)">AGV CORRIDOR (ROBOTS ONLY)</text>
 
               <!-- High Density Storage Grid -->
               <!-- Column A -->
               <g transform="translate(295, 30)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 101 [OCCUPIED]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-danger)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-danger)" font-size="11" font-family="monospace" font-weight="bold">BAY 101 [OCCUPIED]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
               </g>
               <g transform="translate(295, 85)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 102 [AVAILABLE]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Mid-size &bull; Cleared</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-success)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-success)" font-size="11" font-family="monospace" font-weight="bold">BAY 102 [AVAILABLE]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Mid-size &bull; Cleared</text>
               </g>
               <g transform="translate(295, 140)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 103 [OCCUPIED]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">SUV &bull; Slot Locked</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-danger)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-danger)" font-size="11" font-family="monospace" font-weight="bold">BAY 103 [OCCUPIED]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">SUV &bull; Slot Locked</text>
               </g>
               <g transform="translate(295, 195)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#2d2212" stroke="#f59e0b" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">BAY 104 [VIP HOLD]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Hold for ETA 19:45</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-warning)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-warning)" font-size="11" font-family="monospace" font-weight="bold">BAY 104 [VIP HOLD]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Hold for ETA 19:45</text>
               </g>
 
               <!-- Column B -->
               <g transform="translate(455, 30)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 105 [AVAILABLE]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Full-size &bull; Cleared</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-success)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-success)" font-size="11" font-family="monospace" font-weight="bold">BAY 105 [AVAILABLE]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Full-size &bull; Cleared</text>
               </g>
               <g transform="translate(455, 85)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 106 [OCCUPIED]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-danger)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-danger)" font-size="11" font-family="monospace" font-weight="bold">BAY 106 [OCCUPIED]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Sedan &bull; Slot Locked</text>
               </g>
               <g transform="translate(455, 140)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#162236" stroke="#ef4444" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">BAY 107 [OCCUPIED]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Compact &bull; Slot Locked</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-danger)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-danger)" font-size="11" font-family="monospace" font-weight="bold">BAY 107 [OCCUPIED]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Compact &bull; Slot Locked</text>
               </g>
               <g transform="translate(455, 195)">
-                <rect x="0" y="0" width="140" height="46" rx="4" fill="#0f2924" stroke="#10b981" stroke-width="1.2"/>
-                <text x="10" y="23" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">BAY 108 [AVAILABLE]</text>
-                <text x="10" y="38" fill="#cbd5e1" font-size="10">Electric &bull; Cleared</text>
+                <rect x="0" y="0" width="140" height="46" rx="4" class="svg-theme-node-bg" stroke="var(--color-success)" stroke-width="1.2"/>
+                <text x="10" y="23" fill="var(--color-success)" font-size="11" font-family="monospace" font-weight="bold">BAY 108 [AVAILABLE]</text>
+                <text x="10" y="38" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">Electric &bull; Cleared</text>
               </g>
 
               <!-- Legend -->
-              <rect x="295" y="255" width="300" height="32" rx="4" fill="#0c1424" stroke="rgba(255,255,255,0.1)"/>
-              <circle cx="315" cy="271" r="5" fill="#ef4444"/>
-              <text x="326" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">Occupied</text>
-              <circle cx="400" cy="271" r="5" fill="#10b981"/>
-              <text x="411" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">Available</text>
-              <circle cx="485" cy="271" r="5" fill="#f59e0b"/>
-              <text x="496" y="275" fill="#cbd5e1" font-size="11" font-weight="bold">VIP Reserved</text>
+              <rect x="295" y="255" width="300" height="32" rx="4" class="svg-theme-node-bg" fill="#0c1424" stroke="var(--border-subtle)"/>
+              <circle cx="315" cy="271" r="5" fill="var(--color-danger)"/>
+              <text x="326" y="275" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11" font-weight="bold">Occupied</text>
+              <circle cx="400" cy="271" r="5" fill="var(--color-success)"/>
+              <text x="411" y="275" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11" font-weight="bold">Available</text>
+              <circle cx="485" cy="271" r="5" fill="var(--color-warning)"/>
+              <text x="496" y="275" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="11" font-weight="bold">VIP Reserved</text>
             </svg>
 
             <div style="margin-top: 8px; font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); text-align: center;">
@@ -703,39 +734,39 @@
 
             <svg viewBox="0 0 520 280" width="100%" height="100%">
               <!-- Ground line -->
-              <line x1="20" y1="240" x2="500" y2="240" stroke="#64748b" stroke-width="2.5"/>
+              <line x1="20" y1="240" x2="500" y2="240" stroke="var(--text-muted)" stroke-width="2.5"/>
               <pattern id="hatch2" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path d="M 0 8 L 8 0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <path d="M 0 8 L 8 0" class="svg-theme-grid-line" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
               </pattern>
               <rect x="20" y="240" width="480" height="20" fill="url(#hatch2)"/>
 
               <!-- Vehicle Chassis Silhouette (Elevated) -->
               <g transform="translate(60, 38)">
-                <path d="M 30 140 Q 60 70 120 60 L 260 60 Q 320 65 350 120 L 370 140 L 10 140 Z" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                <path d="M 30 140 Q 60 70 120 60 L 260 60 Q 320 65 350 120 L 370 140 L 10 140 Z" class="svg-theme-vehicle-body" fill="#1e293b" stroke="var(--text-muted)" stroke-width="2"/>
                 <!-- Windows -->
                 <path d="M 125 70 L 255 70 L 290 120 L 105 120 Z" fill="rgba(0,240,255,0.15)"/>
                 
                 <!-- Front Tire (Elevated off floor) -->
-                <circle cx="80" cy="165" r="32" fill="#090d16" stroke="#cbd5e1" stroke-width="6"/>
+                <circle cx="80" cy="165" r="32" class="svg-theme-canvas" fill="#090d16" stroke="var(--text-secondary)" stroke-width="6"/>
                 <circle cx="80" cy="165" r="14" fill="#475569"/>
 
                 <!-- Rear Tire (Elevated off floor) -->
-                <circle cx="300" cy="165" r="32" fill="#090d16" stroke="#cbd5e1" stroke-width="6"/>
+                <circle cx="300" cy="165" r="32" class="svg-theme-canvas" fill="#090d16" stroke="var(--text-secondary)" stroke-width="6"/>
                 <circle cx="300" cy="165" r="14" fill="#475569"/>
 
                 <!-- Clearance gap indicator -->
-                <line x1="80" y1="197" x2="80" y2="202" stroke="#00f0ff" stroke-width="2"/>
-                <text x="95" y="202" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">&Delta;h = 60mm LIFT</text>
+                <line x1="80" y1="197" x2="80" y2="202" stroke="var(--accent-cyan)" stroke-width="2"/>
+                <text x="95" y="202" fill="var(--accent-cyan)" font-family="monospace" font-size="11" font-weight="bold">&Delta;h = 60mm LIFT</text>
               </g>
 
               <!-- Low-profile AGV Robotic Valet -->
               <g transform="translate(80, 208)">
                 <!-- Main robot body -->
-                <rect x="20" y="0" width="300" height="28" rx="4" fill="#0b172d" stroke="#00f0ff" stroke-width="2"/>
+                <rect x="20" y="0" width="300" height="28" rx="4" class="svg-theme-node-bg" fill="#0b172d" stroke="var(--accent-cyan)" stroke-width="2"/>
                 <!-- Front clamping mechanism cradle -->
-                <path d="M 35 12 L 35 -16 L 85 -16 L 85 12" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                <path d="M 35 12 L 35 -16 L 85 -16 L 85 12" fill="none" stroke="var(--accent-cyan)" stroke-width="3"/>
                 <!-- Rear clamping mechanism cradle -->
-                <path d="M 255 12 L 255 -16 L 305 -16 L 305 12" fill="none" stroke="#00f0ff" stroke-width="3"/>
+                <path d="M 255 12 L 255 -16 L 305 -16 L 305 12" fill="none" stroke="var(--accent-cyan)" stroke-width="3"/>
 
                 <!-- Robot internal drive wheels -->
                 <circle cx="50" cy="28" r="5" fill="#94a3b8"/>
@@ -743,9 +774,9 @@
                 <circle cx="170" cy="28" r="5" fill="#94a3b8"/>
 
                 <!-- LiDAR Sensor Pods -->
-                <circle cx="22" cy="14" r="4.5" fill="#00f0ff"/>
-                <circle cx="318" cy="14" r="4.5" fill="#00f0ff"/>
-                <text x="95" y="19" fill="#00f0ff" font-family="monospace" font-size="11" font-weight="bold">sAIs ROBOTIC VALET CHASSIS</text>
+                <circle cx="22" cy="14" r="4.5" fill="var(--accent-cyan)"/>
+                <circle cx="318" cy="14" r="4.5" fill="var(--accent-cyan)"/>
+                <text x="95" y="19" fill="var(--accent-cyan)" font-family="monospace" font-size="11" font-weight="bold">sAIs ROBOTIC VALET CHASSIS</text>
               </g>
             </svg>
 
@@ -818,47 +849,47 @@
 
             <svg viewBox="0 0 520 290" width="100%" height="100%">
               <!-- Central Fleet Manager Node -->
-              <rect x="140" y="15" width="240" height="72" rx="8" fill="#111f38" stroke="#3b82f6" stroke-width="2.2"/>
-              <text x="260" y="42" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">CENTRAL FLEET MANAGER</text>
-              <text x="260" y="62" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11" font-weight="bold">Global Task &amp; Route Orchestration</text>
+              <rect x="140" y="15" width="240" height="72" rx="8" class="svg-theme-node-bg" stroke="var(--color-subsystem-fleet)" stroke-width="2.2"/>
+              <text x="260" y="42" text-anchor="middle" class="svg-theme-node-header" font-weight="bold" font-size="13">CENTRAL FLEET MANAGER</text>
+              <text x="260" y="62" text-anchor="middle" fill="var(--color-subsystem-fleet)" font-family="monospace" font-size="11" font-weight="bold">Global Task &amp; Route Orchestration</text>
 
               <!-- Central Bi-directional Bus lines -->
-              <path d="M 260 87 L 105 160 M 260 87 L 260 160 M 260 87 L 415 160" stroke="#00f0ff" stroke-width="2" stroke-dasharray="5 5"/>
+              <path d="M 260 87 L 105 160 M 260 87 L 260 160 M 260 87 L 415 160" stroke="var(--accent-cyan)" stroke-width="2" stroke-dasharray="5 5"/>
 
               <!-- Robot 1 Node -->
               <g transform="translate(25, 160)">
-                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#00f0ff" stroke-width="1.5"/>
-                <text x="75" y="24" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-01 [ACTIVE]</text>
-                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Assigned: Bay 104</text>
-                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
-                <text x="12" y="80" fill="#cbd5e1" font-size="10">&bull; Obstacle: None</text>
-                <text x="12" y="94" fill="#34d399" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+                <rect x="0" y="0" width="150" height="100" rx="6" class="svg-theme-node-bg" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" fill="var(--accent-cyan)" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-01 [ACTIVE]</text>
+                <text x="12" y="46" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Assigned: Bay 104</text>
+                <text x="12" y="63" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
+                <text x="12" y="80" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Obstacle: None</text>
+                <text x="12" y="94" fill="var(--color-success)" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
               </g>
 
               <!-- Robot 2 Node -->
               <g transform="translate(185, 160)">
-                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#00f0ff" stroke-width="1.5"/>
-                <text x="75" y="24" text-anchor="middle" fill="#00f0ff" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-02 [RETRIEVE]</text>
-                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Assigned: Pickup 1</text>
-                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
-                <text x="12" y="80" fill="#fde047" font-size="10">&bull; Obstacle: Slow down</text>
-                <text x="12" y="94" fill="#34d399" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+                <rect x="0" y="0" width="150" height="100" rx="6" class="svg-theme-node-bg" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" fill="var(--accent-cyan)" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-02 [RETRIEVE]</text>
+                <text x="12" y="46" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Assigned: Pickup 1</text>
+                <text x="12" y="63" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Local LiDAR SLAM</text>
+                <text x="12" y="80" fill="var(--color-warning)" font-size="10">&bull; Obstacle: Slow down</text>
+                <text x="12" y="94" fill="var(--color-success)" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
               </g>
 
               <!-- Robot 3 Node -->
               <g transform="translate(345, 160)">
-                <rect x="0" y="0" width="150" height="100" rx="6" fill="#0d1728" stroke="#64748b" stroke-width="1.5"/>
-                <text x="75" y="24" text-anchor="middle" fill="#cbd5e1" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-03 [STANDBY]</text>
-                <text x="12" y="46" fill="#cbd5e1" font-size="10">&bull; Battery: 88% OK</text>
-                <text x="12" y="63" fill="#cbd5e1" font-size="10">&bull; Base Station Idle</text>
-                <text x="12" y="80" fill="#cbd5e1" font-size="10">&bull; Ready for dispatch</text>
-                <text x="12" y="94" fill="#38bdf8" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
+                <rect x="0" y="0" width="150" height="100" rx="6" class="svg-theme-node-bg" stroke="var(--text-muted)" stroke-width="1.5"/>
+                <text x="75" y="24" text-anchor="middle" class="svg-theme-node-subtext" fill="#cbd5e1" font-family="monospace" font-size="11.5" font-weight="bold">ROBOT-03 [STANDBY]</text>
+                <text x="12" y="46" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Battery: 88% OK</text>
+                <text x="12" y="63" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Base Station Idle</text>
+                <text x="12" y="80" class="svg-theme-node-subtext" fill="#cbd5e1" font-size="10">&bull; Ready for dispatch</text>
+                <text x="12" y="94" fill="var(--accent-cyan-dim)" font-size="9.5" font-weight="bold">&bull; Autonomy: Local</text>
               </g>
 
               <!-- Telemetry indicators -->
-              <text x="95" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
-              <text x="270" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
-              <text x="415" y="125" fill="#00f0ff" font-family="monospace" font-size="10" font-weight="bold">Heartbeat</text>
+              <text x="95" y="125" fill="var(--accent-cyan)" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
+              <text x="270" y="125" fill="var(--accent-cyan)" font-family="monospace" font-size="10" font-weight="bold">Task &darr; Status &uarr;</text>
+              <text x="415" y="125" fill="var(--accent-cyan)" font-family="monospace" font-size="10" font-weight="bold">Heartbeat</text>
             </svg>
 
             <div style="font-size: 0.82rem; color: var(--text-secondary); font-family: var(--font-mono); text-align: center; margin-top: 6px;">
