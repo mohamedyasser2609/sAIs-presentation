@@ -30,6 +30,15 @@ export class HeroFacilityWebGL {
     this.animationTime = 0;
     this.cycleDuration = 20;
     this.rafId = null;
+    this.isRunning = false;
+    this.clock = new THREE.Clock();
+    this.lastWidth = 0;
+    this.lastHeight = 0;
+    this._lastHudPhase = '';
+    this._lastHudLift = '';
+    this._lastHudBay = '';
+    this._lastHudBayColor = '';
+    this._lastBayOccupied = null;
     this.prevPos = new THREE.Vector3();
 
     // Camera presets (clear of pillars, good composition)
@@ -53,8 +62,16 @@ export class HeroFacilityWebGL {
       this.buildRobot();
       this.setupEvents();
       this.applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
-      this.start();
-      console.log(`[sAIs 3D] Mounted #${containerId}`);
+
+      // Only run render loop if the containing slide is currently active
+      const parentSection = this.container.closest('section');
+      const isPresent = !parentSection || parentSection.classList.contains('present') || (typeof Reveal !== 'undefined' && Reveal.getCurrentSlide() === parentSection);
+      if (isPresent) {
+        this.start();
+      } else {
+        this.stop();
+      }
+      console.log(`[sAIs 3D] Mounted #${containerId} (active: ${isPresent})`);
     } catch (err) {
       console.error(`[sAIs 3D] Init error #${containerId}:`, err);
     }
@@ -132,8 +149,8 @@ export class HeroFacilityWebGL {
     this.camera.lookAt(this.currentLookAt);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
-    this.renderer.setSize(w, h);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setSize(w, h, false);
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -155,20 +172,20 @@ export class HeroFacilityWebGL {
     this.hemiLight = new THREE.HemisphereLight(0xf0f4ff, 0x3a3530, 1.2);
     this.scene.add(this.hemiLight);
 
-    // Main directional (sun-like) with shadows
+    // Main directional (sun-like) with optimized shadow map
     this.dirLight = new THREE.DirectionalLight(0xfff8ee, 2.2);
     this.dirLight.position.set(14, 26, 12);
     this.dirLight.castShadow = true;
-    this.dirLight.shadow.mapSize.width = 2048;
-    this.dirLight.shadow.mapSize.height = 2048;
-    this.dirLight.shadow.camera.near = 1;
-    this.dirLight.shadow.camera.far = 70;
-    const sd = 24;
+    this.dirLight.shadow.mapSize.width = 1024;
+    this.dirLight.shadow.mapSize.height = 1024;
+    this.dirLight.shadow.camera.near = 5;
+    this.dirLight.shadow.camera.far = 55;
+    const sd = 22;
     this.dirLight.shadow.camera.left = -sd;
     this.dirLight.shadow.camera.right = sd;
     this.dirLight.shadow.camera.top = sd;
     this.dirLight.shadow.camera.bottom = -sd;
-    this.dirLight.shadow.bias = -0.0004;
+    this.dirLight.shadow.bias = -0.0003;
     this.scene.add(this.dirLight);
 
     // Ceiling Fluorescent Fixtures (warm white point fill lights)
@@ -621,7 +638,11 @@ export class HeroFacilityWebGL {
      EVENTS
      ==================================================================== */
   setupEvents() {
-    window.addEventListener('resize', () => this.onResize());
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => this.onResize(), 100);
+    });
 
     const bind = (id, preset) => {
       const btn = document.getElementById(`${this.container.id}-btn-${id}`);
@@ -645,13 +666,26 @@ export class HeroFacilityWebGL {
       this.applyTheme(e.detail?.theme || 'dark');
     });
 
+    // Page Visibility: Sleep when tab is hidden or minimized
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.stop();
+      } else {
+        const parent = this.container.closest('section');
+        if (parent && parent.classList.contains('present')) {
+          this.start();
+        }
+      }
+    });
+
+    // Reveal.js Slide changed: ONLY render when slide is actively viewed
     if (typeof Reveal !== 'undefined') {
       const checkActive = (currSlide) => {
         const parent = this.container.closest('section');
         const isPresent = parent === currSlide || (!currSlide && parent && parent.classList.contains('present'));
         if (isPresent) {
           this.start();
-          setTimeout(() => this.onResize(), 60);
+          setTimeout(() => this.onResize(), 80);
         } else {
           this.stop();
         }
@@ -660,8 +694,7 @@ export class HeroFacilityWebGL {
       Reveal.on('ready', (ev) => checkActive(ev.currentSlide));
     }
 
-    setTimeout(() => this.onResize(), 100);
-    setTimeout(() => this.onResize(), 500);
+    setTimeout(() => this.onResize(), 150);
   }
 
   setCameraPreset(preset) {
@@ -704,17 +737,27 @@ export class HeroFacilityWebGL {
     const w = this.canvasContainer.clientWidth;
     const h = this.canvasContainer.clientHeight;
     if (w === 0 || h === 0) return;
+
+    // Prevent expensive buffer reallocation if dimensions have not changed
+    if (this.lastWidth === w && this.lastHeight === h) return;
+    this.lastWidth = w;
+    this.lastHeight = h;
+
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(w, h);
+    this.renderer.setSize(w, h, false);
   }
 
   /* ====================================================================
-     RENDER LOOP
+     RENDER LOOP (PERFORMANCE OPTIMIZED & SLEEP-CAPABLE)
      ==================================================================== */
   start() {
-    if (this.rafId) cancelAnimationFrame(this.rafId);
+    if (this.isRunning) return;
+    this.isRunning = true;
+    this.clock.start();
+
     const loop = () => {
+      if (!this.isRunning) return;
       this.update();
       this.renderer.render(this.scene, this.camera);
       this.rafId = requestAnimationFrame(loop);
@@ -723,11 +766,16 @@ export class HeroFacilityWebGL {
   }
 
   stop() {
-    if (this.rafId) { cancelAnimationFrame(this.rafId); this.rafId = null; }
+    this.isRunning = false;
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+    this.clock.stop();
   }
 
   /* ====================================================================
-     ANIMATION UPDATE — CORRECT HEADING FROM VELOCITY
+     ANIMATION UPDATE — DELTA TIME + MINIMAL DOM MUTATION
      ==================================================================== */
   update() {
     this.controls.update();
@@ -749,8 +797,9 @@ export class HeroFacilityWebGL {
 
     if (this.isPaused) return;
 
-    // --- Animation timeline ---
-    this.animationTime = (this.animationTime + 0.016) % this.cycleDuration;
+    // Smooth real delta time (capped to prevent jumps)
+    const delta = Math.min(this.clock.getDelta(), 0.05);
+    this.animationTime = (this.animationTime + delta) % this.cycleDuration;
     const t = this.animationTime / this.cycleDuration;
 
     // PATH WAYPOINTS (world coords):
@@ -840,8 +889,9 @@ export class HeroFacilityWebGL {
       this.transportCar.rotation.y = heading;
     }
 
-    // Bay status LED
-    if (this.targetBayLed && this.targetBayLine) {
+    // Bay status LED (only update when state changes to avoid GPU uniform re-uploads)
+    if (this.targetBayLed && this.targetBayLine && this._lastBayOccupied !== bayOccupied) {
+      this._lastBayOccupied = bayOccupied;
       const col = bayOccupied ? 0xef4444 : 0x00f0ff;
       this.targetBayLed.material.color.setHex(col);
       this.targetBayLine.material.color.setHex(col);
@@ -850,12 +900,21 @@ export class HeroFacilityWebGL {
     this.prevPos.set(rx, 0, rz);
   }
 
+  // Dirty-checked DOM updates to avoid 60fps style recalculations / reflows
   setHud(phase, lift, bay, bayColor) {
-    if (this.hudPhase) this.hudPhase.textContent = phase;
-    if (this.hudLift)  this.hudLift.textContent = lift;
-    if (this.hudBay) {
+    if (this.hudPhase && this._lastHudPhase !== phase) {
+      this.hudPhase.textContent = phase;
+      this._lastHudPhase = phase;
+    }
+    if (this.hudLift && this._lastHudLift !== lift) {
+      this.hudLift.textContent = lift;
+      this._lastHudLift = lift;
+    }
+    if (this.hudBay && (this._lastHudBay !== bay || this._lastHudBayColor !== bayColor)) {
       this.hudBay.textContent = bay;
       if (bayColor) this.hudBay.style.color = bayColor;
+      this._lastHudBay = bay;
+      this._lastHudBayColor = bayColor;
     }
   }
 
