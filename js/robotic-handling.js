@@ -190,6 +190,7 @@
           const isSlide7 = event.currentSlide && event.currentSlide.getAttribute('data-state') === 'slide-7';
           if (isSlide7) {
             this.isSlideActive = true;
+            this.setStep(1);
             this.startAutoPlay();
           } else {
             this.isSlideActive = false;
@@ -197,6 +198,24 @@
           }
         });
       }
+    }
+
+    stepForward() {
+      this.pauseAutoPlay();
+      if (this.currentStep < this.totalSteps) {
+        this.setStep(this.currentStep + 1);
+        return true;
+      }
+      return false;
+    }
+
+    stepBackward() {
+      this.pauseAutoPlay();
+      if (this.currentStep > 1) {
+        this.setStep(this.currentStep - 1);
+        return true;
+      }
+      return false;
     }
 
     setStep(stepNum) {

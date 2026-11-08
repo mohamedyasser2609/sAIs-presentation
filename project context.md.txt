@@ -1,0 +1,75 @@
+# sAIs – PROJECT KNOWLEDGE BASE
+
+## Project Identity
+
+- Name: sAIs – Smart Autonomous Intelligent System
+- Tagline: Your parking attendant, reimagined.
+- Category: Smart Mobility & Autonomous Parking
+- Deployment: Indoor Shopping Mall Parking Facility
+- Team: 6 Members
+- Primary Technology Benchmark: HL Robotics PARKIE
+- Robotic Architecture: Hybrid centralized fleet management and autonomous local robot control.
+
+## Project Documentation
+
+The `project_documents/` directory contains the official project documentation.
+
+Use these documents as the authoritative source for presentation content.
+
+| Document | Purpose |
+|---|---|
+| Project Charter | Project identity, scope, objectives, architecture and governance |
+| Project Plan | Work breakdown, project activities and execution strategy |
+| Resource Allocation | Team and technical resource requirements |
+| Risk Management | Risks, evaluation and mitigation |
+| Project Schedule | Timeline, dependencies and milestones |
+| Communication Plan | Stakeholder communication |
+| Quality Assurance | Quality standards and verification |
+| Budget Management | CAPEX, OPEX and financial feasibility |
+| Industry Case Study | Commercial technology benchmarks and industry analysis |
+| Final Report | Consolidated project information |
+
+## Instructions for the AI Agent
+
+1. Treat the latest approved project documents as the primary source of truth.
+2. Do not invent project figures, costs, technical specifications or implementation results.
+3. Distinguish proposed functionality from commercially demonstrated capabilities.
+4. Maintain consistency with the project charter.
+5. The deployment environment is exclusively an indoor shopping mall parking facility.
+6. The robotic architecture is hybrid, not fully decentralized.
+7. HL Robotics PARKIE is the primary technology benchmark, not a confirmed procurement selection.
+8. Future expansion services must remain distinguishable from core project functionality.
+9. Preserve the existing 16-slide Reveal.js presentation structure unless explicitly instructed otherwise.
+10. Keep presentation content modular and easy to update.
+
+## Documentation Usage Policy
+
+Do not unnecessarily ingest or summarize every project document in every conversation.
+
+Read only the documents relevant to the current task.
+
+For example:
+- Budget slides: consult Budget Management.
+- Risk slides: consult Risk Management.
+- Technical architecture: consult Project Charter and Final Report.
+- Team slides: consult Resource Allocation.
+- Timeline slides: consult Project Schedule.
+- Industry comparisons: consult Industry Case Study.
+
+When multiple documents contain conflicting information:
+- Identify the conflict.
+- Prioritize the latest approved baseline.
+- Do not silently choose between contradictory figures.
+- Ask for clarification when necessary.
+
+## Presentation Objective
+
+Produce a professional engineering proposal presentation.
+
+Priorities:
+
+1. Technical accuracy.
+2. Visual clarity.
+3. Consistency with project documentation.
+4. Projector readability.
+5. Professional visual storytelling.

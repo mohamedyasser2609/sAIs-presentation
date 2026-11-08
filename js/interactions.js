@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 12px; font-size: 0.86rem;">
         <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[RIGHT] / [SPACE]</div><div style="color: var(--text-primary);">Next slide</div>
         <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[LEFT]</div><div style="color: var(--text-primary);">Previous slide</div>
+        <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[ARROW KEYS]</div><div style="color: var(--text-primary);">Step interactive diagrams (Tiers, AGV steps, Fleet, AI curves)</div>
         <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[T]</div><div style="color: var(--text-primary);">Toggle Dark / Light Mode</div>
         <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[F]</div><div style="color: var(--text-primary);">Toggle Fullscreen</div>
         <div style="font-family: monospace; color: var(--accent-cyan); font-weight: bold;">[O] / [ESC]</div><div style="color: var(--text-primary);">Slide Overview Grid</div>
@@ -148,4 +149,55 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
     }
   });
+
+  // Intercept keyboard arrow navigation on interactive diagram slides (capture phase)
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    const isNext = e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown';
+    const isPrev = e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp';
+
+    if (!isNext && !isPrev) return;
+
+    // Get current Reveal slide's data-state
+    let currentSlide = null;
+    if (typeof Reveal !== 'undefined' && typeof Reveal.getCurrentSlide === 'function') {
+      currentSlide = Reveal.getCurrentSlide();
+    } else {
+      currentSlide = document.querySelector('.reveal .slides section.present');
+    }
+
+    if (!currentSlide) return;
+    const state = currentSlide.getAttribute('data-state');
+
+    let handled = false;
+
+    if (state === 'slide-5') {
+      // Multi-Tier System Architecture (All Tiers <-> Tier 1 <-> Tier 2 <-> Tier 3)
+      if (window._saisArchitecture) {
+        handled = isNext ? window._saisArchitecture.nextTier() : window._saisArchitecture.prevTier();
+      }
+    } else if (state === 'slide-7') {
+      // Autonomous Robotic Valet Mechanism (Step 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6)
+      if (window._saisRoboticHandling) {
+        handled = isNext ? window._saisRoboticHandling.stepForward() : window._saisRoboticHandling.stepBackward();
+      }
+    } else if (state === 'slide-8') {
+      // Hybrid Multi-Robot Fleet Management (Normal <-> Obstacle <-> Priority)
+      if (window._saisFleetCoordination) {
+        handled = isNext ? window._saisFleetCoordination.nextScenario() : window._saisFleetCoordination.prevScenario();
+      }
+    } else if (state === 'slide-10') {
+      // AI & Predictive Demand Analytics (Weekday <-> Weekend <-> Event)
+      if (window._saisAIAnalytics) {
+        handled = isNext ? window._saisAIAnalytics.nextProfile() : window._saisAIAnalytics.prevProfile();
+      }
+    }
+
+    if (handled) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  }, { capture: true });
 });

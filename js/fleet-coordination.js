@@ -29,8 +29,9 @@
               obs: 'Obstacle: Clear Path',
               obsColor: 'var(--color-success)',
               autonomy: 'Mode: Central Guidance',
-              trackX: 180,
-              trackY: 235,
+              trackX: 110,
+              trackY: 23,
+              iconFill: '#00f0ff',
               hasObstacle: false
             },
             r2: {
@@ -41,8 +42,9 @@
               obs: 'Obstacle: Corridor Clear',
               obsColor: 'var(--color-success)',
               autonomy: 'Mode: Central Guidance',
-              trackX: 290,
-              trackY: 260,
+              trackX: 260,
+              trackY: 47,
+              iconFill: '#3b82f6',
               hasObstacle: false
             },
             r3: {
@@ -54,7 +56,8 @@
               obsColor: 'var(--text-secondary)',
               autonomy: 'Mode: Standby Listener',
               trackX: 420,
-              trackY: 235,
+              trackY: 23,
+              iconFill: '#475569',
               hasObstacle: false
             }
           }
@@ -73,8 +76,9 @@
               obs: 'Obstacle: None (Clear)',
               obsColor: 'var(--color-success)',
               autonomy: 'Mode: Route Confirmed',
-              trackX: 210,
-              trackY: 235,
+              trackX: 180,
+              trackY: 23,
+              iconFill: '#00f0ff',
               hasObstacle: false
             },
             r2: {
@@ -85,8 +89,9 @@
               obs: 'Action: Auto-Braking -> Circumvent',
               obsColor: 'var(--color-danger)',
               autonomy: 'Autonomy: Edge Override Active',
-              trackX: 275,
-              trackY: 270,
+              trackX: 200,
+              trackY: 47,
+              iconFill: '#f59e0b',
               hasObstacle: true
             },
             r3: {
@@ -98,7 +103,8 @@
               obsColor: 'var(--text-secondary)',
               autonomy: 'Mode: Standby Listener',
               trackX: 420,
-              trackY: 235,
+              trackY: 23,
+              iconFill: '#475569',
               hasObstacle: false
             }
           }
@@ -117,8 +123,9 @@
               obs: 'Obstacle: None',
               obsColor: 'var(--color-success)',
               autonomy: 'Mode: Complete',
-              trackX: 230,
-              trackY: 235,
+              trackX: 260,
+              trackY: 23,
+              iconFill: '#00f0ff',
               hasObstacle: false
             },
             r2: {
@@ -129,8 +136,9 @@
               obs: 'Obstacle: None',
               obsColor: 'var(--color-success)',
               autonomy: 'Mode: Central Guidance',
-              trackX: 320,
-              trackY: 260,
+              trackX: 340,
+              trackY: 47,
+              iconFill: '#3b82f6',
               hasObstacle: false
             },
             r3: {
@@ -141,8 +149,9 @@
               obs: 'Priority: Level 1 Preempt',
               obsColor: 'var(--color-success)',
               autonomy: 'Autonomy: Express Corridor',
-              trackX: 380,
-              trackY: 235,
+              trackX: 400,
+              trackY: 23,
+              iconFill: '#00f0ff',
               hasObstacle: false
             }
           }
@@ -170,6 +179,7 @@
       this.container = document.querySelector('section[data-state="slide-8"]');
       if (!this.container) return;
 
+      this.scenarioOrder = ['normal', 'obstacle', 'priority'];
       this.scenarioButtons = this.container.querySelectorAll('.fleet-scenario-btn');
       this.scenarioLabel = document.getElementById('fleet-scenario-label');
       this.centralStatusText = document.getElementById('fleet-central-status');
@@ -183,6 +193,9 @@
       this.miniR1 = document.getElementById('fleet-track-r1');
       this.miniR2 = document.getElementById('fleet-track-r2');
       this.miniR3 = document.getElementById('fleet-track-r3');
+      this.iconR1 = document.getElementById('fleet-icon-r1');
+      this.iconR2 = document.getElementById('fleet-icon-r2');
+      this.iconR3 = document.getElementById('fleet-icon-r3');
       this.obstacleMarker = document.getElementById('fleet-obstacle-marker');
 
       // Data packets
@@ -220,6 +233,7 @@
           const isSlide8 = event.currentSlide && event.currentSlide.getAttribute('data-state') === 'slide-8';
           if (isSlide8) {
             this.isSlideActive = true;
+            this.applyScenario('normal');
             this.startPacketAnimation();
           } else {
             this.isSlideActive = false;
@@ -227,6 +241,24 @@
           }
         });
       }
+    }
+
+    nextScenario() {
+      const currIdx = this.scenarioOrder.indexOf(this.currentScenario);
+      if (currIdx < this.scenarioOrder.length - 1) {
+        this.applyScenario(this.scenarioOrder[currIdx + 1]);
+        return true;
+      }
+      return false;
+    }
+
+    prevScenario() {
+      const currIdx = this.scenarioOrder.indexOf(this.currentScenario);
+      if (currIdx > 0) {
+        this.applyScenario(this.scenarioOrder[currIdx - 1]);
+        return true;
+      }
+      return false;
     }
 
     applyScenario(scenarioKey) {
@@ -256,10 +288,14 @@
       this.updateRobotNode('r2', data.robots.r2);
       this.updateRobotNode('r3', data.robots.r3);
 
-      // 5. Update Mini Corridor Tracks
+      // 5. Update Mini Corridor Tracks & Icon Fills
       if (this.miniR1) this.miniR1.setAttribute('transform', `translate(${data.robots.r1.trackX}, ${data.robots.r1.trackY})`);
       if (this.miniR2) this.miniR2.setAttribute('transform', `translate(${data.robots.r2.trackX}, ${data.robots.r2.trackY})`);
       if (this.miniR3) this.miniR3.setAttribute('transform', `translate(${data.robots.r3.trackX}, ${data.robots.r3.trackY})`);
+
+      if (this.iconR1 && data.robots.r1.iconFill) this.iconR1.setAttribute('fill', data.robots.r1.iconFill);
+      if (this.iconR2 && data.robots.r2.iconFill) this.iconR2.setAttribute('fill', data.robots.r2.iconFill);
+      if (this.iconR3 && data.robots.r3.iconFill) this.iconR3.setAttribute('fill', data.robots.r3.iconFill);
 
       // 6. Obstacle Marker Visibility
       if (this.obstacleMarker) {

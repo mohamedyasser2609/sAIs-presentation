@@ -644,6 +644,7 @@
   font-weight: 700;
 }
 
+.risk-crit { background: rgba(220, 38, 38, 0.28); color: #fca5a5; border: 1px solid #ef4444; font-weight: 800; }
 .risk-high { background: rgba(239, 68, 68, 0.2); color: var(--color-danger); border: 1px solid var(--color-danger); }
 .risk-med { background: rgba(245, 158, 11, 0.2); color: var(--color-warning); border: 1px solid var(--color-warning); }
 .risk-low { background: rgba(16, 185, 129, 0.2); color: var(--color-success); border: 1px solid var(--color-success); }

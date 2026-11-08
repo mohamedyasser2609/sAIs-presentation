@@ -54,6 +54,9 @@
       if (!this.container) return;
 
       this.tierButtons = this.container.querySelectorAll('.arch-tier-btn');
+      this.prevBtn = document.getElementById('arch-prev-btn');
+      this.nextBtn = document.getElementById('arch-next-btn');
+      this.tierOrder = ['all', 'tier1', 'tier2', 'tier3'];
       this.toggle3DBtn = document.getElementById('arch-3d-toggle-btn');
       this.diagramWrapper = document.getElementById('arch-diagram-wrapper');
       this.tierTitle = document.getElementById('arch-tier-title');
@@ -76,7 +79,25 @@
         });
       });
 
-      // 3D Perspective Toggle
+      // Arrow navigation across tiers (Tier 1 <-> Tier 2 <-> Tier 3 <-> All)
+      if (this.prevBtn) {
+        this.prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const currIdx = this.tierOrder.indexOf(this.activeTier);
+          const nextIdx = (currIdx - 1 + this.tierOrder.length) % this.tierOrder.length;
+          this.setTier(this.tierOrder[nextIdx]);
+        });
+      }
+      if (this.nextBtn) {
+        this.nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const currIdx = this.tierOrder.indexOf(this.activeTier);
+          const nextIdx = (currIdx + 1) % this.tierOrder.length;
+          this.setTier(this.tierOrder[nextIdx]);
+        });
+      }
+
+      // 3D Perspective Toggle (if present)
       if (this.toggle3DBtn) {
         this.toggle3DBtn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -98,6 +119,34 @@
           });
         }
       });
+
+      // Synchronize with Reveal.js slides
+      if (typeof Reveal !== 'undefined') {
+        Reveal.on('slidechanged', (event) => {
+          const isSlide5 = event.currentSlide && event.currentSlide.getAttribute('data-state') === 'slide-5';
+          if (isSlide5) {
+            this.setTier('all');
+          }
+        });
+      }
+    }
+
+    nextTier() {
+      const currIdx = this.tierOrder.indexOf(this.activeTier);
+      if (currIdx < this.tierOrder.length - 1) {
+        this.setTier(this.tierOrder[currIdx + 1]);
+        return true;
+      }
+      return false;
+    }
+
+    prevTier() {
+      const currIdx = this.tierOrder.indexOf(this.activeTier);
+      if (currIdx > 0) {
+        this.setTier(this.tierOrder[currIdx - 1]);
+        return true;
+      }
+      return false;
     }
 
     setTier(tierKey) {

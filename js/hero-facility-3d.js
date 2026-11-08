@@ -30,15 +30,6 @@ export class HeroFacilityWebGL {
     this.animationTime = 0;
     this.cycleDuration = 20;
     this.rafId = null;
-    this.isRunning = false;
-    this.clock = new THREE.Clock();
-    this.lastWidth = 0;
-    this.lastHeight = 0;
-    this._lastHudPhase = '';
-    this._lastHudLift = '';
-    this._lastHudBay = '';
-    this._lastHudBayColor = '';
-    this._lastBayOccupied = null;
     this.prevPos = new THREE.Vector3();
 
     // Camera presets (clear of pillars, good composition)
@@ -62,16 +53,8 @@ export class HeroFacilityWebGL {
       this.buildRobot();
       this.setupEvents();
       this.applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
-
-      // Only run render loop if the containing slide is currently active
-      const parentSection = this.container.closest('section');
-      const isPresent = !parentSection || parentSection.classList.contains('present') || (typeof Reveal !== 'undefined' && Reveal.getCurrentSlide() === parentSection);
-      if (isPresent) {
-        this.start();
-      } else {
-        this.stop();
-      }
-      console.log(`[sAIs 3D] Mounted #${containerId} (active: ${isPresent})`);
+      this.start();
+      console.log(`[sAIs 3D] Mounted #${containerId}`);
     } catch (err) {
       console.error(`[sAIs 3D] Init error #${containerId}:`, err);
     }
@@ -149,13 +132,24 @@ export class HeroFacilityWebGL {
     this.camera.lookAt(this.currentLookAt);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
-    this.renderer.setSize(w, h, false);
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    this.renderer.setSize(w, h);
+
+    // Apply adaptive pixel ratio from performance manager (caps DPR for large displays)
+    const perfMgr = (typeof window !== 'undefined') ? window.saisPerformanceManager : null;
+    const dprCap  = perfMgr ? perfMgr.getPixelRatio(perfMgr.currentProfile) : Math.min(window.devicePixelRatio, 1.5);
+    this.renderer.setPixelRatio(dprCap);
+
+    // Shadow map — use profile-aware settings; fallback to PCFShadowMap (cheaper than Soft)
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    const shadowType = perfMgr ? perfMgr.getShadowMapType(perfMgr.currentProfile) : 'PCFShadowMap';
+    this.renderer.shadowMap.type = THREE[shadowType] ?? THREE.PCFShadowMap;
+
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.4;
     this.canvasContainer.appendChild(this.renderer.domElement);
+
+    // Register with performance manager so profile switches update this renderer
+    if (perfMgr) perfMgr.registerRenderer(this.renderer);
 
     // OrbitControls
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -172,20 +166,22 @@ export class HeroFacilityWebGL {
     this.hemiLight = new THREE.HemisphereLight(0xf0f4ff, 0x3a3530, 1.2);
     this.scene.add(this.hemiLight);
 
-    // Main directional (sun-like) with optimized shadow map
+    // Main directional (sun-like) with shadows
     this.dirLight = new THREE.DirectionalLight(0xfff8ee, 2.2);
     this.dirLight.position.set(14, 26, 12);
     this.dirLight.castShadow = true;
-    this.dirLight.shadow.mapSize.width = 1024;
-    this.dirLight.shadow.mapSize.height = 1024;
-    this.dirLight.shadow.camera.near = 5;
-    this.dirLight.shadow.camera.far = 55;
-    const sd = 22;
+    // Shadow map resolution from performance manager — cheaper on external/presentation profiles
+    const shadowSize = perfMgr ? perfMgr.getShadowMapSize(perfMgr.currentProfile) : 1024;
+    this.dirLight.shadow.mapSize.width  = shadowSize;
+    this.dirLight.shadow.mapSize.height = shadowSize;
+    this.dirLight.shadow.camera.near = 1;
+    this.dirLight.shadow.camera.far = 70;
+    const sd = 24;
     this.dirLight.shadow.camera.left = -sd;
     this.dirLight.shadow.camera.right = sd;
     this.dirLight.shadow.camera.top = sd;
     this.dirLight.shadow.camera.bottom = -sd;
-    this.dirLight.shadow.bias = -0.0003;
+    this.dirLight.shadow.bias = -0.0004;
     this.scene.add(this.dirLight);
 
     // Ceiling Fluorescent Fixtures (warm white point fill lights)
@@ -444,32 +440,30 @@ export class HeroFacilityWebGL {
     this.carsGroup = new THREE.Group();
     this.scene.add(this.carsGroup);
 
-    // Parked car in A-01
-    const c1 = this.createCar({ bodyColor: 0x1e3a8a, style: 'sedan' });
+    // Parked cars — static, no need to cast shadows (saves draw calls)
+    const c1 = this.createCar({ bodyColor: 0x1e3a8a, style: 'sedan', castShadows: false });
     c1.position.set(10, 0, -8);
-    c1.rotation.y = Math.PI; // facing -Z into bay
+    c1.rotation.y = Math.PI;
     this.carsGroup.add(c1);
 
-    // Parked car in A-02
-    const c2 = this.createCar({ bodyColor: 0xd1d5db, style: 'suv' });
+    const c2 = this.createCar({ bodyColor: 0xd1d5db, style: 'suv', castShadows: false });
     c2.position.set(10, 0, -3.5);
     c2.rotation.y = Math.PI;
     this.carsGroup.add(c2);
 
-    // Parked car in B-01
-    const c3 = this.createCar({ bodyColor: 0x334155, style: 'sedan' });
+    const c3 = this.createCar({ bodyColor: 0x334155, style: 'sedan', castShadows: false });
     c3.position.set(-10, 0, 8);
     c3.rotation.y = 0;
     this.carsGroup.add(c3);
 
-    // Transport car (the one the robot will move)
-    this.transportCar = this.createCar({ bodyColor: 0x94a3b8, style: 'sedan' });
+    // Transport car — moves during simulation; cast shadows so it looks grounded
+    this.transportCar = this.createCar({ bodyColor: 0x94a3b8, style: 'sedan', castShadows: true });
     this.transportCar.position.set(-10, 0, -6.5);
     this.transportCar.rotation.y = 0;
     this.carsGroup.add(this.transportCar);
   }
 
-  createCar({ bodyColor, style }) {
+  createCar({ bodyColor, style, castShadows = true }) {
     // LOCAL AXES:  front = +Z,  rear = -Z,  right = +X,  left = -X
     const car = new THREE.Group();
     const L = style === 'suv' ? 4.6 : 4.4;
@@ -485,7 +479,7 @@ export class HeroFacilityWebGL {
     const lowerGeo = new THREE.BoxGeometry(W, 0.50, L);
     const lower = new THREE.Mesh(lowerGeo, bodyMat);
     lower.position.y = 0.30;
-    lower.castShadow = true;
+    lower.castShadow = castShadows;
     lower.receiveShadow = true;
     car.add(lower);
 
@@ -495,7 +489,7 @@ export class HeroFacilityWebGL {
     const cabGeo = new THREE.BoxGeometry(W * 0.90, cabH, cabL);
     const cabin = new THREE.Mesh(cabGeo, glassMat);
     cabin.position.set(0, 0.55 + cabH / 2, -L * 0.04);
-    cabin.castShadow = true;
+    cabin.castShadow = castShadows;
     car.add(cabin);
 
     // Roof
@@ -504,11 +498,11 @@ export class HeroFacilityWebGL {
     roof.position.set(0, 0.55 + cabH + 0.03, -L * 0.04);
     car.add(roof);
 
-    // Wheels (front = +Z side)
+    // Wheels (front = +Z side) — reduced segments for better performance
     const wR = 0.32, wW = 0.2;
-    const wGeo = new THREE.CylinderGeometry(wR, wR, wW, 20);
+    const wGeo = new THREE.CylinderGeometry(wR, wR, wW, 16);  // 20→16
     wGeo.rotateZ(Math.PI / 2);
-    const rGeo = new THREE.CylinderGeometry(wR * 0.55, wR * 0.55, wW + 0.01, 12);
+    const rGeo = new THREE.CylinderGeometry(wR * 0.55, wR * 0.55, wW + 0.01, 10);  // 12→10
     rGeo.rotateZ(Math.PI / 2);
 
     const axleX = W / 2 - 0.05;
@@ -638,10 +632,20 @@ export class HeroFacilityWebGL {
      EVENTS
      ==================================================================== */
   setupEvents() {
-    let resizeTimer = null;
+    // Debounced resize — prevents renderer thrashing on HDMI connect/disconnect
+    let _resizeTimer = null;
     window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => this.onResize(), 100);
+      clearTimeout(_resizeTimer);
+      _resizeTimer = setTimeout(() => this.onResize(), 150);
+    });
+
+    // Pause when tab is hidden, resume when visible (saves GPU on alt-tab)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.stop();
+      } else if (this._slideIsActive !== false) {
+        this.start();
+      }
     });
 
     const bind = (id, preset) => {
@@ -666,26 +670,20 @@ export class HeroFacilityWebGL {
       this.applyTheme(e.detail?.theme || 'dark');
     });
 
-    // Page Visibility: Sleep when tab is hidden or minimized
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        this.stop();
-      } else {
-        const parent = this.container.closest('section');
-        if (parent && parent.classList.contains('present')) {
-          this.start();
-        }
-      }
+    // Listen for profile changes — update renderer pixel ratio on the fly
+    window.addEventListener('sais-profile-change', () => {
+      const pm = window.saisPerformanceManager;
+      if (pm && this.renderer) pm.applyProfile(this.renderer);
     });
 
-    // Reveal.js Slide changed: ONLY render when slide is actively viewed
     if (typeof Reveal !== 'undefined') {
       const checkActive = (currSlide) => {
         const parent = this.container.closest('section');
         const isPresent = parent === currSlide || (!currSlide && parent && parent.classList.contains('present'));
+        this._slideIsActive = isPresent;
         if (isPresent) {
           this.start();
-          setTimeout(() => this.onResize(), 80);
+          setTimeout(() => this.onResize(), 60);
         } else {
           this.stop();
         }
@@ -694,7 +692,8 @@ export class HeroFacilityWebGL {
       Reveal.on('ready', (ev) => checkActive(ev.currentSlide));
     }
 
-    setTimeout(() => this.onResize(), 150);
+    setTimeout(() => this.onResize(), 100);
+    setTimeout(() => this.onResize(), 500);
   }
 
   setCameraPreset(preset) {
@@ -737,50 +736,54 @@ export class HeroFacilityWebGL {
     const w = this.canvasContainer.clientWidth;
     const h = this.canvasContainer.clientHeight;
     if (w === 0 || h === 0) return;
-
-    // Prevent expensive buffer reallocation if dimensions have not changed
-    if (this.lastWidth === w && this.lastHeight === h) return;
-    this.lastWidth = w;
-    this.lastHeight = h;
-
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(w, h, false);
+    this.renderer.setSize(w, h);
+    // Re-apply pixel ratio cap in case display changed (e.g. HDMI connect/disconnect)
+    if (window.saisPerformanceManager) {
+      window.saisPerformanceManager.applyProfile(this.renderer);
+    }
   }
 
   /* ====================================================================
-     RENDER LOOP (PERFORMANCE OPTIMIZED & SLEEP-CAPABLE)
+     RENDER LOOP — delta-time based (frame-rate independent)
      ==================================================================== */
   start() {
-    if (this.isRunning) return;
-    this.isRunning = true;
-    this.clock.start();
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+    this._lastFrameTime = performance.now();
+    const loop = (timestamp) => {
+      // --- Delta-time calculation ---
+      const rawDelta = (timestamp - this._lastFrameTime) / 1000; // seconds
+      this._lastFrameTime = timestamp;
+      // Cap at 50 ms to avoid animation jumps after tab switch / inactivity
+      const delta = Math.min(rawDelta, 0.05);
 
-    const loop = () => {
-      if (!this.isRunning) return;
-      this.update();
+      this.update(delta);
       this.renderer.render(this.scene, this.camera);
+
+      // Let the performance manager track FPS / draw calls
+      if (window.saisPerformanceManager) {
+        window.saisPerformanceManager.tick(this.renderer);
+      }
+
       this.rafId = requestAnimationFrame(loop);
     };
     this.rafId = requestAnimationFrame(loop);
   }
 
   stop() {
-    this.isRunning = false;
-    if (this.rafId) {
-      cancelAnimationFrame(this.rafId);
-      this.rafId = null;
-    }
-    this.clock.stop();
+    if (this.rafId) { cancelAnimationFrame(this.rafId); this.rafId = null; }
   }
 
   /* ====================================================================
-     ANIMATION UPDATE — DELTA TIME + MINIMAL DOM MUTATION
+     ANIMATION UPDATE — CORRECT HEADING FROM VELOCITY
      ==================================================================== */
-  update() {
+  update(delta = 0.016) {
     this.controls.update();
 
     // Camera transition (skip if user is manually orbiting)
+    // Frame-rate independent lerp: lerp(speed * 60 * delta) normalises to 60FPS baseline
+    const lerpAlpha = Math.min(1, this.cameraLerpSpeed * 60 * delta);
     if (!this.userInteracted) {
       if (this.currentPreset === 'track') {
         this.targetCameraLookAt.copy(this.robotGroup.position);
@@ -790,15 +793,14 @@ export class HeroFacilityWebGL {
           this.robotGroup.position.z + 10
         );
       }
-      this.camera.position.lerp(this.targetCameraPos, this.cameraLerpSpeed);
-      this.currentLookAt.lerp(this.targetCameraLookAt, this.cameraLerpSpeed);
+      this.camera.position.lerp(this.targetCameraPos, lerpAlpha);
+      this.currentLookAt.lerp(this.targetCameraLookAt, lerpAlpha);
       this.controls.target.copy(this.currentLookAt);
     }
 
     if (this.isPaused) return;
 
-    // Smooth real delta time (capped to prevent jumps)
-    const delta = Math.min(this.clock.getDelta(), 0.05);
+    // --- Animation timeline (delta-time based — frame-rate independent) ---
     this.animationTime = (this.animationTime + delta) % this.cycleDuration;
     const t = this.animationTime / this.cycleDuration;
 
@@ -889,9 +891,8 @@ export class HeroFacilityWebGL {
       this.transportCar.rotation.y = heading;
     }
 
-    // Bay status LED (only update when state changes to avoid GPU uniform re-uploads)
-    if (this.targetBayLed && this.targetBayLine && this._lastBayOccupied !== bayOccupied) {
-      this._lastBayOccupied = bayOccupied;
+    // Bay status LED
+    if (this.targetBayLed && this.targetBayLine) {
       const col = bayOccupied ? 0xef4444 : 0x00f0ff;
       this.targetBayLed.material.color.setHex(col);
       this.targetBayLine.material.color.setHex(col);
@@ -900,21 +901,12 @@ export class HeroFacilityWebGL {
     this.prevPos.set(rx, 0, rz);
   }
 
-  // Dirty-checked DOM updates to avoid 60fps style recalculations / reflows
   setHud(phase, lift, bay, bayColor) {
-    if (this.hudPhase && this._lastHudPhase !== phase) {
-      this.hudPhase.textContent = phase;
-      this._lastHudPhase = phase;
-    }
-    if (this.hudLift && this._lastHudLift !== lift) {
-      this.hudLift.textContent = lift;
-      this._lastHudLift = lift;
-    }
-    if (this.hudBay && (this._lastHudBay !== bay || this._lastHudBayColor !== bayColor)) {
+    if (this.hudPhase) this.hudPhase.textContent = phase;
+    if (this.hudLift)  this.hudLift.textContent = lift;
+    if (this.hudBay) {
       this.hudBay.textContent = bay;
       if (bayColor) this.hudBay.style.color = bayColor;
-      this._lastHudBay = bay;
-      this._lastHudBayColor = bayColor;
     }
   }
 

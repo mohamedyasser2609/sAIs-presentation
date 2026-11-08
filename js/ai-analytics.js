@@ -66,6 +66,9 @@
       if (!this.container) return;
 
       this.modeButtons = this.container.querySelectorAll('.ai-mode-btn');
+      this.prevBtn = document.getElementById('ai-prev-btn');
+      this.nextBtn = document.getElementById('ai-next-btn');
+      this.modeOrder = ['weekday', 'weekend', 'event'];
       this.titleEl = document.getElementById('ai-chart-title');
       this.occupancyEl = document.getElementById('ai-chart-occupancy');
       this.recommendationEl = document.getElementById('ai-chart-recommendation');
@@ -85,6 +88,52 @@
           this.applyMode(mode);
         });
       });
+
+      // Arrow navigation across demand curve profiles (Weekday <-> Weekend <-> Event)
+      if (this.prevBtn) {
+        this.prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const currIdx = this.modeOrder.indexOf(this.currentMode);
+          const nextIdx = (currIdx - 1 + this.modeOrder.length) % this.modeOrder.length;
+          this.applyMode(this.modeOrder[nextIdx]);
+        });
+      }
+      if (this.nextBtn) {
+        this.nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const currIdx = this.modeOrder.indexOf(this.currentMode);
+          const nextIdx = (currIdx + 1) % this.modeOrder.length;
+          this.applyMode(this.modeOrder[nextIdx]);
+        });
+      }
+
+      // Synchronize with Reveal.js slides
+      if (typeof Reveal !== 'undefined') {
+        Reveal.on('slidechanged', (event) => {
+          const isSlide10 = event.currentSlide && event.currentSlide.getAttribute('data-state') === 'slide-10';
+          if (isSlide10) {
+            this.applyMode('weekday');
+          }
+        });
+      }
+    }
+
+    nextProfile() {
+      const currIdx = this.modeOrder.indexOf(this.currentMode);
+      if (currIdx < this.modeOrder.length - 1) {
+        this.applyMode(this.modeOrder[currIdx + 1]);
+        return true;
+      }
+      return false;
+    }
+
+    prevProfile() {
+      const currIdx = this.modeOrder.indexOf(this.currentMode);
+      if (currIdx > 0) {
+        this.applyMode(this.modeOrder[currIdx - 1]);
+        return true;
+      }
+      return false;
     }
 
     applyMode(modeKey) {

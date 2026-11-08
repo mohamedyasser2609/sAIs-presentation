@@ -437,7 +437,32 @@
 }
 
 /* ==========================================================================
-   11. ACCESSIBILITY: REDUCED MOTION PREFERENCE
+   11. HERO LOGO NEON GLOW ANIMATION
+   ========================================================================== */
+@keyframes neon-letter-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.98);
+    filter: blur(22px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(28px);
+  }
+}
+
+.hero-letter-neon-glow {
+  animation: neon-letter-pulse 3.8s infinite ease-in-out;
+}
+
+[data-theme="light"] .hero-letter-neon-glow {
+  opacity: 0.45;
+  background: radial-gradient(ellipse at center, rgba(0, 180, 216, 0.35) 0%, rgba(0, 180, 216, 0.12) 50%, transparent 75%) !important;
+}
+
+/* ==========================================================================
+   12. ACCESSIBILITY: REDUCED MOTION PREFERENCE
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
