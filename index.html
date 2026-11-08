@@ -1506,7 +1506,705 @@
       </section>
 
       <!-- ====================================================================
-           SLIDE 11: SMART SERVICES AND FUTURE EXPANSION
+           SLIDE 13: IMPLEMENTATION STRATEGY & SCHEDULE ROADMAP (MERGED)
+           ==================================================================== -->
+      <section data-state="slide-13" data-category="Project Roadmap">
+        <div class="slide-header">
+          <div class="slide-category">Execution Roadmap &bull; Phased Strategy &amp; Milestones</div>
+          <h2>Implementation Strategy &amp; Schedule Roadmap</h2>
+          <p class="slide-subtitle">
+            A disciplined 24-month ground-up development engine (Plan A) paired with critical milestone gates and an accelerated 9-month turnkey option (Plan B).
+          </p>
+        </div>
+
+        <div class="grid-split-60-40" style="align-items: stretch; gap: 20px; min-height: 520px;">
+          <!-- Left Column: Plan A Phases & Critical Milestones Blocks -->
+          <div style="display: flex; flex-direction: column; height: 100%;">
+            <div class="card card-subsystem-1" style="padding: 18px 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.86rem; color: var(--accent-cyan); font-weight: bold; letter-spacing: 0.05em;">
+                    PLAN A: BUILD &amp; DEPLOY ROADMAP (24 MONTHS)
+                  </div>
+                  <span class="badge" style="font-size: 0.72rem; padding: 2px 8px;">6 PHASES &bull; 6 GATES</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0 0 14px 0; line-height: 1.45;">
+                  Ground-up engineering development lifecycle paired with verifiable phase gate criteria and regulatory sign-offs:
+                </p>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 7px; flex: 1; justify-content: space-around;">
+                <!-- Phase 1 -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.83rem;">Phase 1: Initiation &amp; Feasibility</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">System requirements, civil constraints &amp; partner mall LOI</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); font-weight: bold;">M01&ndash;M05</span><br>
+                    <span class="badge" style="font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M1 &bull; M03</span>
+                  </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.83rem;">Phase 2: Architecture &amp; Safety Design</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">Station CAD, robotic corridor mapping &amp; hazard isolation</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); font-weight: bold;">M03&ndash;M08</span><br>
+                    <span class="badge badge-teal" style="font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M2 &bull; M08</span>
+                  </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.83rem;">Phase 3: Core System Build</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">IoT bay sensors, PMS server engine &amp; mobile app MVP</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); font-weight: bold;">M07&ndash;M14</span><br>
+                    <span class="badge badge-blue" style="font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M3 &bull; M14</span>
+                  </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.83rem;">Phase 4: Advanced Fleet Autonomy</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">AGV chassis build, SLAM fusion &amp; multi-robot dispatcher</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); font-weight: bold;">M09&ndash;M18</span><br>
+                    <span class="badge badge-purple" style="font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M4 &bull; M18</span>
+                  </div>
+                </div>
+
+                <!-- Phase 5 -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.83rem;">Phase 5: Closed-Track Testing</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">Barricaded test track, stress trials &amp; safety certification</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-cyan); font-weight: bold;">M15&ndash;M21</span><br>
+                    <span class="badge badge-amber" style="font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M5 &bull; M21</span>
+                  </div>
+                </div>
+
+                <!-- Phase 6 -->
+                <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--color-success); font-size: 0.83rem;">Phase 6: Mall Fit-Out &amp; Launch</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.75rem;">Civil fit-out, staff SOP training &amp; commercial launch</span>
+                  </div>
+                  <div style="text-align: right; white-space: nowrap; margin-left: 10px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--color-success); font-weight: bold;">M18&ndash;M24</span><br>
+                    <span class="badge" style="background: rgba(16,185,129,0.2); color: var(--color-success); border: 1px solid var(--color-success); font-size: 0.62rem; padding: 1px 6px; margin-top: 2px;">Gate M6 &bull; M24</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Plan B Fast-Track Turnkey Expansion -->
+          <div style="display: flex; flex-direction: column; height: 100%;">
+            <div class="card" style="padding: 18px 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; border-left: 4px solid #fbbf24;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.86rem; color: #fbbf24; font-weight: bold; letter-spacing: 0.05em;">
+                    PLAN B: TURNKEY EXPANSION (9 MONTHS)
+                  </div>
+                  <span class="badge badge-amber" style="font-size: 0.72rem; padding: 2px 8px;">FAST-TRACK</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0 0 14px 0; line-height: 1.45;">
+                  Pre-certified commercial AGVs and existing software stack, bypassing ground-up R&amp;D for rapid multi-site commercial deployment:
+                </p>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; flex: 1; justify-content: space-around;">
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.84rem;">Stage 1: Site Survey &amp; Layout</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.76rem;">Facility structural assessment &amp; bay mapping</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #fbbf24; font-weight: bold;">M1&ndash;M3</span>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.84rem;">Stage 2: Fleet Delivery</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.76rem;">Pre-certified commercial AGV procurement</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #fbbf24; font-weight: bold;">M2&ndash;M5</span>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--text-white); font-size: 0.84rem;">Stage 3: Civil &amp; Hardware Fit-Out</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.76rem;">Station kiosks, barriers &amp; floor epoxy</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.78rem; color: #fbbf24; font-weight: bold;">M3&ndash;M6</span>
+                </div>
+
+                <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: var(--color-success); font-size: 0.84rem;">Stage 4: Commissioning &amp; Launch</strong><br>
+                    <span style="color: var(--text-secondary); font-size: 0.76rem;">Integration trials &amp; commercial public handover</span>
+                  </div>
+                  <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-success); font-weight: bold;">M5&ndash;M9</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 16: QUALITY ASSURANCE PLAN & SYSTEM VERIFICATION
+           ==================================================================== -->
+      <section data-state="slide-qa" data-category="Project Governance">
+        <div class="slide-header">
+          <div class="slide-category">Project Governance &bull; Quality Assurance</div>
+          <h2>Quality Assurance Plan &amp; Verification Framework</h2>
+        </div>
+
+        <div class="grid-split-55-45" style="align-items: stretch; gap: 20px;">
+          <!-- Left Column: 7-Stage Testing Hierarchy & Key Metrics -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+            <div class="card card-subsystem-2" style="padding: 16px 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.84rem; color: var(--accent-cyan); font-weight: bold; letter-spacing: 0.05em;">
+                  7-STAGE VERIFICATION PROTOCOL
+                </div>
+                <span class="badge badge-cyan" id="qa-stepper-indicator" style="font-size: 0.68rem; padding: 2px 8px; cursor: pointer;" title="Use keyboard arrow keys or click to advance verification handoff">STAGE: ALL &bull; PRESS &rarr;</span>
+              </div>
+
+              <!-- Two-Row Sequential Pipeline with Directional Arrows -->
+              <div class="qa-pipeline-grid">
+                <!-- Row 1: Stages 01 to 04 (Left to Right) -->
+                <div class="qa-stage-row">
+                  <!-- Stage 1 -->
+                  <div class="qa-stage-block" data-stage="1">
+                    <div class="qa-stage-num">STAGE 01</div>
+                    <div class="qa-stage-title">Unit Testing</div>
+                    <div class="qa-stage-desc">Sensors &amp; telemetry logic</div>
+                  </div>
+
+                  <!-- Arrow 1 -> 2 -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="1" title="Handoff 01 &rarr; 02">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 2 -->
+                  <div class="qa-stage-block" data-stage="2">
+                    <div class="qa-stage-num">STAGE 02</div>
+                    <div class="qa-stage-title">Functional Testing</div>
+                    <div class="qa-stage-desc">Bay reservation &amp; barrier locks</div>
+                  </div>
+
+                  <!-- Arrow 2 -> 3 -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="2" title="Handoff 02 &rarr; 03">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 3 -->
+                  <div class="qa-stage-block" data-stage="3">
+                    <div class="qa-stage-num">STAGE 03</div>
+                    <div class="qa-stage-title">Integration Testing</div>
+                    <div class="qa-stage-desc">Sensor &rarr; PMS &rarr; Mobile App</div>
+                  </div>
+
+                  <!-- Arrow 3 -> 4 -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="3" title="Handoff 03 &rarr; 04">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 4 -->
+                  <div class="qa-stage-block" data-stage="4">
+                    <div class="qa-stage-num">STAGE 04</div>
+                    <div class="qa-stage-title">Robotic Safety</div>
+                    <div class="qa-stage-desc">LiDAR obstacle &amp; E-Stop interlock</div>
+                  </div>
+                </div>
+
+                <!-- Inter-Row Handoff Connector: Stage 04 directly down into Stage 05 -->
+                <div class="qa-connector-row" style="display: flex; align-items: center; gap: 6px; height: 18px; margin: -2px 0;">
+                  <div style="flex: 1;"></div>
+                  <div style="width: 20px; flex-shrink: 0;"></div>
+                  <div style="flex: 1;"></div>
+                  <div style="width: 20px; flex-shrink: 0;"></div>
+                  <div style="flex: 1;"></div>
+                  <div style="width: 20px; flex-shrink: 0;"></div>
+                  <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                    <div class="qa-arrow qa-arrow-v" data-arrow-index="4" title="Handoff 04 &darr; 05">
+                      <svg viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 2: Stages 05 to 07 + Final Sign-Off (Flipped Right-to-Left: 05 <- 06 <- 07 <- Final) -->
+                <div class="qa-stage-row">
+                  <!-- Final Outcome Badge (Bottom Left, below Stage 01) -->
+                  <div class="qa-stage-block qa-final-gate" data-stage="final" style="border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">
+                    <div class="qa-stage-num" style="color: var(--color-success);">FINAL GATE</div>
+                    <div class="qa-stage-title" style="color: var(--color-success);">Zero-Defect Sign-Off</div>
+                    <div class="qa-stage-desc" style="color: var(--text-secondary);">Full certification handover</div>
+                  </div>
+
+                  <!-- Arrow 7 -> Final Gate (pointing LEFT) -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="7" title="Handoff 07 &larr; Sign-Off">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 7 -->
+                  <div class="qa-stage-block" data-stage="7">
+                    <div class="qa-stage-num">STAGE 07</div>
+                    <div class="qa-stage-title">System Acceptance</div>
+                    <div class="qa-stage-desc">End-to-end 500-bay stress trials</div>
+                  </div>
+
+                  <!-- Arrow 6 -> 7 (pointing LEFT) -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="6" title="Handoff 06 &larr; 07">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 6 -->
+                  <div class="qa-stage-block" data-stage="6">
+                    <div class="qa-stage-num">STAGE 06</div>
+                    <div class="qa-stage-title">AI Model Evaluation</div>
+                    <div class="qa-stage-desc">Forecast accuracy (MAE / RMSE)</div>
+                  </div>
+
+                  <!-- Arrow 5 -> 6 (pointing LEFT) -->
+                  <div class="qa-arrow qa-arrow-h" data-arrow-index="5" title="Handoff 05 &larr; 06">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Stage 5 (Bottom Right, directly below Stage 04) -->
+                  <div class="qa-stage-block" data-stage="5">
+                    <div class="qa-stage-num">STAGE 05</div>
+                    <div class="qa-stage-title">App Usability</div>
+                    <div class="qa-stage-desc">Task completion &amp; UX friction</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Quality Performance Indicators (KPIs) -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">DETECTION ACC.</div>
+                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--color-success); margin-top: 4px;">&ge; 98.0%</div>
+                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Sensor accuracy</div>
+              </div>
+              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">ALLOCATION RATE</div>
+                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--accent-cyan); margin-top: 4px;">&ge; 99.0%</div>
+                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Success without delay</div>
+              </div>
+              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">DOUBLE BOOKING</div>
+                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--accent-teal); margin-top: 4px;">0 CONFLICTS</div>
+                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Transaction locks</div>
+              </div>
+              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">SAFETY FAILURES</div>
+                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: #ef4444; margin-top: 4px;">0 TOLERANCE</div>
+                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Fail-safe hard stop</div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- Right Column: 10-Point Checklist & Corrective Action (CAPA) -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+            <div class="card" style="padding: 16px 18px; border-left: 4px solid var(--accent-cyan);">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 8px;">
+                10-POINT SYSTEM QUALITY ASSESSMENT CHECKLIST
+              </div>
+              <ul style="font-size: 0.84rem; padding-left: 18px; margin: 0; color: var(--text-secondary); line-height: 1.6;">
+                <li><strong style="color: var(--text-white);">Detection Accuracy:</strong> Ultrasonic &amp; optical sensors verify bay status in real-time.</li>
+                <li><strong style="color: var(--text-white);">Conflict-Free Allocation:</strong> Algorithmic space assignment without duplicate claims.</li>
+                <li><strong style="color: var(--text-white);">VIP Protection:</strong> Cryptographic token reservation protection at barrier gates.</li>
+                <li><strong style="color: var(--text-white);">Robotic Transit Safety:</strong> Zero collisions via dynamic LiDAR edge obstacle avoidance.</li>
+                <li><strong style="color: var(--text-white);">Fail-Safe Response:</strong> Immediate autonomous brake interlock on communication loss.</li>
+                <li><strong style="color: var(--text-white);">Mobile UX Fluency:</strong> 1-tap retrieval with &ge; 95% user task success completion.</li>
+              </ul>
+            </div>
+
+            <!-- Closed-Loop Corrective Action Protocol (PDCA) -->
+            <div class="card" style="padding: 14px 18px; background: rgba(0, 240, 255, 0.02);">
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #fbbf24; font-weight: bold; margin-bottom: 6px;">
+                CLOSED-LOOP CORRECTIVE ACTION PROCEDURE (PDCA)
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); text-align: center;">
+                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:var(--accent-cyan); font-weight:bold;">1. IDENTIFY</span><br>Log defect</div>
+                <span>&rarr;</span>
+                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:#ef4444; font-weight:bold;">2. CLASSIFY</span><br>Severity Level</div>
+                <span>&rarr;</span>
+                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:#fbbf24; font-weight:bold;">3. ROOT CAUSE</span><br>Origin Audit</div>
+                <span>&rarr;</span>
+                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:var(--color-success); font-weight:bold;">4. RETEST</span><br>Sign-off Fix</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 17: RISK MANAGEMENT FRAMEWORK & MATRIX
+           ==================================================================== -->
+      <section data-state="slide-risk" data-category="Feasibility & Risk">
+        <div class="slide-header">
+          <div class="slide-category">Governance &bull; Risk Management Plan</div>
+          <h2>Risk Management Priority Matrix</h2>
+          <p class="slide-subtitle">
+            Comprehensive evaluation of 34 categorized project risks with targeted engineering controls and proactive fail-safes.
+          </p>
+        </div>
+
+        <div class="grid-split-60-40" style="align-items: stretch; gap: 20px;">
+          <!-- Left Column: Visual Risk Matrix & Action Protocol -->
+          <div style="display: flex; flex-direction: column; gap: 10px; justify-content: space-between;">
+            <!-- Risk Matrix Card -->
+            <div class="card" style="padding: 16px 18px; flex: 1; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; letter-spacing: 0.05em;">
+                  PROBABILITY &times; SEVERITY RISK MATRIX
+                </div>
+                <div style="display: flex; gap: 10px; font-size: 0.72rem; font-family: var(--font-mono);">
+                  <span style="display: inline-flex; align-items: center; gap: 4px; color: var(--color-success);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-success);"></span> Low</span>
+                  <span style="display: inline-flex; align-items: center; gap: 4px; color: var(--color-warning);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-warning);"></span> Medium</span>
+                  <span style="display: inline-flex; align-items: center; gap: 4px; color: var(--color-danger);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-danger);"></span> Critical</span>
+                </div>
+              </div>
+
+              <!-- Matrix Grid -->
+              <div style="display: grid; grid-template-columns: 28px repeat(3, 1fr); grid-template-rows: repeat(3, 1fr) 22px; gap: 8px; flex: 1; align-items: stretch;">
+                
+                <!-- Row 1: High Likelihood -->
+                <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-align: center; display: flex; align-items: center; justify-content: center; font-weight: 700; letter-spacing: 0.05em;">
+                  HIGH
+                </div>
+                <!-- Low Impact / High Likelihood (Medium) -->
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-warning); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">MEDIUM</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">App Load Spikes</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Cloud auto-scaling</div>
+                </div>
+                <!-- Med Impact / High Likelihood (High) -->
+                <div style="background: rgba(239, 68, 68, 0.16); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: #fca5a5; font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">HIGH</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">LiDAR Drift (R04)</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Floor QR grid fusion</div>
+                </div>
+                <!-- High Impact / High Likelihood (Critical) -->
+                <div style="background: rgba(220, 38, 38, 0.28); border: 1.5px solid #ef4444; border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 0 12px rgba(239,68,68,0.25);">
+                  <span style="color: #ff8a80; font-weight: 800; font-family: var(--font-mono); font-size: 0.7rem;">CRITICAL</span>
+                  <div style="color: #ffffff; font-weight: 700; margin-top: 3px;">Vehicle Clearance (R02)</div>
+                  <div style="font-size: 0.7rem; color: #fca5a5; margin-top: 2px;">Laser curtain pre-scan gate</div>
+                </div>
+
+                <!-- Row 2: Med Likelihood -->
+                <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-align: center; display: flex; align-items: center; justify-content: center; font-weight: 700; letter-spacing: 0.05em;">
+                  MED
+                </div>
+                <!-- Low Impact / Med Likelihood (Low) -->
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-success); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">LOW</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Sensor Drift</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Automated recalibration</div>
+                </div>
+                <!-- Med Impact / Med Likelihood (Medium) -->
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-warning); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">MEDIUM</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Robot Deadlock (R05)</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Corridor reservation slots</div>
+                </div>
+                <!-- High Impact / Med Likelihood (High) -->
+                <div style="background: rgba(239, 68, 68, 0.16); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: #fca5a5; font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">HIGH</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Lifting Fault (R01)</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Pressure release valve</div>
+                </div>
+
+                <!-- Row 3: Low Likelihood -->
+                <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-align: center; display: flex; align-items: center; justify-content: center; font-weight: 700; letter-spacing: 0.05em;">
+                  LOW
+                </div>
+                <!-- Low Impact / Low Likelihood (Low) -->
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-success); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">LOW</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Display / UI Bug</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Instant OTA update</div>
+                </div>
+                <!-- Med Impact / Low Likelihood (Low) -->
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-success); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">LOW</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Wi-Fi Dip (R14)</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Industrial mesh coverage</div>
+                </div>
+                <!-- High Impact / Low Likelihood (Medium) -->
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 6px; padding: 8px 10px; font-size: 0.76rem; display: flex; flex-direction: column; justify-content: center;">
+                  <span style="color: var(--color-warning); font-weight: 700; font-family: var(--font-mono); font-size: 0.7rem;">MEDIUM</span>
+                  <div style="color: var(--text-white); font-weight: 600; margin-top: 3px;">Retrieval Spoof (R13)</div>
+                  <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px;">Rolling token verification</div>
+                </div>
+
+                <!-- Bottom Axis Column Labels (Impact) -->
+                <div></div><!-- corner spacer -->
+                <div style="text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700;">LOW IMPACT</div>
+                <div style="text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700;">MEDIUM IMPACT</div>
+                <div style="text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); font-weight: 700;">HIGH IMPACT</div>
+              </div>
+            </div>
+
+            <!-- Concise 3-tier Action Strip -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+              <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid var(--color-success); border-radius: 4px; padding: 7px 10px; font-size: 0.74rem;">
+                <strong style="color: var(--color-success);">Low:</strong> Operational telemetry &amp; scheduled diagnostics.
+              </div>
+              <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--color-warning); border-radius: 4px; padding: 7px 10px; font-size: 0.74rem;">
+                <strong style="color: var(--color-warning);">Medium:</strong> Sensor redundancy &amp; dynamic corridor booking.
+              </div>
+              <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid var(--color-danger); border-radius: 4px; padding: 7px 10px; font-size: 0.74rem;">
+                <strong style="color: var(--color-danger);">Critical:</strong> Laser dimension gates &amp; instant fail-safe stops.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 34-Risk Domain Portfolio & Core Strategy -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+            <div class="card card-subsystem-4" style="padding: 16px 18px;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-subsystem-ai); font-weight: bold; margin-bottom: 6px;">
+                34-RISK PORTFOLIO ACROSS 11 DOMAINS
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
+                <div>&bull; <strong>A. Robotics/Mech:</strong> 6 Risks</div>
+                <div>&bull; <strong>B. AI &amp; Data:</strong> 3 Risks</div>
+                <div>&bull; <strong>C. IoT/Sensing:</strong> 3 Risks</div>
+                <div>&bull; <strong>D. Software Apps:</strong> 3 Risks</div>
+                <div>&bull; <strong>E. Cybersecurity:</strong> 3 Risks</div>
+                <div>&bull; <strong>F. Facility/Civil:</strong> 3 Risks</div>
+                <div>&bull; <strong>G. Operations:</strong> 3 Risks</div>
+                <div>&bull; <strong>H. Financial:</strong> 3 Risks</div>
+                <div>&bull; <strong>I. Legal/Permits:</strong> 2 Risks</div>
+                <div>&bull; <strong>J/K. PM &amp; User:</strong> 5 Risks</div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 14px 18px;">
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 6px;">
+                PROACTIVE MITIGATION PRINCIPLES
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55;">
+                <strong style="color: var(--text-white);">&bull; Pre-Entry Screening:</strong> Optical laser scanners reject non-conforming vehicle profiles at entry.<br>
+                <strong style="color: var(--text-white);">&bull; Multi-Sensor Fusion:</strong> Dual localization (LiDAR SLAM + floor QR grid) prevents drift.<br>
+                <strong style="color: var(--text-white);">&bull; Active Monitoring:</strong> Bi-weekly review of risk register to address emerging issues early.
+              </div>
+            </div>
+
+            <div class="callout" style="padding: 10px 14px; margin: 0; font-size: 0.82rem; line-height: 1.4;">
+              <strong>Safety Isolation Principle:</strong> Robot transit corridors are physically segregated from public pedestrian zones, eliminating vehicle-pedestrian collision hazards.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 18: PROJECT BUDGET & RESOURCE ALLOCATION
+           ==================================================================== -->
+      <section data-state="slide-budget" data-category="Project Governance">
+        <div class="slide-header">
+          <div class="slide-category">Financial Engineering &bull; Capital Budget &amp; Financial Returns</div>
+          <h2>Project Budget &amp; Commercial Feasibility</h2>
+          <p class="slide-subtitle">
+            Ranked capital expenditures, budget reserves, and commercial investment returns for a 500-bay facility.
+          </p>
+        </div>
+
+        <div class="grid-split-60-40" style="align-items: stretch; gap: 24px; min-height: 560px;">
+          <!-- Left Column: Rank-Ordered Cost Elements Chart (Highest to Lowest) -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 14px; height: 100%;">
+            <div class="card card-subsystem-5" style="padding: 22px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #fbbf24; font-weight: bold; letter-spacing: 0.05em;">
+                  CAPEX RANKING &bull; HIGHEST TO LOWEST
+                </div>
+                <span class="badge badge-amber" style="font-size: 0.78rem; padding: 4px 12px;">BASE: 15.00M EGP</span>
+              </div>
+
+              <!-- Cost Bar 1: Robots (4.80M / 32.0%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #fbbf24; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#1</strong> <strong style="color: var(--text-white);">Autonomous Robots &amp; Docks</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(4 Heavy AGVs, 3.0T lift)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">4.80M EGP <span style="color: #fbbf24; font-size: 0.82rem;">(32.0%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 100%; background: linear-gradient(90deg, #f59e0b, #fbbf24); border-radius: 5px; box-shadow: 0 0 8px rgba(245,158,11,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 2: Software Core & AI (2.37M / 15.8%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #a855f7; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#2</strong> <strong style="color: var(--text-white);">Software Core &amp; AI Engine</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(Fleet engine, App, Predictor)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">2.37M EGP <span style="color: #c084fc; font-size: 0.82rem;">(15.8%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 49.4%; background: linear-gradient(90deg, #8b5cf6, #a855f7); border-radius: 5px; box-shadow: 0 0 8px rgba(168,85,247,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 3: Value-Added Bays (1.85M / 12.3%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#3</strong> <strong style="color: var(--text-white);">Value-Added Service Bays</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(10 EV chargers + Auto wash)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">1.85M EGP <span style="color: var(--accent-cyan); font-size: 0.82rem;">(12.3%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 38.5%; background: linear-gradient(90deg, #06b6d4, #22d3ee); border-radius: 5px; box-shadow: 0 0 8px rgba(6,182,212,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 4: Drop-Off Hubs (1.65M / 11.0%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #14b8a6; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#4</strong> <strong style="color: var(--text-white);">Drop-Off / Pick-Up Hubs</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(6 Kiosks, barriers, scales)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">1.65M EGP <span style="color: #2dd4bf; font-size: 0.82rem;">(11.0%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 34.4%; background: linear-gradient(90deg, #0d9488, #14b8a6); border-radius: 5px; box-shadow: 0 0 8px rgba(20,184,166,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 5: Civil & Electrical (1.40M / 9.3%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #3b82f6; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#5</strong> <strong style="color: var(--text-white);">Civil, Electrical &amp; Safety</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(Epoxy floor, fencing, panels)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">1.40M EGP <span style="color: #60a5fa; font-size: 0.82rem;">(9.3%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 29.2%; background: linear-gradient(90deg, #2563eb, #3b82f6); border-radius: 5px; box-shadow: 0 0 8px rgba(59,130,246,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 6: Testing & Commissioning (1.28M / 8.5%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #10b981; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#6</strong> <strong style="color: var(--text-white);">Testing &amp; Commissioning</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(Audits, pilot trials, training)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">1.28M EGP <span style="color: #34d399; font-size: 0.82rem;">(8.5%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 26.7%; background: linear-gradient(90deg, #059669, #10b981); border-radius: 5px; box-shadow: 0 0 8px rgba(16,185,129,0.3);"></div>
+                </div>
+              </div>
+
+              <!-- Cost Bar 7: Sensors & IoT Mesh (1.15M / 7.7%) -->
+              <div style="display: flex; flex-direction: column; gap: 5px; padding: 3px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                  <span><strong style="color: #6366f1; font-family: var(--font-mono); margin-right: 6px; font-size: 0.95rem;">#7</strong> <strong style="color: var(--text-white);">Sensors &amp; IoT Mesh Network</strong> <span style="font-size: 0.82rem; color: var(--text-muted);">(500 Bay ultrasonic nodes)</span></span>
+                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white); font-size: 0.95rem;">1.15M EGP <span style="color: #818cf8; font-size: 0.82rem;">(7.7%)</span></span>
+                </div>
+                <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.06); border-radius: 5px; overflow: hidden;">
+                  <div style="height: 100%; width: 24.0%; background: linear-gradient(90deg, #4f46e5, #6366f1); border-radius: 5px; box-shadow: 0 0 8px rgba(99,102,241,0.3);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total CAPEX Check Callout -->
+            <div style="padding: 14px 20px; background: rgba(245, 158, 11, 0.1); border-left: 4px solid #fbbf24; border-radius: 6px; font-size: 0.92rem; display: flex; justify-content: space-between; align-items: center;">
+              <span><strong style="color: var(--text-white);">Base Capital Investment (CAPEX Total):</strong></span>
+              <span style="font-family: var(--font-mono); font-weight: 800; font-size: 1.05rem; color: #fbbf24;">15,000,000 EGP (100.0%)</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Budget Structuring, Revenue & Financial Returns -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; height: 100%;">
+            <!-- Budget Structuring: Baseline vs Authorized -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="card" style="padding: 18px 16px; text-align: center; border-left: 4px solid var(--accent-cyan); display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.05em; font-weight: 600;">COST BASELINE</div>
+                <div style="font-family: var(--font-mono); font-size: 1.55rem; font-weight: 800; color: var(--accent-cyan); margin: 6px 0;">17.25M EGP</div>
+                <div style="font-size: 0.76rem; color: var(--text-secondary);">15M + 15% Contingency (2.25M)</div>
+              </div>
+              <div class="card" style="padding: 18px 16px; text-align: center; border-left: 4px solid #fbbf24; display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.05em; font-weight: 600;">AUTHORIZED BUDGET</div>
+                <div style="font-family: var(--font-mono); font-size: 1.55rem; font-weight: 800; color: #fbbf24; margin: 6px 0;">18.75M EGP</div>
+                <div style="font-size: 0.76rem; color: var(--text-secondary);">+ 10% Mgmt Reserve (1.50M)</div>
+              </div>
+            </div>
+
+            <!-- Commercial Revenue & OPEX -->
+            <div class="card" style="padding: 20px 22px; border-left: 4px solid var(--accent-teal); display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.86rem; color: var(--accent-teal); font-weight: bold; letter-spacing: 0.05em;">
+                  COMMERCIAL REVENUE &amp; OPEX (500 BAYS)
+                </div>
+                <span class="badge badge-teal" style="font-size: 0.72rem; padding: 4px 10px;">50% OCCUPANCY &bull; 15 EGP/HR</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+                <div>
+                  <span style="color: var(--text-muted); font-size: 0.78rem;">Gross Annual Revenue:</span><br>
+                  <strong style="font-family: var(--font-mono); font-size: 1.3rem; color: var(--color-success); font-weight: 800; display: inline-block; margin-top: 4px;">26,097,500 EGP</strong>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); font-size: 0.78rem;">Annual OPEX (5% infl.):</span><br>
+                  <strong style="font-family: var(--font-mono); font-size: 1.3rem; color: #fbbf24; font-weight: 800; display: inline-block; margin-top: 4px;">2,660,000 EGP/yr</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commercial Profitability & Returns Card -->
+            <div class="card" style="padding: 22px 22px; border-left: 4px solid var(--color-success); background: rgba(16, 185, 129, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.86rem; color: var(--color-success); font-weight: bold; letter-spacing: 0.05em;">
+                  FINANCIAL RETURNS &amp; COMMERCIAL PROFITABILITY
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); font-weight: 600;">18% WACC DISCOUNT RATE</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center;">
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1.5px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 14px 8px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">5-YEAR NPV</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 800; color: var(--color-success); margin: 6px 0;">35.27M</div>
+                  <div style="font-size: 0.74rem; color: var(--color-success); font-weight: 700;">Highly Viable</div>
+                </div>
+                <div style="background: rgba(6, 182, 212, 0.1); border: 1.5px solid rgba(6, 182, 212, 0.3); border-radius: 8px; padding: 14px 8px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">IRR</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 800; color: var(--accent-cyan); margin: 6px 0;">124.5%</div>
+                  <div style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 700;">Internal Return</div>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.1); border: 1.5px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 14px 8px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">PAYBACK</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 800; color: #fbbf24; margin: 6px 0;">~9 Mo</div>
+                  <div style="font-size: 0.74rem; color: #fbbf24; font-weight: 700;">Simple Payback</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 17: SMART SERVICES AND FUTURE EXPANSION
            ==================================================================== -->
       <section data-state="slide-11" data-category="Subsystem 5">
         <div class="slide-header">
@@ -1586,112 +2284,7 @@
       </section>
 
       <!-- ====================================================================
-           SLIDE 14: IMPLEMENTATION STRATEGY & SCHEDULE ROADMAP (MERGED)
-           ==================================================================== -->
-      <section data-state="slide-13" data-category="Project Roadmap">
-        <div class="slide-header">
-          <div class="slide-category">Execution Roadmap &bull; Phased Strategy &amp; Milestones (Owner: Peter)</div>
-          <h2>Implementation Strategy &amp; Schedule Roadmap</h2>
-          <p class="slide-subtitle">
-            A disciplined 24-month ground-up development engine (Plan A) paired with critical milestone gates and an accelerated 9-month turnkey option (Plan B).
-          </p>
-        </div>
-
-        <div class="grid-split-55-45" style="align-items: stretch; gap: 20px;">
-          <!-- Left Column: Plan A 6-Phase Execution Engine -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
-            <div class="card card-subsystem-1" style="padding: 14px 18px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold;">
-                  PLAN A: BUILD &amp; DEPLOY (24 MONTHS: JAN 2027 &ndash; DEC 2028)
-                </div>
-                <span class="badge" style="font-size: 0.7rem; padding: 2px 8px;">6 PHASES</span>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr; gap: 6px; font-size: 0.82rem; line-height: 1.4;">
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: var(--accent-cyan);">Phase 1: Initiation &amp; Feasibility (M1&ndash;M5):</strong> Requirements, structural constraints, funding approval &amp; mall LOI.
-                </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: var(--accent-teal);">Phase 2: System &amp; Safety Design (M3&ndash;M8):</strong> Drop-off station CAD, robotic corridor mapping, safety design freeze.
-                </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: #60a5fa);">Phase 3: Core System Build (M7&ndash;M14):</strong> IoT bay sensing, PMS controller, mobile app MVP lab integration.
-                </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: #c084fc;">Phase 4: Advanced Robotics Autonomy (M9&ndash;M18):</strong> AGV chassis build, SLAM navigation, multi-robot fleet dispatcher.
-                </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: #fbbf24;">Phase 5: Closed-Track Integration &amp; Safety (M15&ndash;M21):</strong> Barricaded pilot track, stress testing, safety certification.
-                </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 6px;">
-                  <strong style="color: var(--color-success);">Phase 6: Mall Installation &amp; Launch (M18&ndash;M24):</strong> Civil fit-out, staff SOP training, supervised pilot, go-live.
-                </div>
-              </div>
-            </div>
-
-            <div class="callout" style="padding: 10px 14px; margin: 0; font-size: 0.82rem; line-height: 1.4;">
-              <strong>Critical Path:</strong> Autonomous valet robot manufacture, fleet coordination integration, and safety certification drive the critical path.
-            </div>
-          </div>
-
-          <!-- Right Column: Critical Milestones & Plan B Fast-Track -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
-            <div class="card" style="padding: 14px 18px; border-left: 4px solid var(--accent-cyan);">
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 8px;">
-                CRITICAL MILESTONES (PLAN A)
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 5px; font-size: 0.79rem;">
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>M1:</strong> Funding Approved &amp; Site LOI Signed</span>
-                  <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: bold;">M03 (Mar 2027)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>M2:</strong> Architecture &amp; Safety Design Freeze</span>
-                  <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: bold;">M08 (Aug 2027)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>M3:</strong> Core IoT, PMS &amp; App Lab-Ready</span>
-                  <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: bold;">M14 (Feb 2028)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>M4:</strong> Robotic Fleet &amp; AI Engine Complete</span>
-                  <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: bold;">M18 (Jun 2028)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>M5:</strong> Regulatory Safety Certification Granted</span>
-                  <span style="font-family: var(--font-mono); color: var(--color-success); font-weight: bold;">M21 (Sep 2028)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span><strong>M6:</strong> Commercial Mall Go-Live &amp; Handover</span>
-                  <span style="font-family: var(--font-mono); color: var(--color-success); font-weight: bold;">M24 (Dec 2028)</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Plan B Fast-Track Turnkey Expansion Option -->
-            <div class="card" style="padding: 14px 18px; background: rgba(0, 240, 255, 0.03);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; font-weight: bold;">
-                  PLAN B: TURNKEY EXPANSION (9 MONTHS)
-                </div>
-                <span class="badge badge-amber" style="font-size: 0.68rem; padding: 2px 6px;">FAST-TRACK</span>
-              </div>
-              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 8px 0; line-height: 1.4;">
-                Assumes certified pre-developed software &amp; AGV units. Skips R&amp;D for rapid commercial rollout:
-              </p>
-              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; font-size: 0.72rem; font-family: var(--font-mono);">
-                <div style="background: var(--bg-card); padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);">M1&ndash;M3<br><span style="color:var(--text-white);">Site Survey</span></div>
-                <div style="background: var(--bg-card); padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);">M2&ndash;M5<br><span style="color:var(--text-white);">Fleet Delivery</span></div>
-                <div style="background: var(--bg-card); padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);">M3&ndash;M6<br><span style="color:var(--text-white);">Civil Fit-Out</span></div>
-                <div style="background: var(--bg-card); padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);">M5&ndash;M9<br><span style="color:var(--color-success); font-weight:bold;">Mall Launch</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SLIDE 14: PROJECT MANAGEMENT AND TEAM STRUCTURE
+           SLIDE 18: PROJECT MANAGEMENT AND TEAM STRUCTURE
            ==================================================================== -->
       <section data-state="slide-14" data-category="Project Governance">
         <div class="slide-header">
@@ -1789,342 +2382,6 @@
       </section>
 
       <!-- ====================================================================
-           SLIDE 16: QUALITY ASSURANCE PLAN & SYSTEM VERIFICATION
-           ==================================================================== -->
-      <section data-state="slide-qa" data-category="Project Governance">
-        <div class="slide-header">
-          <div class="slide-category">Project Governance &bull; Quality Assurance (Owner: Omar)</div>
-          <h2>Quality Assurance Plan &amp; Verification Framework</h2>
-          <p class="slide-subtitle">
-            Disciplined multi-tier verification hierarchy, quantifiable reliability KPIs, and closed-loop PDCA defect resolution ensuring zero-defect safety.
-          </p>
-        </div>
-
-        <div class="grid-split-55-45" style="align-items: stretch; gap: 20px;">
-          <!-- Left Column: 7-Stage Testing Hierarchy & Key Metrics -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
-            <div class="card card-subsystem-2" style="padding: 16px 18px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; letter-spacing: 0.05em;">
-                  7-STAGE VERIFICATION PROTOCOL
-                </div>
-                <span class="badge badge-blue" style="font-size: 0.7rem; padding: 2px 8px;">SYSTEMATIC AUDIT</span>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.84rem; line-height: 1.45;">
-                <div>
-                  <strong style="color: var(--text-white);">&bull; Unit Testing:</strong><br>
-                  <span style="color: var(--text-secondary);">Sensor telemetry &amp; allocation logic</span>
-                </div>
-                <div>
-                  <strong style="color: var(--text-white);">&bull; Functional Testing:</strong><br>
-                  <span style="color: var(--text-secondary);">VIP reservation &amp; slot locks</span>
-                </div>
-                <div>
-                  <strong style="color: var(--text-white);">&bull; Integration Testing:</strong><br>
-                  <span style="color: var(--text-secondary);">End-to-end Sensor &rarr; PMS &rarr; App</span>
-                </div>
-                <div>
-                  <strong style="color: var(--text-white);">&bull; Robotic Safety Testing:</strong><br>
-                  <span style="color: var(--text-secondary);">LiDAR obstacle detection &amp; E-Stop</span>
-                </div>
-                <div>
-                  <strong style="color: var(--text-white);">&bull; App Usability Testing:</strong><br>
-                  <span style="color: var(--text-secondary);">Task completion rate &amp; UX friction</span>
-                </div>
-                <div>
-                  <strong style="color: var(--text-white);">&bull; AI Model Evaluation:</strong><br>
-                  <span style="color: var(--text-secondary);">Forecast accuracy via MAE &amp; RMSE</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Key Quality Performance Indicators (KPIs) -->
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
-                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">DETECTION ACC.</div>
-                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--color-success); margin-top: 4px;">&ge; 98.0%</div>
-                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Sensor accuracy</div>
-              </div>
-              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
-                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">ALLOCATION RATE</div>
-                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--accent-cyan); margin-top: 4px;">&ge; 99.0%</div>
-                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Success without delay</div>
-              </div>
-              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
-                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">DOUBLE BOOKING</div>
-                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--accent-teal); margin-top: 4px;">0 CONFLICTS</div>
-                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Transaction locks</div>
-              </div>
-              <div class="card" style="padding: 12px 10px; text-align: center; background: rgba(0, 240, 255, 0.03);">
-                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">SAFETY FAILURES</div>
-                <div style="font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: #ef4444; margin-top: 4px;">0 TOLERANCE</div>
-                <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">Fail-safe hard stop</div>
-              </div>
-            </div>
-
-            <div class="callout" style="padding: 10px 14px; margin: 0; font-size: 0.84rem; line-height: 1.45;">
-              <strong>System Availability Standard:</strong> Mandatory &ge; 99.0% operational uptime benchmark across central controller, broker gateways, and database synchronization pipelines.
-            </div>
-          </div>
-
-          <!-- Right Column: 10-Point Checklist & Corrective Action (CAPA) -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
-            <div class="card" style="padding: 16px 18px; border-left: 4px solid var(--accent-cyan);">
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 8px;">
-                10-POINT SYSTEM QUALITY ASSESSMENT CHECKLIST
-              </div>
-              <ul style="font-size: 0.84rem; padding-left: 18px; margin: 0; color: var(--text-secondary); line-height: 1.6;">
-                <li><strong style="color: var(--text-white);">Detection Accuracy:</strong> Ultrasonic &amp; optical sensors verify bay status in real-time.</li>
-                <li><strong style="color: var(--text-white);">Conflict-Free Allocation:</strong> Algorithmic space assignment without duplicate claims.</li>
-                <li><strong style="color: var(--text-white);">VIP Protection:</strong> Cryptographic token reservation protection at barrier gates.</li>
-                <li><strong style="color: var(--text-white);">Robotic Transit Safety:</strong> Zero collisions via dynamic LiDAR edge obstacle avoidance.</li>
-                <li><strong style="color: var(--text-white);">Fail-Safe Response:</strong> Immediate autonomous brake interlock on communication loss.</li>
-                <li><strong style="color: var(--text-white);">Mobile UX Fluency:</strong> 1-tap retrieval with &ge; 95% user task success completion.</li>
-              </ul>
-            </div>
-
-            <!-- Closed-Loop Corrective Action Protocol (PDCA) -->
-            <div class="card" style="padding: 14px 18px; background: rgba(0, 240, 255, 0.02);">
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #fbbf24; font-weight: bold; margin-bottom: 6px;">
-                CLOSED-LOOP CORRECTIVE ACTION PROCEDURE (PDCA)
-              </div>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); text-align: center;">
-                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:var(--accent-cyan); font-weight:bold;">1. IDENTIFY</span><br>Log defect</div>
-                <span>&rarr;</span>
-                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:#ef4444; font-weight:bold;">2. CLASSIFY</span><br>Severity Level</div>
-                <span>&rarr;</span>
-                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:#fbbf24; font-weight:bold;">3. ROOT CAUSE</span><br>Origin Audit</div>
-                <span>&rarr;</span>
-                <div style="background: var(--bg-card); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border-subtle);"><span style="color:var(--color-success); font-weight:bold;">4. RETEST</span><br>Sign-off Fix</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SLIDE 17: RISK MANAGEMENT FRAMEWORK & MATRIX
-           ==================================================================== -->
-      <section data-state="slide-risk" data-category="Feasibility & Risk">
-        <div class="slide-header">
-          <div class="slide-category">Governance &bull; Risk Management Plan (Owner: Farha)</div>
-          <h2>Risk Management Framework &amp; Priority Matrix</h2>
-          <p class="slide-subtitle">
-            Systematic ISO 31000 &amp; NIST SP 800-30 risk assessment evaluating 34 categorized project risks paired with proactive engineering mitigations.
-          </p>
-        </div>
-
-        <div class="grid-split-60-40" style="align-items: stretch; gap: 20px;">
-          <!-- Left Column: High-Priority Risk Register Table -->
-          <div>
-            <table class="risk-table" style="font-size: 0.82rem;">
-              <thead>
-                <tr>
-                  <th style="width: 14%;">ID &amp; Cat</th>
-                  <th style="width: 32%;">Risk Description</th>
-                  <th style="width: 14%;">Score</th>
-                  <th style="width: 40%;">Proposed Engineering Mitigation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>R02</strong><br><span style="font-size:0.72rem; color:var(--text-muted);">Robotics</span></td>
-                  <td>
-                    <strong>Vehicle Incompatibility</strong><br>
-                    <span style="font-size:0.72rem; color:var(--text-muted);">Weight, clearance, or modified profile exceeding limits</span>
-                  </td>
-                  <td><span class="risk-pill risk-crit">16 CRIT</span></td>
-                  <td>Physical laser/optical scan curtains at drop-off stations; in-app vehicle profile verification; auto-redirection to manual bays.</td>
-                </tr>
-                <tr>
-                  <td><strong>R01 / R06</strong><br><span style="font-size:0.72rem; color:var(--text-muted);">Mechanical</span></td>
-                  <td>
-                    <strong>Lifting Jam / Chassis Collision</strong><br>
-                    <span style="font-size:0.72rem; color:var(--text-muted);">Actuator fault or collision with pillars/curbs</span>
-                  </td>
-                  <td><span class="risk-pill risk-high">12 HIGH</span></td>
-                  <td>Optical wheel centerline alignment; 360&deg; condition logging cameras at entry; manual hydraulic pressure release valves.</td>
-                </tr>
-                <tr>
-                  <td><strong>R04</strong><br><span style="font-size:0.72rem; color:var(--text-muted);">Navigation</span></td>
-                  <td>
-                    <strong>LiDAR Localization Drift</strong><br>
-                    <span style="font-size:0.72rem; color:var(--text-muted);">Feature loss in uniform subterranean aisles</span>
-                  </td>
-                  <td><span class="risk-pill risk-high">10 HIGH</span></td>
-                  <td>Multi-sensor fusion: 2D LiDAR SLAM + ground fiducial QR code grid + wheel odometry; barricaded low-speed robot transit zones.</td>
-                </tr>
-                <tr>
-                  <td><strong>R05</strong><br><span style="font-size:0.72rem; color:var(--text-muted);">Coordination</span></td>
-                  <td>
-                    <strong>Multi-Robot Corridor Deadlock</strong><br>
-                    <span style="font-size:0.72rem; color:var(--text-muted);">Simultaneous path contention or network lag</span>
-                  </td>
-                  <td><span class="risk-pill risk-high">10 HIGH</span></td>
-                  <td>Central supervisory space-time reservation corridors; distributed on-robot ultrasonic edge emergency stopping.</td>
-                </tr>
-                <tr>
-                  <td><strong>R13 / E</strong><br><span style="font-size:0.72rem; color:var(--text-muted);">Security</span></td>
-                  <td>
-                    <strong>Retrieval Spoofing &amp; Comm Drop</strong><br>
-                    <span style="font-size:0.72rem; color:var(--text-muted);">Unauthorized release or subterranean Wi-Fi drop</span>
-                  </td>
-                  <td><span class="risk-pill risk-high">12 HIGH</span></td>
-                  <td>Cryptographic rolling token exchange, biometrics on mobile app, kiosk QR re-verification, and private industrial mesh Wi-Fi.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Right Column: 34-Risk Domain Portfolio & Methodology -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
-            <div class="card card-subsystem-4" style="padding: 16px 18px;">
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-subsystem-ai); font-weight: bold; margin-bottom: 6px;">
-                34-RISK PORTFOLIO ACROSS 11 DOMAINS
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">
-                <div>&bull; <strong>A. Robotics/Mech:</strong> 6 Risks</div>
-                <div>&bull; <strong>B. AI &amp; Data:</strong> 3 Risks</div>
-                <div>&bull; <strong>C. IoT/Sensing:</strong> 3 Risks</div>
-                <div>&bull; <strong>D. Software Apps:</strong> 3 Risks</div>
-                <div>&bull; <strong>E. Cybersecurity:</strong> 3 Risks</div>
-                <div>&bull; <strong>F. Facility/Civil:</strong> 3 Risks</div>
-                <div>&bull; <strong>G. Operations:</strong> 3 Risks</div>
-                <div>&bull; <strong>H. Financial:</strong> 3 Risks</div>
-                <div>&bull; <strong>I. Legal/Permits:</strong> 2 Risks</div>
-                <div>&bull; <strong>J/K. PM &amp; User:</strong> 5 Risks</div>
-              </div>
-            </div>
-
-            <div class="card" style="padding: 14px 18px;">
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 6px;">
-                RISK GOVERNANCE FRAMEWORK
-              </div>
-              <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-                <strong style="color: var(--text-white);">Scoring Matrix:</strong> Probability ($1-5$) &times; Impact ($1-5$) = Risk Score ($1-25$).<br>
-                <strong style="color: var(--text-white);">Critical Threshold (&ge; 15):</strong> Triggers mandatory engineering redesign and gate suspension.<br>
-                <strong style="color: var(--text-white);">Review Rhythm:</strong> Bi-weekly review of risk register with deliverable owners.
-              </div>
-            </div>
-
-            <div class="callout" style="padding: 10px 14px; margin: 0; font-size: 0.82rem; line-height: 1.4;">
-              <strong>Safety Isolation Principle:</strong> Robot transit corridors are physically segregated from public pedestrian zones, eliminating vehicle-pedestrian collision hazards.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
-           SLIDE 18: PROJECT BUDGET & RESOURCE ALLOCATION
-           ==================================================================== -->
-      <section data-state="slide-budget" data-category="Project Governance">
-        <div class="slide-header">
-          <div class="slide-category">Financial Engineering &bull; Budget &amp; Resources (Owners: Salma &amp; Mohamed Hany)</div>
-          <h2>Project Budget &amp; Resource Allocation</h2>
-          <p class="slide-subtitle">
-            Comprehensive commercial expenditure model for a 500-bay commercial mall facility incorporating contingency structuring and resource allocation.
-          </p>
-        </div>
-
-        <div class="grid-split-55-45" style="align-items: stretch; gap: 20px;">
-          <!-- Left Column: Capital Expenditure (CAPEX) Breakdown Structure -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
-            <div class="card card-subsystem-5" style="padding: 14px 18px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #fbbf24; font-weight: bold;">
-                  CAPEX COST BREAKDOWN STRUCTURE (500-BAY FACILITY)
-                </div>
-                <span class="badge badge-amber" style="font-size: 0.7rem; padding: 2px 8px;">BASE: 15.00M EGP</span>
-              </div>
-
-              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem;">
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>1.0 Autonomous Valet Robots &amp; Docks:</strong> 4 Heavy AGVs (3.0T lift)</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-cyan);">4,800,000 EGP (32.0%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>2.0 Sensors &amp; IoT Mesh:</strong> 500 Bay ultrasonic nodes &amp; gateways</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">1,150,000 EGP (7.7%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>3.0 Software Core &amp; AI:</strong> Fleet engine, Mobile App, AI Predictor</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">2,370,000 EGP (15.8%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>4.0 Drop-Off / Pick-Up Hubs:</strong> 6 Station kiosks, barriers &amp; scales</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">1,650,000 EGP (11.0%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>5.0 Value-Added Services:</strong> 10 Level-2 EV Chargers + Auto Wash</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">1,850,000 EGP (12.3%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 3px;">
-                  <span><strong>6.0 Civil, Electrical &amp; Safety:</strong> Epoxy floor, fencing, panels</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">1,400,000 EGP (9.3%)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span><strong>7.0 Commissioning, Testing &amp; Training:</strong> Audits &amp; handover</span>
-                  <span style="font-family: var(--font-mono); font-weight: 700; color: var(--text-white);">1,280,000 EGP (8.5%)</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Financial Baseline Summary Highlight -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="card" style="padding: 10px 14px; text-align: center; border-left: 3px solid var(--accent-cyan);">
-                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">PROJECT COST BASELINE</div>
-                <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); margin-top: 2px;">17,250,000 EGP</div>
-                <div style="font-size: 0.7rem; color: var(--text-secondary);">CAPEX + 15% Contingency</div>
-              </div>
-              <div class="card" style="padding: 10px 14px; text-align: center; border-left: 3px solid #fbbf24;">
-                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">TOTAL AUTHORIZED BUDGET</div>
-                <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: #fbbf24; margin-top: 2px;">18,750,000 EGP</div>
-                <div style="font-size: 0.7rem; color: var(--text-secondary);">Includes 10% Mgmt Reserve</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Contingency Structuring, OPEX & EVM Controls -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
-            <!-- Annual OPEX Card -->
-            <div class="card" style="padding: 14px 18px; border-left: 4px solid var(--accent-teal);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-teal); font-weight: bold;">
-                  ANNUAL OPERATIONAL EXPENDITURE (OPEX)
-                </div>
-                <span style="font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: var(--color-success);">2.66M EGP/YR</span>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">
-                <div>&bull; Facility Power: <strong>540,000 EGP</strong></div>
-                <div>&bull; On-Site Support Techs: <strong>720,000 EGP</strong></div>
-                <div>&bull; EV/Wash Utilities: <strong>420,000 EGP</strong></div>
-                <div>&bull; Battery/Sensor Fund: <strong>360,000 EGP</strong></div>
-                <div>&bull; AGV Preventive Maint: <strong>300,000 EGP</strong></div>
-                <div>&bull; Cloud &amp; Software Maint: <strong>324,000 EGP</strong></div>
-              </div>
-            </div>
-
-            <!-- Earned Value Management (EVM) Governance -->
-            <div class="card" style="padding: 14px 18px;">
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: bold; margin-bottom: 6px;">
-                COST CONTROL &amp; EVM GOVERNANCE
-              </div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45;">
-                Bi-weekly tracking via Earned Value Management (EVM):<br>
-                &bull; <strong style="color:var(--text-white);">Cost Variance ($CV = EV - AC$):</strong> Target $CV \ge 0$<br>
-                &bull; <strong style="color:var(--text-white);">Cost Performance Index ($CPI = EV / AC$):</strong> Threshold alert at $CPI < 0.90$<br>
-                &bull; <strong style="color:var(--text-white);">Schedule Performance Index ($SPI = EV / PV$):</strong> Threshold alert at $SPI < 0.90$
-              </div>
-            </div>
-
-            <div class="callout" style="padding: 10px 14px; margin: 0; font-size: 0.8rem; line-height: 1.4;">
-              <strong>Resource Allocation Model:</strong> Cross-functional 6-member engineering team effort balanced across 6-month work packages ensuring continuous integration without single-point dependency.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====================================================================
            SLIDE 16: CONCLUSION
            ==================================================================== -->
       <section data-state="slide-16" data-category="Conclusion">
@@ -2193,6 +2450,25 @@
 
           <!-- Right Column: 3D Closing Facility Digital Twin Simulation (Scene A Bookend) -->
           <div id="hero-facility-slide16" style="height: 100%; min-height: 520px;"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 20: TRANSITIONAL EMPTY SLIDE
+           ==================================================================== -->
+      <section data-state="slide-empty" data-category="Conclusion">
+      </section>
+
+      <!-- ====================================================================
+           SLIDE 21: PRESENTATION END VIDEO
+           ==================================================================== -->
+      <section data-state="slide-video" data-category="Demonstration">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 580px; width: 100%;">
+          <video controls data-autoplay loop playsinline style="max-width: 92%; max-height: 80vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 240, 255, 0.25); border: 1.5px solid rgba(0, 240, 255, 0.35); outline: none; background: #000;">
+            <source src="assets/videos/presentation-end-video.mp4" type="video/mp4">
+            <source src="presentation end video.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
         </div>
       </section>
 

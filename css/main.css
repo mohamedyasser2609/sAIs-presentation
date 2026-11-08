@@ -650,6 +650,107 @@
 .risk-low { background: rgba(16, 185, 129, 0.2); color: var(--color-success); border: 1px solid var(--color-success); }
 
 /* --------------------------------------------------------------------------
+   10b. QA Protocol Sequential Pipeline & Glowing Arrows
+   -------------------------------------------------------------------------- */
+.qa-pipeline-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qa-stage-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.qa-stage-block {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px 10px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.qa-stage-block:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.qa-stage-block.active {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.12);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.qa-stage-block.qa-final-gate.active {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.55);
+  transform: translateY(-2px);
+}
+
+.qa-stage-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.qa-stage-block.active .qa-stage-num {
+  color: var(--accent-cyan);
+}
+
+.qa-stage-title {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text-white);
+  line-height: 1.25;
+}
+
+.qa-stage-desc {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+/* Directional Arrow Connectors */
+.qa-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.qa-arrow.active {
+  color: var(--accent-cyan);
+  filter: drop-shadow(0 0 8px var(--accent-cyan)) drop-shadow(0 0 18px rgba(0, 240, 255, 0.85));
+  transform: scale(1.3);
+  animation: qa-arrow-pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes qa-arrow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px var(--accent-cyan)) drop-shadow(0 0 14px rgba(0, 240, 255, 0.6));
+    transform: scale(1.22);
+  }
+  50% {
+    filter: drop-shadow(0 0 14px var(--accent-cyan)) drop-shadow(0 0 26px rgba(0, 240, 255, 0.95));
+    transform: scale(1.38);
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. SVG Universal Theme Adaptability
    -------------------------------------------------------------------------- */
 svg {

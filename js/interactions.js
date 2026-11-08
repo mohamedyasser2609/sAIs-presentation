@@ -192,6 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window._saisAIAnalytics) {
         handled = isNext ? window._saisAIAnalytics.nextProfile() : window._saisAIAnalytics.prevProfile();
       }
+    } else if (state === 'slide-qa') {
+      // 7-Stage Verification Protocol Glowing Arrow Pipeline
+      if (window._saisQAProtocol) {
+        handled = isNext ? window._saisQAProtocol.nextStage() : window._saisQAProtocol.prevStage();
+      }
     }
 
     if (handled) {
@@ -200,4 +205,132 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopImmediatePropagation();
     }
   }, { capture: true });
+
+  // Initialize QA Protocol Controller
+  window._saisQAProtocol = new QAProtocolController();
 });
+
+/**
+ * 7-Stage Quality Assurance Verification Protocol Controller
+ * Handles sequential handoff progression and glowing arrow animation
+ */
+class QAProtocolController {
+  constructor() {
+    this.currentStep = 0; // 0 = all idle/overview, 1..7 = active stage
+    this.maxSteps = 7;
+    this.init();
+  }
+
+  init() {
+    const blocks = document.querySelectorAll('.qa-stage-block');
+    const arrows = document.querySelectorAll('.qa-arrow');
+
+    blocks.forEach((b) => {
+      b.addEventListener('click', () => {
+        const stageAttr = b.getAttribute('data-stage');
+        const step = stageAttr === 'final' ? 7 : parseInt(stageAttr || '1', 10);
+        this.setStep(step);
+      });
+    });
+
+    arrows.forEach((a) => {
+      a.addEventListener('click', () => {
+        const step = parseInt(a.getAttribute('data-arrow-index') || '1', 10);
+        this.setStep(step);
+      });
+    });
+
+    const indicator = document.getElementById('qa-stepper-indicator');
+    if (indicator) {
+      indicator.addEventListener('click', () => {
+        this.nextStage();
+      });
+    }
+  }
+
+  setStep(step) {
+    this.currentStep = step;
+    this.render();
+  }
+
+  nextStage() {
+    if (this.currentStep < this.maxSteps) {
+      this.currentStep++;
+      this.render();
+      return true;
+    } else {
+      this.currentStep = 0;
+      this.render();
+      return false; // let presentation advance to next slide
+    }
+  }
+
+  prevStage() {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+      this.render();
+      return true;
+    } else if (this.currentStep === 1) {
+      this.currentStep = 0;
+      this.render();
+      return true;
+    }
+    return false; // let presentation navigate back to prev slide
+  }
+
+  render() {
+    const blocks = document.querySelectorAll('.qa-stage-block');
+    const arrows = document.querySelectorAll('.qa-arrow');
+    const indicator = document.getElementById('qa-stepper-indicator');
+
+    blocks.forEach((b) => {
+      const stageAttr = b.getAttribute('data-stage');
+      const isFinalGate = stageAttr === 'final';
+      const stage = isFinalGate ? 8 : parseInt(stageAttr || '0', 10);
+
+      if (this.currentStep === 0) {
+        b.classList.remove('active');
+        b.style.opacity = '1';
+      } else if (stage === this.currentStep || (isFinalGate && this.currentStep === 7)) {
+        b.classList.add('active');
+        b.style.opacity = '1';
+      } else if (stage < this.currentStep) {
+        b.classList.remove('active');
+        b.style.opacity = '0.9';
+      } else {
+        b.classList.remove('active');
+        b.style.opacity = '0.45';
+      }
+    });
+
+    arrows.forEach((a) => {
+      const idx = parseInt(a.getAttribute('data-arrow-index') || '0', 10);
+      if (this.currentStep === 0) {
+        a.classList.remove('active');
+        a.style.opacity = '0.75';
+      } else if (idx === this.currentStep) {
+        a.classList.add('active');
+        a.style.opacity = '1';
+      } else if (idx < this.currentStep) {
+        a.classList.remove('active');
+        a.style.opacity = '0.9';
+      } else {
+        a.classList.remove('active');
+        a.style.opacity = '0.25';
+      }
+    });
+
+    if (indicator) {
+      if (this.currentStep === 0) {
+        indicator.innerHTML = 'STAGE: ALL &bull; PRESS &rarr;';
+        indicator.className = 'badge';
+      } else if (this.currentStep === this.maxSteps) {
+        indicator.innerHTML = `STAGE 0${this.currentStep}/07 &bull; SIGN-OFF &rarr;`;
+        indicator.className = 'badge badge-green';
+      } else {
+        indicator.innerHTML = `STAGE 0${this.currentStep}/07 &bull; PRESS &rarr;`;
+        indicator.className = 'badge badge-cyan';
+      }
+    }
+  }
+}
